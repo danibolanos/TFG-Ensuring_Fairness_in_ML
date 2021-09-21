@@ -11,13 +11,13 @@ Para ello se tendrá que comenzar realizando una exhaustiva revisión de las dif
 
 ## Bibliografía
 
-- Barocas, S., Hardt, M., & Narayanan, A. (2017). Fairness in machine learning. NIPS Tutorial, 1
-
 - Barocas, S., Hardt, M., & Narayanan, A. (2018). Fairness and Machine Learning. fairmlbook. org, 2018. URL: http://www.fairmlbook.org.
 
 - Mitchell, S., Potash, E., Barocas, S., D'Amour, A., & Lum, K. (2018). Prediction-based decisions and fairness: A catalogue of choices, assumptions, and definitions. arXiv preprint arXiv:1811.07867.
 
 - Zafar, M. B., Valera, I., Gomez Rodriguez, M., & Gummadi, K. P. (2017, April). Fairness beyond disparate treatment & disparate impact: Learning classification without disparate mistreatment. In Proceedings of the 26th international conference on world wide web (pp. 1171-1180).
+
+- M. J. Kusner, J. R. Loftus, C. Russell & R. Silva (2018). Counterfactual Fairness.
 
 - Corbett-Davies, S., & Goel, S. (2018). The measure and mismeasure of fairness: A critical review of fair machine learning. arXiv preprint arXiv:1808.00023.
 
