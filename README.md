@@ -3,11 +3,11 @@ Repositorio para el Trabajo Fin de Grado: Herramientas para Garantizar Justicia 
 
 ## Descripción
 
-El TFG se propone como reto, tras un exhaustivo estudio de la bibliografía y las herramientas existentes sobre el tema, implementar una biblioteca en Python que incluya evaluaciones de justicia de todas las familias y visualizaciones para la interpretación de resultados y modelos.
+El TFG se propone como reto, tras un exhaustivo estudio de la bibliografía y las herramientas existentes sobre el tema, realizar un análisis comparativo en Python que incluya evaluaciones de justicia de todas las familias y visualizaciones para la interpretación de resultados y modelos.
 
-Asimismo, este TFG analizará matemáticamente las definiciones de diversas medidas de equidad y justicia, demostrando sus propiedades, limitaciones y posibles incompatibilidades, explorando así mismo las diferentes opciones para mejorar los resultados obtenidos mediante un proceso de aprendizaje automático en los términos planteados previamente:  equidad, paridad estadística/demográfica, etc. 
+Asimismo, este TFG analizará matemáticamente las definiciones de diversas medidas de equidad y justicia, demostrando sus propiedades, limitaciones y posibles incompatibilidades, explorando así mismo las diferentes opciones para mejorar los resultados obtenidos mediante un proceso de aprendizaje automático en los términos planteados previamente. 
 
-Para ello se tendrá que comenzar realizando una exhaustiva revisión de las diferentes formalizaciones matemáticas del concepto de equidad/justicia en la bibliografía al respecto, analizando las ventajas e inconvenientes de cada una tanto desde el punto de vista teórico como de cara a su implementación práctica en problemas concretos de clasificación mediante aprendizaje automático sin necesidad de reentrenamiento, evitando en la medida de lo posible cualquier tipo de sesgo o trato dispar, por no contar con conjuntos de datos de entrenamiento suficientemente diversos o completos. 
+Para ello se tendrá que comenzar realizando una exhaustiva revisión de las diferentes formalizaciones matemáticas del concepto de equidad/justicia en la bibliografía al respecto, analizando las ventajas e inconvenientes de cada una tanto desde el punto de vista teórico como de cara a su implementación práctica en problemas concretos de clasificación mediante aprendizaje automático. Además se realizará un estudio de los diferentes algoritmos que trabajan con equidad y las ventajas e inconvenientes de cada uno.
 
 ## Bibliografía
 
