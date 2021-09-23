@@ -19,6 +19,4 @@ Para ello se tendrá que comenzar realizando una exhaustiva revisión de las dif
 
 - M. J. Kusner, J. R. Loftus, C. Russell & R. Silva (2018). Counterfactual Fairness.
 
-- Corbett-Davies, S., & Goel, S. (2018). The measure and mismeasure of fairness: A critical review of fair machine learning. arXiv preprint arXiv:1808.00023.
-
 - Saleiro, P., Kuester, B., Hinkson, L., London, J., Stevens, A., Anisfeld, A., ... & Ghani, R. (2018). Aequitas: A bias and fairness audit toolkit. arXiv preprint arXiv:1811.05577.
