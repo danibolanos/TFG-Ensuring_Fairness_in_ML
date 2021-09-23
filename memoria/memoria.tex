@@ -191,6 +191,7 @@ En resumen, las contribuciones principales de este proyecto son:
     \item Analizar matemáticamente el teorema de imposibilidad para demostrar las incompatibilidades entre los diferentes criterios de equidad de grupo.
     \item Proporcionar un análisis empírico utilizando el software Aequitas para evaluaciones de las medidas de justicia estudiadas teóricamente.
     \item Replicar un ejemplo del mundo real sobre un modelo de equidad contrafactual en el lenguaje de programación \textit{Python}.
+    \item \textcolor{red}{Comparar nociones de equidad}.
     \item Implementar herramientas de software en \textit{Python} para la visualización e interpretación de los resultados al aplicar las técnicas de equidad contrafactual, disponible en: \href{https://github.com/danibolanos/TFG-HGJAA.git}{danibolanos/TFG-HGJAA}
 \end{itemize}
 
@@ -686,7 +687,6 @@ En un instituto, el número medio de suspensos por clase es de $2.4$. Es decir, 
 Sea $Y$ el número de suspensos en 3 clases. Sabemos que: $$Y \sim Poisson(2.4\cdot 3)=Poisson(7.2)$$ $$P(Y=6)=\ddfrac{7.2^6 e^{-7.2}}{6!}=e^{-3.4}=0.14.$$
 \end{example}\
 
-\begin{comment}
 \begin{figure}[h]
     \minipage{0.5\textwidth}
       \includegraphics[width=\linewidth]{images/poisson1.png}
@@ -696,7 +696,6 @@ Sea $Y$ el número de suspensos en 3 clases. Sabemos que: $$Y \sim Poisson(2.4\c
     \endminipage
      \caption{Distribuciones calculadas en el Ejemplo \ref{ex:ejpoisson}.}
 \end{figure}
-\end{comment}
 
 \subsection{Distribución Normal}
 
@@ -708,13 +707,6 @@ donde $\mu,\sigma\in \R$.
 \end{definition}\
 
 Donde escribiremos la distribución como $X \sim \mathcal{N}(\mu, \sigma^2)$, donde recordemos el parámetro $\mu$ se refiere a la media y $\sigma$ a la desviación estándar de la variable aleatoria.\\
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=9.4cm]{distnormal.png}
-	\caption{Ejemplo de una distribución normal.}
-    \label{fig:distrnormal}
-\end{figure}\
 
 \begin{proposition} \label{prop:propnormal}
 Si $X \sim \mathcal{N}(\mu, \sigma^2)$, entonces la variable aleatoria $X$ satisface las siguientes propiedades :
@@ -753,6 +745,13 @@ Sea $X$ una variable aleatoria tal que $X \sim \mathcal{N}(\mu, \sigma^2)$, ento
 donde $\mathcal{N}(0,1)$ es la distribución normal estándar.
 \end{proposition}\
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=9.8cm]{distnormal.png}
+	\caption{Ejemplo de una distribución normal.}
+    \label{fig:distrnormal}
+\end{figure}\
+
 \begin{definition}[Media muestral]
 Sean $X_1,\dots,X_n$ variables aleatorias obtenidas a partir de $X$ y que siguen su misma distribución, se define la \textit{media muestral} como:
 $$\overline{X}_n=\frac{1}{n}\sum_{i=1}^n X_i.$$
@@ -762,7 +761,9 @@ La importancia de la distribución normal reside principalmente en el Teorema ce
 
 \begin{theorem}[Teorema central del límite] \label{th:thcentral}
 Sean $X_1,X_2,\dots,X_n$ variables aleatorias i.i.d con media $\mu$ y desviación estándar $\sigma^2$ (ambas finitas). Con $n$ suficientemente grande, se tiene que $$\frac{\overline{X}-\mu}{\sigma / \sqrt{n}}\sim \mathcal{N}(0,1).$$
-\end{theorem}\
+\end{theorem}
+
+\clearpage
 
 Finalmente, podemos relacionar las dos distribuciones estudiadas aproximando la distribución de Poisson mediante la distribución normal estándar a partir de la siguiente relación:\\
 
@@ -782,11 +783,11 @@ Escribiremos la distribución como $\nm{X} \sim \mathcal{N}(\bm{\mu}, \bm{\Sigma
 \subsection{Distribución Uniforme}
 
 \begin{definition}[Distribución uniforme discreta]
-Una variable aleatoria discreta $X$ con posibles valores $\{x_1,\dots,x_n\}$ diremos que sigue una distribución \textit{uniforme} si: $$P(X=x_i)=\frac{1}{n}, \ \text{para todo} \ i=1,\dots,n.$$
+Una variable aleatoria discreta $X$ con posibles valores $\{x_1,\dots,x_n\}$ diremos que sigue una \textit{distribución uniforme} si: $$P(X=x_i)=\frac{1}{n}, \ \text{para todo} \ i=1,\dots,n.$$
 \end{definition}\
 
 \begin{definition}[Distribución uniforme continua]
-Una variable aleatoria continua $X$ sigue una distribución \textit{uniforme} en el intervalo $(a,b)$ si su función de densidad viene dada por: $$f(x)=\left \{
+Una variable aleatoria continua $X$ sigue una \textit{distribución uniforme} en el intervalo $(a,b)$ si su función de densidad viene dada por: $$f(x)=\left \{
 \begin{array}{l l}
 \frac{1}{b-a}, & \mbox{si } x \in (a,b), \\
 0, & \mbox{si } x \notin (a,b).
@@ -805,6 +806,28 @@ Si $X \sim U(a,b)$, entonces la variable aleatoria $X$ satisface las siguientes 
 \end{itemize}
 \end{proposition}
 
+
+\subsection{Distribución Gamma}
+
+\begin{definition}[Distribución gamma]
+Una variable aleatoria continua $X$ sigue una \textit{distribución gamma} de parámetros $\alpha$ y $\lambda$ si su función de densidad viene dada por: $$f(x)=\ddfrac{\lambda^{\alpha}x^{\alpha-1}e^{-\lambda x}}{\Gamma(\alpha)}.$$
+donde $\Gamma$ es la función gamma definida como $\Gamma(\alpha)=\displaystyle \int_0^{+\infty}x^{\alpha-1}e^{-x} \ dx$.
+\end{definition}\
+
+Escribiremos la distribución como $X \sim \Gamma(\alpha,\lambda)$, donde la variable aleatoria queda definida por los parámetros $\alpha,\lambda > 0$.\\
+
+\begin{proposition}[Propiedades]
+Si $X \sim \Gamma(\alpha,\lambda)$, entonces la variable aleatoria $X$ satisface las siguientes propiedades:
+\begin{itemize}
+    \item $\mathbb{E}[X]=\frac{\alpha}{\lambda}$.
+    \item $\text{Var}(X)=\frac{\alpha}{\lambda^2}$.
+\end{itemize}
+\end{proposition}\
+
+\begin{definition}[Distribución gamma inversa]
+Una variable aleatoria continua $X$ sigue una \textit{distribución gamma inversa} de parámetros $\alpha$ y $\lambda$ si su función de densidad viene dada por: $$f(x)=\ddfrac{\lambda^\alpha x^{-(\alpha+1)} e^{\frac{-\lambda}{x}}}{\Gamma(\alpha)}.$$
+\end{definition}
+
 \chapter{Estadística paramétrica}
 
 %La inferencia estadística es el proceso de deducción de las propiedades de una distribución mediante el análisis de los datos con los que disponemos que suponemos que provienen de un conjunto de datos más grande que queremos conocer. 
@@ -812,7 +835,7 @@ Si $X \sim U(a,b)$, entonces la variable aleatoria $X$ satisface las siguientes 
 La estadística paramétrica es una rama de la inferencia estadística que comprende los procedimientos estadísticos y de decisión basados en distribuciones conocidas que vienen determinadas por un número finito de parámetros $\btheta$. En este capítulo definiremos algunos conceptos de este campo de la estadística que utilizaremos a lo largo del trabajo.\\
 
 \begin{definition}[Muestra aleatoria simple]
-Dada una variable aleatoria $X$ que sigue una distribución $F$, una \textit{muestra aleatoria simple} de tamaño $n$, es un conjunto de $n$ variables aleatorias $(X_1,\dots,X_n)$, independientes e idénticamente distribuidas, obtenidas a partir de $X$ y que se distribuyen igual que la misma.
+Sea una variable aleatoria $X$ que sigue una distribución de probabilidad determinada. Definimos una \textit{muestra aleatoria simple} de tamaño $n$ como un conjunto de variables aleatorias $(X_1,\dots,X_n)$, independientes e idénticamente distribuidas, obtenidas a partir de la distribución de $X$.
 \end{definition}\
 
 \begin{definition}[Estadístico muestral]
@@ -898,7 +921,7 @@ es decir, podemos factorizar la función de densidad como un producto de dos fun
 El tamaño de la muestra es un factor determinante en la estimación, a raíz de esto, surge el término de estimador consistente. En la definición de consistencia se usan nociones de convergencia en probabilidad, que comentaremos a continuación.\\
 
 \begin{definition}[Convergencia en probabilidad]
-Una sucesión de variables aleatorias $\{X_n\}$ \textit{converge en probabilidad} a la variable aleatoria $X$ si para todo $\varepsilon>0$ entonces, $$\lim_{n\to +\infty}P([X_n-X]>\varepsilon)=0.$$
+Una sucesión de variables aleatorias $\{X_n\}$ \textit{converge en probabilidad} a la variable aleatoria $X$ si para todo $\epsilon>0$ entonces, $$\lim_{n\to +\infty}P([X_n-X]>\epsilon)=0.$$
 Lo denotaremos como $X_n \overset{P}{\to} X.$
 \end{definition}\
 
@@ -915,6 +938,7 @@ Sea $\htheta_n$ un estimador del parámetro $\btheta$ para una muestra de tamañ
 entonces, el estimador $\htheta_n$ es consistente.
 \end{corollary}\
 
+\begin{comment}
 \begin{example}
 Sea $X$ una variable aleatoria con media $\mu$ y varianza $\sigma^2$. Estudiaremos el comportamiento asintótico de la varianza de $\overline{X}$. $$\text{Var}(\overline{X})=\text{Var}\left(\frac{1}{n} \sum_{i=1}^n X_i\right)=\frac{1}{n^2} \sum_{i=1}^n \text{Var}(X_i)=\frac{\sigma^2}{n}$$
 cuando $n\to +\infty$, tenemos que $\text{Var}(\overline{X})\to 0$.
@@ -926,6 +950,7 @@ Para completar el estudio sobre el comportamiento de la media muestral, recordar
 \begin{theorem}[Ley débil de los grandes números]\label{th:leygrande}
 Sean $X_1,\dots,X_n$ variables aleatorias i.i.d. con un valor de media finito, entonces la media muestral converge en probabilidad a $\mu$, es decir, $$\overline{X}_n \overset{P}{\to} \mu.$$
 \end{theorem}\
+\end{comment}
 
 Finalmente enunciaremos la propiedad de eficiencia de un estimador.\\
 
@@ -933,9 +958,11 @@ Finalmente enunciaremos la propiedad de eficiencia de un estimador.\\
 Sean $\htheta_1$ y $\htheta_2$ dos estimadores del parámetro $\btheta$. Se dice que $\htheta_1$ es más eficiente que $\htheta_2$ si se verifica que $$\text{Var}(\htheta_1)<\text{Var}(\htheta_2).$$
 \end{definition}\
 
+\begin{comment}
 \begin{definition}[Eficiencia relativa]
 Sean $\htheta_1$ y $\htheta_2$ dos estimadores del parámetro $\btheta$. Se define la \textit{eficiencia relativa} de $\htheta_1$ respecto a $\htheta_2$ si como: $$\text{ER}(\htheta_1,\htheta_2)=\ddfrac{\text{Var}(\htheta_2)}{\text{Var}(\htheta_1)}.$$
 \end{definition}\
+\end{comment}
 
 \begin{example} \label{ex:eficienciaex}
 Sea $X \sim U(0,b)$.
@@ -954,6 +981,8 @@ A continuación veremos cual de los dos estimadores es más eficiente, procedere
 
 Concluimos que $\bm{\hat{b}_2}$ es más eficiente que $\bm{\hat{b}_1}$ ya que: $$\text{Var}(\bm{\hat{b}_2})= -\frac{2b^2}{7} < \frac{b^2}{60}=\text{Var}(\bm{\hat{b}_1}).$$
 \end{example}
+
+\clearpage
 
 \section{Criterios de evaluación}
 
@@ -1628,15 +1657,15 @@ Sea $A \in \mathcal{A}$ un atributo sensible multivaluado y $g\colon \mathcal{X}
 
 \subsection*{Relajaciones y aproximaciones}
 
-Podemos relajar el concepto de paridad demográfica suponiendo que $\hat{Y}=1$ y aproximando su definición con una acotación en valor absoluto de las probabilidades a partir una constante fijada $\varepsilon \in (0,1]$, donde $\varepsilon=\frac{p}{100}$ para que se satisfaga la ''regla $p$'' (\cite{constraints2017}). De esta manera, aproximamos este criterio de equidad como: 
+Podemos relajar el concepto de paridad demográfica suponiendo que $\hat{Y}=1$ y aproximando su definición con una acotación en valor absoluto de las probabilidades a partir una constante fijada $\epsilon \in (0,1]$, donde $\epsilon=\frac{p}{100}$ para que se satisfaga la ''regla $p$'' (\cite{constraints2017}). De esta manera, aproximamos este criterio de equidad como: 
 
 \begin{equation*}
-\abs{P(\hat{Y}=1 \mid A=a_r)-P(\hat{Y}=1 \mid A=a_o)} \leq \varepsilon.
+\abs{P(\hat{Y}=1 \mid A=a_r)-P(\hat{Y}=1 \mid A=a_o)} \leq \epsilon.
 \end{equation*}
 
-Tomando un $\varepsilon \in (0,1]$ también podemos aproximar el concepto de paridad demográfica de la siguiente manera:
+Tomando un $\epsilon \in (0,1]$ también podemos aproximar el concepto de paridad demográfica de la siguiente manera:
 \begin{equation}\label{eq:p}
-   1-\varepsilon \leq \ddfrac{P(\hat{Y}=1 \mid A=a_o)}{P(\hat{Y}=1 \mid A=a_r)}. 
+   1-\epsilon \leq \ddfrac{P(\hat{Y}=1 \mid A=a_o)}{P(\hat{Y}=1 \mid A=a_r)}. 
 \end{equation}
 
 En algunos trabajos se suele obviar la acotación por una constante y simplemente se define la paridad demográfica utilizando la Definición \ref{def:pardemo} y asumiendo que $\hat{Y}=1$, lo que sería equivalente a igualar las métricas PPrev entre los subgrupos.
@@ -1793,14 +1822,14 @@ Aequitas utiliza la tasa de positivos predichos (PPR) para aproximar el concepto
 \text{Métrica PPrev}_G=\frac{\text{PPrev}{a_o}}{\text{PPrev}{a_r}}=\frac{P(\hat{Y}=1 \mid A=a_o)}{P(\hat{Y}=1 \mid A=a_r)}.
 \end{equation*}
 
-La formulación aportada por Aequitas se basa en calcular la fracción de la métrica de grupo elegida y una vez calculada, comprobar si se encuentra dentro de un rango definido. Tomando $p=\frac{1}{1-\varepsilon}$, obtenemos la acotación que define el rango. La pertenencia o no al rango es una aproximación a la igualación de las métricas en la Definición \ref{def:parmetr}.
+La formulación aportada por Aequitas se basa en calcular la fracción de la métrica de grupo elegida y una vez calculada, comprobar si se encuentra dentro de un rango definido. Tomando $p=\frac{1}{1-\epsilon}$, obtenemos la acotación que define el rango. La pertenencia o no al rango es una aproximación a la igualación de las métricas en la Definición \ref{def:parmetr}.
 
 \begin{equation}
-1-\varepsilon \leq \text{Métrica de disparidad}_{G} \leq \frac{1}{1-\varepsilon}.
+1-\epsilon \leq \text{Métrica de disparidad}_{G} \leq \frac{1}{1-\epsilon}.
 \end{equation}
 
-Usamos $\varepsilon \in
-(0,1]$ para controlar el rango de valores de disparidad que pueden considerarse justos. Para aplicar la regla del 80\%, simplemente bastaría con tomar $1-\varepsilon=0,8$. Diremos que un clasificador será tan justo como lo permita el valor máximo del sesgo entre los grupos definidos por $A$. 
+Usamos $\epsilon \in
+(0,1]$ para controlar el rango de valores de disparidad que pueden considerarse justos. Para aplicar la regla del 80\%, simplemente bastaría con tomar $1-\epsilon=0,8$. Diremos que un clasificador será tan justo como lo permita el valor máximo del sesgo entre los grupos definidos por $A$. 
 
 Usaremos unas métricas u otras en función del impacto y el objetivo que quiera intervenir el usuario. Si las intervenciones pueden perjudicar a los individuos (punitivas), entonces querremos minimizar los falsos positivos (centrándonos en la Tasa de Falsos Descubrimientos (FDR) o la Tasa de Falsos Positivos (FPR)). Si por otro lado, tienen como objetivo beneficiar a los individuos (asistenciales), deberíamos preocuparnos más por los falsos negativos (centrándonos en la Tasa de Falsa Omisión (FOR) o la Tasa de Falsos Negativos (FNR)).
 
@@ -2227,8 +2256,8 @@ Cabe señalar que la paridad FNR y FPR implican la paridad TPR y TNR respectivam
 \begin{equation}\label{eq:restricciones}
 \begin{split}
 \text{minimizar:} &\quad L(\btheta)\\
-\text{sujeto a:} &\quad P(\hat{Y}=1 \mid A=0, Y=-1)-P(\hat{Y}=1 \mid A=1, Y=-1) \leq \varepsilon,\\
-&\quad  P(\hat{Y}=1 \mid A=0, Y=-1)-P(\hat{Y}=1 \mid A=1, Y=-1) \geq -\varepsilon.
+\text{sujeto a:} &\quad P(\hat{Y}=1 \mid A=0, Y=-1)-P(\hat{Y}=1 \mid A=1, Y=-1) \leq \epsilon,\\
+&\quad  P(\hat{Y}=1 \mid A=0, Y=-1)-P(\hat{Y}=1 \mid A=1, Y=-1) \geq -\epsilon.
 \end{split}
 \end{equation}
 
@@ -2863,7 +2892,7 @@ Para calcular la esperanza, utilizaremos el método de Monte Carlo basado en cad
     
     correspondientes $m$ puntos $\{(a^{(i)},x^{(i)},y^{(i)},u_j^{(i)})\}$\;
     $\htheta \leftarrow \text{argmin}_{\btheta} \sum_{i'\in \mathcal{D}'} l(y^{(i')},g_{\btheta}(U^{(i')},x_{\not \succ A}^{(i')}))$\;
-   \textbf{devolver} $\htheta$\;
+   \textbf{devolver} $g_{\htheta}$\;
 \end{algorithm}
 
 \section{Diseño del modelo causal de entrada}
@@ -2876,8 +2905,8 @@ En nuestro trabajo, no será necesario especificar un modelo totalmente determin
 
 \begin{itemize}
     \item \textbf{Nivel 1}: predecir $\hat{Y}$ usando sólo las variables observables no descendientes de $A$. Esta consideración no requiere de ninguna suposición causal, pero en la mayoría de los problemas la mayor parte de las variables observables serán descendientes de atributos protegidos y por tanto tendremos menos información manejable.
-    \item \textbf{Nivel 2}: Suponer variables de ruido que actúan como causas no deterministas de las variables observables, basadas en el conocimiento explícito del dominio y en algoritmos de aprendizaje. La información sobre $X$ pasará a $\hat{Y}$ a través de $P(U \mid x, a)$.
-    \item \textbf{Nivel 3:} Suponer un modelo totalmente determinista con variables de ruido. Por ejemplo, la distribución $P(V_i \mid pa_i)$ puede tratarse como un modelo de error aditivo, $V_i =f_i(pa_i)+\varepsilon_i$ (\cite{noise2014}). El término de error $\varepsilon_i$ sirve como una entrada a $\hat{Y}$ calculada a partir de las variables observadas. Esto maximizará la información extraída por el clasificador.
+    \item \textbf{Nivel 2}: suponer variables de ruido que actúan como causas no deterministas de las variables observables, basadas en el conocimiento explícito del dominio y en algoritmos de aprendizaje. La información sobre $X$ pasará a $\hat{Y}$ a través de $P(U \mid x, a)$.
+    \item \textbf{Nivel 3:} construir un modelo totalmente determinista con variables de ruido. Por ejemplo, la distribución $P(V_i \mid pa_i)$ puede tratarse como un modelo de error aditivo, $V_i =f_i(pa_i)+\epsilon_i$ (\cite{noise2014}). El término de error $\epsilon_i$ sirve como una entrada a $\hat{Y}$ calculada a partir de las variables observadas. Esto maximizará la información extraída por el clasificador.
 \end{itemize}
 
 \section{Aplicación en un ejemplo real}
@@ -2897,25 +2926,25 @@ Dividiremos el conjunto de datos en un 80-20 (entrenamiento-test) para evaluar l
 Según hemos descrito en la Sección \ref{sec:modeloentrada}, crearemos tres modelos diferentes (\cite{counterfactual2018}) sobre los que aplicaremos un clasificador que satisfaga la equidad contrafactual: 
 
 \begin{itemize}
-    \item \textbf{Nivel 1}: usaremos cualquier característica que no sea descendiente de la raza y el sexo para la predicción. Como creemos que el LSAT, el GPA y el FYA están sesgados por la raza y el sexo, no podremos utilizar ninguna de las características observadas para construir un predictor justo contrafactual.
+    \item \textbf{Nivel 1}: usaremos cualquier característica que no sea descendiente de la raza y el sexo para la predicción. Como creemos que el LSAT, el GPA y el FYA están sesgados por la raza y el sexo, no podremos utilizar ninguna de las características observadas para construir un clasificador justo contrafactual.
     
     \item \textbf{Nivel 2} (\textit{Fair K}): supondremos que una variable de ruido: los conocimientos del estudiante (K), afecta a las puntuaciones de GPA, LSAT y FYA. El gráfico causal correspondiente a este modelo se muestra en la Figura \ref{fig:practicausales}. Emplearemos las siguientes distribuciones:
     \begin{equation*}
     \begin{split}
-        \text{GPA} &\sim \mathcal{N}(b_G+w_G^K K+ w_G^R R + w_G^S S, \sigma_G),\\
-        \text{FYA}&\sim \mathcal{N}(w_F^K K+w_F^R R+w_F^S S,1),\\
-        \text{LSAT} &\sim Poisson(\text{exp}(b_L++w_L^K K +w_L^R R+w_L^S S)),\\ 
+        \text{GPA} &\sim \mathcal{N}(b_G+K \nm{w}^K_G+[A_R,A_S] \nm{w}^A_G, \sigma_G),\\
+        \text{LSAT} &\sim Poisson(\text{exp}(b_L+K \nm{w}^K_L +[A_R,A_S] \nm{w}^A_L)),\\ 
+        \text{FYA}&\sim \mathcal{N}(K \nm{w}^K_F+[A_R,A_S] \nm{w}^A_F, 1),\\
         \text{K}&\sim \mathcal{N}(0,1).
     \end{split}
     \end{equation*}
     Realizamos la inferencia sobre este modelo utilizando un conjunto de entrenamiento observado para estimar la distribución posterior de K.
     
-    \item \textbf{Nivel 3} (\textit{Fair Add}): modelaremos las puntuaciones de GPA, LSAT y FYA como variables continuas con términos de error aditivos independientes de la raza y el sexo. Estimamos los términos de error $\varepsilon_G$, $\varepsilon_L$ ajustando primero dos modelos que utilizan la raza y el sexo para predecir individualmente el GPA y LSAT. A continuación, calculamos los residuos de cada modelo (por ejemplo, $\varepsilon_G =\text{GPA}-\hat{Y}_{\text{GPA}}(R, S)$). Finalmente, usaremos las estimaciones residuales de $\varepsilon_G$, $\varepsilon_L$ para predecir FYA. Este modelo se muestra en la Figura \ref{fig:practicausales}. En este caso las distribuciones vienen dadas por:
+    \item \textbf{Nivel 3} (\textit{Fair Add}): modelaremos las puntuaciones de GPA, LSAT y FYA como variables continuas con términos de error aditivos independientes de la raza y el sexo. Estimamos los términos de error $\epsilon_G$, $\epsilon_L$ ajustando primero dos modelos que utilizan la raza y el sexo para predecir individualmente el GPA y LSAT. A continuación, calculamos los residuos de cada modelo (por ejemplo, $\epsilon_G =\text{GPA}-\hat{Y}_{\text{GPA}}(A_R, A_S)$). Finalmente, usaremos las estimaciones residuales de $\epsilon_G$, $\epsilon_L$ para predecir FYA. Este modelo se muestra en la Figura \ref{fig:practicausales}. En este caso las distribuciones vienen dadas por:
     \begin{equation*}
     \begin{split}
-        \text{GPA} &= b_G+w_G^R R + w_G^S S +\varepsilon_G, \ \varepsilon_G \sim p(\varepsilon_G)\\
-        \text{FYA}&= b_F+w_f^R R + w_F^S S +\varepsilon_F, \ \varepsilon_F \sim p(\varepsilon_F)\\
-        \text{LSAT} &= b_L+w_L^R R + w_L^S S +\varepsilon_L, \ \varepsilon_L \sim p(\varepsilon_L).
+        \text{GPA} &= b_G+[A_R,A_S] \nm{w}^A_G +\epsilon_G, \ \ \epsilon_G \sim P(\epsilon_G)\\
+        \text{LSAT} &= b_L+[A_R,A_S] \nm{w}^A_L +\epsilon_L, \quad \epsilon_L \sim P(\epsilon_L),\\
+        \text{FYA}&= b_F+[A_R,A_S] \nm{w}^A_F +\epsilon_F, \quad \epsilon_F \sim P(\epsilon_F).
     \end{split}
     \end{equation*}
 \end{itemize}\
