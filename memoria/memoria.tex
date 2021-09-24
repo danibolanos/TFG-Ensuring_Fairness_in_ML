@@ -180,7 +180,7 @@ Abordaremos estas tareas realizando un análisis teórico de las nociones de equ
 Como resultado de los objetivos planteados, sugerimos una revisión bibliográfica exhaustiva
 de los métodos de mitigación del sesgo y de las medidas de equidad que se nos presentan en diferentes artículos como \cite{formalizing2018} o \cite{definitions2018}. Nos proponemos detallar las herramientas matemáticas que nos serán útiles para la formalización de las medidas de equidad, haciendo especial hincapié en la inferencia causal como base sobre la que se construye el modelo de equidad contrafactual que vamos a estudiar en este trabajo.
 
-Finalmente realizaremos un análisis de las de herramientas de software dedicado al estudio de equidad sobre conjuntos de datos como Aequitas (\cite{aequitas2019}), haciendo pruebas sobre conjuntos de datos reales y evaluando sus carencias respecto a la teoría. Además replicaremos un ejemplo para equidad contrafactual (\cite{counterfactual2018}) en el lenguaje de programación \textit{Python} y aportaremos herramientas de visualización y de interacción con el programa para facilitar la utilización del mismo a otros investigadores o científicos de datos interesados en el tema.
+Finalmente realizaremos un análisis de las de herramientas de software dedicado al estudio de equidad sobre conjuntos de datos como Aequitas (\cite{aequitas2019}), haciendo pruebas sobre conjuntos de datos reales y evaluando sus carencias respecto a la teoría. Además replicaremos un ejemplo para equidad contrafactual (\cite{counterfactual2018}) en el lenguaje de programación Python y aportaremos herramientas de visualización y de interacción con el programa para facilitar la utilización del mismo a otros investigadores o científicos de datos interesados en el tema.
 
 \section{Contribuciones}
 
@@ -190,9 +190,9 @@ En resumen, las contribuciones principales de este proyecto son:
     \item Discutir y formalizar las distintas familias de medidas de equidad y algoritmos de mitigación de sesgo de mayor interés en este ámbito.
     \item Analizar matemáticamente el teorema de imposibilidad para demostrar las incompatibilidades entre los diferentes criterios de equidad de grupo.
     \item Proporcionar un análisis empírico utilizando el software Aequitas para evaluaciones de las medidas de justicia estudiadas teóricamente.
-    \item Replicar un ejemplo del mundo real sobre un modelo de equidad contrafactual en el lenguaje de programación \textit{Python}.
+    \item Replicar un ejemplo del mundo real sobre un modelo de equidad contrafactual en el lenguaje de programación Python.
     \item \textcolor{red}{Comparar nociones de equidad}.
-    \item Implementar herramientas de software en \textit{Python} para la visualización e interpretación de los resultados al aplicar las técnicas de equidad contrafactual, disponible en: \href{https://github.com/danibolanos/TFG-HGJAA.git}{danibolanos/TFG-HGJAA}
+    \item Implementar herramientas de software en Python para la visualización e interpretación de los resultados al aplicar las técnicas de equidad contrafactual, disponible en: \href{https://github.com/danibolanos/TFG-HGJAA.git}{danibolanos/TFG-HGJAA}
 \end{itemize}
 
 \section{Esquema general}
@@ -1808,7 +1808,7 @@ En el mundo real, si un clasificador aplicado a una tarea en una empresa satisfa
 
 \subsection*{Construcción de otras medidas en la práctica}
 
-Combinando las acotaciones de las Ecuaciones (\ref{eq:1p}) y (\ref{eq:p}), obtenemos un criterio de equidad popularmente utilizado, en concreto por el software de Aequitas (\cite{aequitasdoc}). Además esta formalización también puede extenderse a cualquier métrica de grupo de las explicadas en el Apartado \ref{subsec:groupmetrics}.
+Combinando las acotaciones de las Ecuaciones (\ref{eq:1p}) y (\ref{eq:p}), obtenemos un criterio de equidad popularmente utilizado, en concreto por el software de \cite{aequitasdoc}. Además esta formalización también puede extenderse a cualquier métrica de grupo de las explicadas en el Apartado \ref{subsec:groupmetrics}.
 
 Podemos, por ejemplo, definir la tasa de falsas omisiones (FOR) como:
 
@@ -2968,17 +2968,41 @@ Compararemos el escenario propuesto por la equidad contrafactual con dos líneas
 
 \textcolor{red}{Añadir todos los resultados de los experimentos empíricos y las conclusiones extraídas.}
 
+\section{Condiciones de experimentación}
+
+Los experimentos realizados en este capítulo se han ejecutado en un equipo con las siguientes características:
+
+\begin{itemize}
+    \item Arquitectura x86\_64.
+    \item AMD Ryzen 7 4800H with Radeon Graphics 2.90 GHz.
+    \item 16 GB RAM DDR4.
+    \item 1 socket, 8 núcleos por socket, 2 hilos de procesamiento por núcleo.
+    \item Sistema Operativo Linux \textcolor{red}{mirar}.
+\end{itemize}
+
+Se ha utilizado la versión de Python \textcolor{red}{mirar}, así como los siguientes paquetes: numpy, pandas, scikit-learn, pickle $\dots$
+
+Además se ha utilizado el paquete \cite{pystan} que funciona como una interfaz de Python para el lenguaje de programación probabilística \cite{stan}. El cual permite generar muestras de datos a partir de métodos que trabajan con cadenas de Markov (como MCMC) y crear modelos causales sobre los que operar gracias a la inferencia estadística Bayesiana.
+
 
 \ctparttext{\color{black}\begin{center}
 Esta es una descripción de las conclusiones
 \end{center}}
-\part{Debate y Trabajos futuros} \label{part:debate_fut}
+\part{Discusión y Trabajos futuros} \label{part:debate_fut}
+
+\chapter{Contraste de los resultados}
+
+\textcolor{red}{Comparación de los diversos experimentos realizados en Python y Aequitas para las diferentes familias de equidad}
 
 \chapter{Conclusión}
 
+\textcolor{red}{conclusiones obtenidas del trabajo en general}
+
 \chapter{Retos abiertos}
 
-\textcolor{red}{Indicar proyectos o líneas de investigación que sean interesantes pero no hayan dado tiempo a desarollar}
+\textcolor{red}{Equidad individual se ha quedado sin tratar, trabajo futuro para TFM de matemáticas estudio de clase de funciones que puedan ser interesantes para implementar la métrica de distancia entre inidividuos}
+
+\textcolor{red}{Pensar si incluir el esquema y prototipo en este apartado o en uno nuevo. Preguntar!}
 
 \begin{minted}[frame=lines]{python}
 import numpy as np

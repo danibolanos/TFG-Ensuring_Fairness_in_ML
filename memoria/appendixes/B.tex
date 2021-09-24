@@ -1,1 +1,62 @@
-\textcolor{red}{apéndice para hacer una valoración del coste y planificación del proyecto}
+En este apéndice se realizará una estimación tanto del coste como de la planificación del trabajo durante el período de desarrollo con el objetivo de simular la valoración y presupuesto de un proyecto real en el ámbito laboral.
+
+\section{Estimación del presupuesto del proyecto}
+
+Haremos un presupuesto del proyecto, en el que incluiremos las horas dedicadas a cada tema estudiado y realizaremos una estimación a precio 10 euro/hora. El análisis del presupuesto se puede observar en el Cuadro \ref{tab:estcostes}.
+
+Para facilitar la estimación de los costes, hemos dividido el trabajo en tres partes:
+
+\begin{itemize}
+    \item \textbf{Parte teórica}: recoge las tareas relacionadas con el análisis y el estudio de los conceptos de carácter teórico contenidos en el trabajo. Incluiremos la formalización de las nociones básicas para el proyecto y el desarrollo de las demostraciones matemáticas.
+    \item \textbf{Parte práctica}: reúne las prácticas relacionadas con la programación, análisis y validación de los experimentos. Además tendremos en cuenta el equipo utilizado y los tiempos dedicados a instalación de bibliotecas y software empleados.
+    \item \textbf{Parte general}: agrupa las labores de elaboración de la memoria y reuniones con los tutores (presencial u online).
+\end{itemize}
+
+\section{Planificación del trabajo}
+
+El diseño de la planificación se ha realizado con el software \cite{ganttproject} que es un programa de código abierto utilizado para administrar proyectos pudiendo usar entre otras muchas herramientas, un diagrama de Gantt. Para el desarrollo de la planificación, hemos usado la misma división en partes que la presentada en la sección anterior.
+
+\clearpage
+
+La parte general es una tarea que se ha ido desarrollando durante todo el trabajo, ya que la redacción de la memoria y las tutorías se han realizado de forma simultánea al análisis teórico y práctico del proyecto. El trabajo se concretó con los tutores a finales de 2020, pero debido a la gran carga docente del primer cuatrimestre no se inició hasta abril. 
+
+Estableceremos el mes de abril como inicio del proyecto. Además el periodo de exámenes de junio también ralentizó en gran medida el avance del programa propuesto. Todos estos factores se pueden intuir observando la Figura \ref{fig:planning}, donde indicamos en color azul la parte teórica, en verde la parte práctica y en rojo la parte general.\\
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=12.4cm]{planificacion.png}
+	\caption{Planificación del desarrollo del trabajo.}
+    \label{fig:planning}
+\end{figure}
+
+\begin{table}[h]
+\centering
+\resizebox{13.8cm}{!} {
+\begin{tabular}{lccc}
+\hline
+\multicolumn{1}{c}{\textbf{Concepto}}                                                         & \begin{tabular}[c]{@{}c@{}}\textbf{Tiempo}\\ \textit{(horas)}\end{tabular} & \begin{tabular}[c]{@{}c@{}}\textbf{Coste} \\ \textit{(euro/hora)}\end{tabular} & \begin{tabular}[c]{@{}c@{}}\textbf{Coste total}\\ \textit{(euros)}\end{tabular} \\ \hline
+\textbf{Parte general}                                                                        & \multicolumn{1}{l}{}                                     & \multicolumn{1}{l}{}                                         & \multicolumn{1}{l}{}                                          \\ \hline
+Redacción de la memoria                                                                       & 15                                                       & 32                                                           & 49                                                            \\
+Reuniones con los tutores                                                                     & 16                                                       & 33                                                           & 50                                                            \\ \hline
+\textbf{Parte teórica}                                                                        & \multicolumn{1}{l}{}                                     & \multicolumn{1}{l}{}                                         & \multicolumn{1}{l}{}                                          \\ \hline
+Estudio de los fundamentos básicos                                                                & 1                                                        & 18                                                           & 35                                                            \\
+\begin{tabular}[c]{@{}l@{}}Formalización de las medidas \\ de equidad\end{tabular}            & 2                                                        & 19                                                           & 36                                                            \\
+\begin{tabular}[c]{@{}l@{}}Caracterización del teorema \\ de imposibilidad\end{tabular}       & 3                                                        & 20                                                           & 37                                                            \\
+\begin{tabular}[c]{@{}l@{}}Análisis de los algoritmos de \\ mitigación de sesgo\end{tabular}  & 4                                                        & 21                                                           & 38                                                            \\
+\begin{tabular}[c]{@{}l@{}}Investigación sobre los \\ modelos y medidas causales\end{tabular}     & 5                                                        & 22                                                           & 39                                                            \\ \hline
+\textbf{Parte práctica}                                                                       & \multicolumn{1}{l}{}                                     & \multicolumn{1}{l}{}                                         & \multicolumn{1}{l}{}                                          \\ \hline
+Equipo de trabajo: ASUS TUF                                                                  &                                                         & $949$                                                           & $949$                                                            \\
+Instalación de SO, IDE y bibliotecas                                                           & 7                                                        & 24                                                           & 41                                                            \\
+\begin{tabular}[c]{@{}l@{}}Replicación de un modelo de \\ equidad contrafactual en Python\end{tabular} & 8                                                        & 25                                                           & 42                                                            \\
+\begin{tabular}[c]{@{}l@{}}Implementación de gráficas \\ para visualización\end{tabular}      & 9                                                        & 26                                                           & 43                                                            \\
+Análisis con Aequitas                                                          & 11                                                       & 28                                                           & 45                                                            \\
+Validación y testeo del código                                                                & 10                                                       & 27                                                           & 44                                                            \\
+Contraste de los resultados obtenidos                                                         & 12                                                       & 29                                                           & 46                                                            \\
+Diseño del esquema del prototipo                                                              & 13                                                       & 30                                                           & 47                                                            \\
+Análisis de requisitos del problema                                                           & 14                                                       & 31                                                           & 48                                                            \\ \hline
+\textbf{Cómputo total del proyecto}                                                           & 17                                                       & 34                                                           & 51                                                            \\ \hline
+\end{tabular}
+}
+\caption{Estimación del coste del proyecto \textcolor{red}{completar tabla}}
+\label{tab:estcostes}
+\end{table}
