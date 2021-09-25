@@ -2,7 +2,7 @@ En este apéndice se realizará una estimación tanto del coste como de la plani
 
 \section{Estimación del presupuesto del proyecto}
 
-Haremos un presupuesto del proyecto, en el que incluiremos las horas dedicadas a cada tema estudiado y realizaremos una estimación a precio 10 euro/hora. El análisis del presupuesto se puede observar en el Cuadro \ref{tab:estcostes}.
+Haremos un presupuesto del proyecto, en el que incluiremos las horas dedicadas a cada tema estudiado y realizaremos una estimación a precio 7 euros/hora. El análisis del presupuesto se puede observar en el Cuadro \ref{tab:estcostes}.
 
 Para facilitar la estimación de los costes, hemos dividido el trabajo en tres partes:
 
@@ -12,11 +12,11 @@ Para facilitar la estimación de los costes, hemos dividido el trabajo en tres p
     \item \textbf{Parte general}: agrupa las labores de elaboración de la memoria y reuniones con los tutores (presencial u online).
 \end{itemize}
 
+El cómputo total es de 12.198 euros. Teniendo en cuenta que el período de trabajo útil ha sido de aproximadamente 7 meses, el sueldo medio mensual equivale a 1.742 euros brutos. Para un informático junior, este valor es bastante fiel a la realidad.
+
 \section{Planificación del trabajo}
 
 El diseño de la planificación se ha realizado con el software \cite{ganttproject} que es un programa de código abierto utilizado para administrar proyectos pudiendo usar entre otras muchas herramientas, un diagrama de Gantt. Para el desarrollo de la planificación, hemos usado la misma división en partes que la presentada en la sección anterior.
-
-\clearpage
 
 La parte general es una tarea que se ha ido desarrollando durante todo el trabajo, ya que la redacción de la memoria y las tutorías se han realizado de forma simultánea al análisis teórico y práctico del proyecto. El trabajo se concretó con los tutores a finales de 2020, pero debido a la gran carga docente del primer cuatrimestre no se inició hasta abril. 
 
@@ -34,29 +34,29 @@ Estableceremos el mes de abril como inicio del proyecto. Además el periodo de e
 \resizebox{13.8cm}{!} {
 \begin{tabular}{lccc}
 \hline
-\multicolumn{1}{c}{\textbf{Concepto}}                                                         & \begin{tabular}[c]{@{}c@{}}\textbf{Tiempo}\\ \textit{(horas)}\end{tabular} & \begin{tabular}[c]{@{}c@{}}\textbf{Coste} \\ \textit{(euro/hora)}\end{tabular} & \begin{tabular}[c]{@{}c@{}}\textbf{Coste total}\\ \textit{(euros)}\end{tabular} \\ \hline
+\multicolumn{1}{c}{\textbf{Concepto}}                                                         & \begin{tabular}[c]{@{}c@{}}\textbf{Tiempo}\\ \textit{(horas)}\end{tabular} & \begin{tabular}[c]{@{}c@{}}\textbf{Coste} \\ \textit{(euros/hora)}\end{tabular} & \begin{tabular}[c]{@{}c@{}}\textbf{Coste total}\\ \textit{(euros)}\end{tabular} \\ \hline
 \textbf{Parte general}                                                                        & \multicolumn{1}{l}{}                                     & \multicolumn{1}{l}{}                                         & \multicolumn{1}{l}{}                                          \\ \hline
-Redacción de la memoria                                                                       & 15                                                       & 32                                                           & 49                                                            \\
-Reuniones con los tutores                                                                     & 16                                                       & 33                                                           & 50                                                            \\ \hline
+Redacción de la memoria                                                                       & 890                                                      & 7                                                         & 6.230                                                            \\
+Reuniones con los tutores                                                                     & 15                                                       &    -                                                        &   -                                                          \\ \hline
 \textbf{Parte teórica}                                                                        & \multicolumn{1}{l}{}                                     & \multicolumn{1}{l}{}                                         & \multicolumn{1}{l}{}                                          \\ \hline
-Estudio de los fundamentos básicos                                                                & 1                                                        & 18                                                           & 35                                                            \\
-\begin{tabular}[c]{@{}l@{}}Formalización de las medidas \\ de equidad\end{tabular}            & 2                                                        & 19                                                           & 36                                                            \\
-\begin{tabular}[c]{@{}l@{}}Caracterización del teorema \\ de imposibilidad\end{tabular}       & 3                                                        & 20                                                           & 37                                                            \\
-\begin{tabular}[c]{@{}l@{}}Análisis de los algoritmos de \\ mitigación de sesgo\end{tabular}  & 4                                                        & 21                                                           & 38                                                            \\
-\begin{tabular}[c]{@{}l@{}}Investigación sobre los \\ modelos y medidas causales\end{tabular}     & 5                                                        & 22                                                           & 39                                                            \\ \hline
+Estudio de los fundamentos básicos                                                                & 80                                                      & 7                                                          & 560                                                           \\
+\begin{tabular}[c]{@{}l@{}}Formalización de las medidas \\ de equidad\end{tabular}            & 150                                                        & 7                                                          & 1.050                                                            \\
+\begin{tabular}[c]{@{}l@{}}Caracterización del teorema \\ de imposibilidad\end{tabular}       & 120                                                       & 7                                                          & 840                                                            \\
+\begin{tabular}[c]{@{}l@{}}Análisis de los algoritmos de \\ mitigación de sesgo\end{tabular}  & 40                                                        & 7                                                           & 280                                                           \\
+\begin{tabular}[c]{@{}l@{}}Investigación sobre los \\ modelos y medidas causales\end{tabular}     & 35                                                        & 7                                                          & 245                                                           \\ \hline
 \textbf{Parte práctica}                                                                       & \multicolumn{1}{l}{}                                     & \multicolumn{1}{l}{}                                         & \multicolumn{1}{l}{}                                          \\ \hline
-Equipo de trabajo: ASUS TUF                                                                  &                                                         & $949$                                                           & $949$                                                            \\
-Instalación de SO, IDE y bibliotecas                                                           & 7                                                        & 24                                                           & 41                                                            \\
-\begin{tabular}[c]{@{}l@{}}Replicación de un modelo de \\ equidad contrafactual en Python\end{tabular} & 8                                                        & 25                                                           & 42                                                            \\
-\begin{tabular}[c]{@{}l@{}}Implementación de gráficas \\ para visualización\end{tabular}      & 9                                                        & 26                                                           & 43                                                            \\
-Análisis con Aequitas                                                          & 11                                                       & 28                                                           & 45                                                            \\
-Validación y testeo del código                                                                & 10                                                       & 27                                                           & 44                                                            \\
-Contraste de los resultados obtenidos                                                         & 12                                                       & 29                                                           & 46                                                            \\
-Diseño del esquema del prototipo                                                              & 13                                                       & 30                                                           & 47                                                            \\
-Análisis de requisitos del problema                                                           & 14                                                       & 31                                                           & 48                                                            \\ \hline
-\textbf{Cómputo total del proyecto}                                                           & 17                                                       & 34                                                           & 51                                                            \\ \hline
+Equipo de trabajo: ASUS TUF                                                                  &        -                                                 & -                                                           & 949                                                          \\
+Instalación de SO, IDE y bibliotecas                                                           & 2                                                        & 7                                                           & 14                                                            \\
+\begin{tabular}[c]{@{}l@{}}Replicación de un modelo de \\ equidad contrafactual en Python\end{tabular} & 70                                                        & 7                                                           & 490                                                            \\
+\begin{tabular}[c]{@{}l@{}}Implementación de gráficas \\ para visualización\end{tabular}      & 10                                                       & 7                                                          & 70                                                           \\
+Análisis con Aequitas                                                          & 10                                                      & 7                                                         & 70                                                           \\
+Validación y testeo del código                                                                & 90                                                       & 7                                                          & 630                                                            \\
+Contraste de los resultados obtenidos                                                         & 15                                                       & 7                                                          & 105                                                           \\
+Diseño del esquema del prototipo                                                              & 50                                                       & 7                                                         & 350                                                           \\
+Análisis de requisitos del problema                                                           & 45                                                       & 7                                                         & 315                                                          \\ \hline
+\textbf{Cómputo total del proyecto}                                                           & 1.622                                                       &    -                                                        & 12.198                                                           \\ \hline
 \end{tabular}
 }
-\caption{Estimación del coste del proyecto \textcolor{red}{completar tabla}}
+\caption{Estimación del coste del proyecto.}
 \label{tab:estcostes}
 \end{table}
