@@ -2975,14 +2975,21 @@ Los experimentos realizados en este capítulo se han ejecutado en un equipo con 
 \begin{itemize}
     \item Arquitectura x86\_64.
     \item AMD Ryzen 7 4800H with Radeon Graphics 2.90 GHz.
+    \item 8 núcleos con 2 hilos de procesamiento por núcleo.
     \item 16 GB RAM DDR4.
-    \item Procesador: 8 núcleos con 2 hilos de procesamiento por núcleo.
-    \item Sistema Operativo Linux \textcolor{red}{mirar}.
+    \item Sistema Operativo: Ubuntu 20.04.2 LTS.
 \end{itemize}
 
-Se ha utilizado la versión de Python \textcolor{red}{mirar}, así como los siguientes paquetes: numpy, pandas, scikit-learn, pickle $\dots$
+Se ha utilizado la versión 3.8.5 de Python, así como los siguientes paquetes: 
 
-Además se ha utilizado el paquete \cite{pystan} que funciona como una interfaz de Python para el lenguaje de programación probabilística \cite{stan}. El cual permite generar muestras de datos a partir de métodos que trabajan con cadenas de Markov (como MCMC) y crear modelos causales sobre los que operar gracias a la inferencia estadística Bayesiana.
+\begin{itemize}
+    \item Pandas 1.2.4
+    \item Numpy 1.19.2
+    \item Scikit-learn 0.24.2
+    \item \textcolor{red}{pickle}, %path 15.0.0.
+\end{itemize}
+
+Además se ha utilizado el módulo \cite{pystan} 2.19.1.1 que funciona como una interfaz de Python para el lenguaje de programación probabilística \cite{stan}. El cual permite generar muestras de datos a partir de métodos que trabajan con cadenas de Markov (como MCMC) y crear modelos causales sobre los que operar gracias a la inferencia estadística Bayesiana.
 
 
 \ctparttext{\color{black}\begin{center}
