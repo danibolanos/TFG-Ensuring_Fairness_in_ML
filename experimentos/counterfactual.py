@@ -101,9 +101,9 @@ def get_useful_param(samples, dic):
         dic_data[param] = dic[param]
         
     # Guardamos la media del vector de valores para los parámetros que utiliza el modelo '*only_k.stan'
-    for key in samples.keys():
-        if key not in ['K', 'wK_F', 'wA_F', 'sigma2_G', 'lp__']:
-            dic_data[key] = np.mean(samples[key], axis=0)
+    for param in samples.keys():
+        if param not in ['K', 'wK_F', 'wA_F', 'sigma2_G', 'lp__']:
+            dic_data[param] = np.mean(samples[param], axis=0)
 
     return dic_data
 
