@@ -1197,21 +1197,23 @@ En este capítulo presentaremos algunos conceptos básicos del aprendizaje autom
 
 \label{sec:queaprendizaje}
 
-El aprendizaje automático o \textit{machine learning} aborda el problema de la búsqueda de patrones significativos en los datos para inferir en la distribución estadística subyacente. Para ello, durante la fase de entrenamiento, aprendemos un modelo a partir de un conjunto de datos de interés seleccionado previamente. Una vez entrenado el modelo, podremos predecir o tomar decisiones sin que el modelo haya sido específicamente programado para esa tarea. Los patrones generales obtenidos a partir del entrenamiento del modelo podrán aplicarse posteriormente a datos no vistos y seguir obteniendo resultados de utilidad. A grandes rasgos, consideramos tres tipos de algoritmos de aprendizaje automático: los de aprendizaje supervisado que actúan sobre datos etiquetados, los de aprendizaje no supervisado que actúan sobre datos no etiquetados y los de aprendizaje por refuerzo que actúan en un entorno de ensayo-error. Nos centraremos en el entorno de aprendizaje supervisado, ya que nuestro trabajo utilizará algoritmos de este tipo. 
+El aprendizaje automático o \textit{machine learning} aborda el problema de la búsqueda de patrones significativos en los datos para inferir en la distribución estadística subyacente. Para ello, durante la fase de entrenamiento, aprendemos un modelo a partir de un conjunto de datos de interés seleccionado previamente. Una vez entrenado el modelo, podremos predecir o tomar decisiones sin que el modelo haya sido específicamente programado para esa tarea. Los patrones generales obtenidos a partir del entrenamiento del modelo podrán aplicarse posteriormente a datos no vistos y seguir obteniendo resultados de utilidad. 
+
+A grandes rasgos, consideramos tres tipos de algoritmos de aprendizaje automático: los de aprendizaje supervisado que actúan sobre datos etiquetados, los de aprendizaje no supervisado que actúan sobre datos no etiquetados y los de aprendizaje por refuerzo que actúan en un entorno de ensayo-error. Nos centraremos en el entorno de aprendizaje supervisado, ya que nuestro trabajo utilizará algoritmos de este tipo. 
 
 \subsection{Aprendizaje supervisado}
 
-Definiremos los componentes del aprendizaje a partir de un ejemplo real: la aprobación de un crédito bancario. En principio, el banco no conoce ninguna fórmula ideal que pueda decirle cuando debe aprobar un crédito. El banco utilizará los registros de los clientes anteriores para aprender sobre ellos y encontrar una buena fórmula para la aprobación de las nuevas peticiones de créditos. Cada registro de clientes tiene información relativa al mismo, como pueden ser salario anual, años de residencia, préstamos pendientes, etc. También registra si la aprobación del crédito para ese cliente fue una buena idea, es decir, si le proporcionó o no beneficios a la entidad financiera. Estos datos serán los que guíen la construcción de
-una fórmula de éxito para la aprobación del crédito que podrá utilizarse con futuros solicitantes.
+\label{subsec:ejemplobanco}
 
-A continuación, formalizaremos los principales componentes de este problema de aprendizaje. Tenemos el vector de entrada $\nm{x}$ que contiene la información del cliente que se utilizará para tomar la decisión del crédito, la función objetivo desconocida $f\colon \mathcal{X}\to \mathcal{Y}$ (fórmula ideal para la aprobación del crédito), donde $\mathcal{X}$ es el conjunto de todas las posibles características e $\mathcal{Y}$ el conjunto de todos los posibles resultados (en este caso, una decisión binaria si/no). Tenemos un conjunto de datos consistente en pares de entrada-salida $\mathcal{D}=\{(\nm{x}_1,y_1),\dots,(\nm{x}_n,y_n)\}$ donde cada  $y_i$ viene dado por una función desconocida $y_i=f(\nm{x}_i)$ con $i=1,\dots,n$ (los valores de entrada corresponden a los antiguos clientes y el resultado será la decisión de crédito correcta para ellos en retrospectiva). Finalmente, tenemos el algoritmo de aprendizaje $\mathcal{A}$ que utiliza el
-conjunto de datos $\mathcal{D}$ para elegir una fórmula $g\colon \mathcal{X}\to \mathcal{Y}$ que mejor aproxime a la función ideal $f$. El algoritmo
-elegirá $g$ de entre un conjunto de fórmulas candidatas consideradas, al que denominamos conjunto de hipótesis $\mathcal{H}$. Por ejemplo, $\mathcal{H}$ podría ser el conjunto de todas las fórmulas lineales
-de las que el algoritmo elegiría la que mejor ajuste linealmente a los datos.\\
+Definiremos los componentes del aprendizaje a partir de un ejemplo real: la aprobación de un crédito bancario. En principio, el banco no conoce ninguna fórmula ideal que pueda decirle cuando debe aprobar un crédito. El banco utilizará los registros de los clientes anteriores para aprender sobre ellos y encontrar una buena fórmula para la aprobación de las nuevas peticiones de créditos. Cada registro de clientes tiene información relativa al mismo, como pueden ser salario anual, años de residencia, préstamos pendientes, etc. También registra si la aprobación del crédito para ese cliente fue una buena idea, es decir, si le proporcionó o no beneficios a la entidad financiera. Estos datos serán los que guíen la construcción de una fórmula de éxito para la aprobación del crédito que podrá utilizarse con futuros solicitantes.
+
+A continuación, formalizaremos los principales componentes de este problema de aprendizaje. Tenemos el vector de entrada $\nm{x}$ que contiene la información del cliente que se utilizará para tomar la decisión del crédito, la función objetivo desconocida $f\colon \mathcal{X}\to \mathcal{Y}$ (fórmula ideal para la aprobación del crédito), donde $\mathcal{X}$ es el conjunto de todas las posibles características e $\mathcal{Y}$ el conjunto de todos los posibles resultados (en este caso, una decisión binaria si/no). Tenemos un conjunto de datos consistente en pares de entrada-salida $\mathcal{D}=\{(\nm{x}_1,y_1),\dots,(\nm{x}_n,y_n)\}$ donde cada  $y_i$ viene dado por una función desconocida $y_i=f(\nm{x}_i)$ con $i=1,\dots,n$ (los valores de entrada corresponden a los antiguos clientes y el resultado será la decisión de crédito correcta para ellos en retrospectiva).
+
+Finalmente, contamos con el algoritmo de aprendizaje $\mathcal{A}$ que utiliza el conjunto de datos $\mathcal{D}$ para elegir una fórmula $g\colon \mathcal{X}\to \mathcal{Y}$ que mejor aproxime a la función ideal $f$. El algoritmo elegirá $g$ de entre un conjunto de fórmulas candidatas consideradas, al que denominamos conjunto de hipótesis $\mathcal{H}$. Por ejemplo, $\mathcal{H}$ podría ser el conjunto de todas las fórmulas lineales de las que el algoritmo elegiría la que mejor ajuste linealmente a los datos.\\
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=12.4cm]{setup_learning.png}
+	\includegraphics[width=12.6cm]{setup_learning.png}
 	\caption{Configuración básica del problema de aprendizaje. (\cite{learning2012})}
     \label{fig:learningesq}
 \end{figure}
@@ -1221,63 +1223,13 @@ de las que el algoritmo elegiría la que mejor ajuste linealmente a los datos.\\
 Cuando un nuevo cliente solicite un crédito, el banco basará su decisión en $g$ (la hipótesis que produjo el algoritmo de aprendizaje), no en $f$ (la
 función objetivo ideal que sigue siendo desconocida). La decisión será buena solo en la medida en que $g$ replique $f$. Para ello, el algoritmo elige $g$ que mejor se ajuste a $f$ en los ejemplos de entrenamiento de clientes anteriores, con la esperanza de que siga coincidiendo con $f$ en los nuevos clientes.
 
-\section{Creación de modelos de aprendizaje}
-
-Dado el esquema de configuración del problema de aprendizaje supervisado de la Figura \ref{fig:learningesq} discutiremos la creación de un modelo simple de aprendizaje.
-
-Sea $\mathcal{X}=\R^d$ el espacio de entrada, donde $\R^d$ es el espacio euclídeo $d$-dimensional y sea $\mathcal{Y}=\{-1,1\}$ el espacio de salida denotando una decisión binaria (si/no). En el ejemplo de concesión de crédito, las diferentes coordenadas del vector $\nm{x}\in \mathcal{X}$ corresponden al salario, años de residencia, préstamos pendientes y otros datos relativos a la solicitud del crédito. La salida binaria $y$ corresponde a la aprobación o denegación del crédito. Especificamos el conjunto de hipótesis $\mathcal{H}$ mediante una forma funcional que comparten todas las hipótesis $h\in \mathcal{H}$. La forma funcional $h(\nm{x})$ que elegimos aquí, asigna pesos diferentes a cada coordenada del vector $\nm{x}$, reflejando su importancia en la decisión de concesión de crédito. Las coordenadas ponderadas se combinan para formar una puntuación y el resultado se compara con un valor umbral previamente establecido. Si el solicitante supera el umbral, el crédito es aprobado, si no, es denegado: $$\text{Aprobar crédito si } \sum_{i=1}^d w_ix_i > \text{ umbral},$$ $$\text{Denegar crédito si } \sum_{i=1}^d w_ix_i < \text{ umbral}.$$
-
-Esta fórmula se puede escribir de forma más compacta como 
-\begin{equation} \label{eq:sign-6}
-h(\nm{x})=\text{sign}\left(\left( \sum_{i=1}^d w_ix_i\right)+b \right),
-\end{equation}
-
-
-donde $x_1,\dots,x_d$ son los componentes del vector $\nm{x}$; $h(\nm{x})=1$ significa la aprobación del crédito y $h(\nm{x})=-1$ significa la denegación del crédito; $\text{sign}(s)=1$ si $s>0$ y $\text{sign}(s)=-1$ si $s<0$. Los pesos $w_1,\dots,w_d$ y el umbral viene determinado en términos del sesgo $b$, el crédito se aprueba si $\displaystyle \sum_{i=1}^d w_ix_i > -b.$ 
-
-Uno de los ejemplos más comunes en la literatura del aprendizaje automático es el del perceptrón introducido por el neurocientífico e informático teórico \cite{perceptron1957}. Este algoritmo de aprendizaje intenta encontrar $\mathcal{H}$ buscando los pesos y el sesgo que funcionen bien en el conjunto de datos. Algunos de los pesos $w_1,\dots,w_d$ podrían acabar siendo negativos, teniendo un efecto adverso en la aprobación del crédito. Por ejemplo, el peso del campo relativo a deudas pendientes debería ser negativo, ya que una mayor deuda no es buena señal para la aprobación de un crédito. El valor del sesgo $b$ podría terminar siendo muy grande o muy pequeño, reflejando lo indulgente o estricto que debe ser el banco a la hora de conceder créditos. La elección óptima de los pesos y el sesgo define la hipótesis final $g \in \mathcal{H}$ que produce el algoritmo.\\
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=12.1cm]{gbclassified.png}
-	\caption{Clasificación de datos linealmente separables en un espacio bidimensional.}
-    \label{fig:linsep}
-\end{figure}
-
-En la Figura \ref{fig:linsep} ilustra dos ejemplos de clasificación de un perceptrón en un espacio de entrada bidimensional ($d=2$). En el dibujo de la izquierda los ejemplos están perfectamente clasificados mientras que en el de la derecha hay algunos ejemplos mal clasificados. Diferentes valores para los parámetros $b,w_1,w_2$ dan lugar a diferentes rectas $w_1x_1+w_2x_2+b=0$. Si el conjunto de datos es linealmente separable existe una elección de parámetros que clasifica todos los ejemplos correctamente.
-
-\subsection{Ejemplo: Perceptrón} \label{subsec:perceptron}
-
-Introduciremos el algoritmo de aprendizaje del perceptrón usando la notación proporcionada en \cite{learning2012}. Para simplificar la notación de la fórmula del perceptrón, trataremos el sesgo $b$ como un peso $w_0=b$ y lo añadiremos como una coordenada más al vector de pesos $\nm{w}=(w_0,w_1,\dots,w_d)^T$. Hemos añadido una coordenada $x_0=1$ al vector $\nm{x}=(x_0,x_1,\dots,x_d)^T$. Notar que tratamos $\nm{x}$ y $\nm{w}$ como vectores columna. Formalmente denotamos el espacio de entrada ahora como $$\mathcal{X}=\{1\}\times \R^d=\{\nm{x}=(x_0,x_1,\dots,x_d)^T \ : \ x_0=1, \ x_1,\dots,x_d \in \R\}.$$
-
-Denotando $\nm{w}^T\nm{x}=\displaystyle \sum_{i=0}^d w_ix_i$, podemos reescribir la Ecuación \ref{eq:sign-6} como $$h(\nm{x})=\text{sign}(\nm{w}^T\nm{x}).$$
-
-El algoritmo determinará el valor de $\nm{w}$ basado en los datos. Supondremos que el conjunto de datos es linealmente separable, lo que significa que podemos encontrar un vector $\nm{w}$ tal que $h(\nm{x})$ consigue una decisión correcta $h(\nm{x}_n)=y_n$ para todos los ejemplos del conjunto de datos de entrenamiento.
-
-Nuestro algoritmo de aprendizaje encontrará este $w$ usando un simple método iterativo, que funciona de la siguiente forma:
-
-En cada paso $t=0,1\dots$, hay un valor actual del vector de pesos $\nm{w}_t$, selecionamos aleatoriamente un índice $i\in \{1,\dots,n\}$ correspondiente a un ejemplo actualmente mal clasificado lo denota como $(\nm{x}_t,y_t)$ y lo usa para actualizar el valor de $\nm{w}_t$. Como el ejemplo está mal clasificado, tenemos que $y_t\neq \text{sign}(\nm{w}^T_t\nm{x}_t)$. La regla de actualización es $$\nm{w}_{t+1}=\nm{w}_t+y_t\nm{x}_t.$$
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=7.4cm]{movclassified.png}
-	\caption{Esquema de actualización del algoritmo del perceptrón.}
-    \label{fig:movsep}
-\end{figure}
-
-Esta regla mueve la frontera con el objetivo de cambiar la dirección en la clasificación correcta de $\nm{x}_t$, como se puede ver en la Figura \ref{fig:movsep}. El algoritmo continua con las sucesivas iteraciones hasta que no haya ejemplos mal clasificados en el conjunto de datos.
-
-Aunque la regla de actualización solo considera un único ejemplo del conjunto de entrenamiento y podría desordenar la clasificación para otros ejemplos que no están implicados en la iteración actual, esto garantiza que el algoritmo llegue a la correcta solución al final (véase Teorema 1 en~\cite{perceptronproof2012}). El resultado se mantiene de forma independiente al ejemplo que elijamos entre los ejemplos mal clasificados en cada iteración, e independientemente de cómo inicialicemos el vector de pesos al inicio del algoritmo. Por simplicidad, podemos elegir un ejemplo mal clasificado aleatorio e inicializar el vector $w_0$ a un vector de ceros.
-
-Dentro del espacio infinito de todos los vectores de pesos, el algoritmo del perceptrón consigue encontrar un vector de pesos que funcione, usando un proceso iterativo. Esto ilustra como un algoritmo puede buscar un conjunto infinito de hipótesis usando un número finito de pasos, lo cual es una característica común entre muchas técnicas de aprendizaje automático.
-
 \section{Propiedades del modelo de aprendizaje}
 
 A continuación definiremos algunos conceptos importantes que surgen junto a algunas cuestiones planteadas una vez que hemos creado nuestro modelo de aprendizaje. Suponemos un conjunto de datos etiquetado $\mathcal{D}=\{(\nm{x}_1,y_1),\dots,(\nm{x}_n,y_n)\}$. Normalmente los datos $(\nm{x}_1, y_1),\dots, (\nm{x}_n, y_n)$ se extraen de forma independiente e idénticamente distribuida de una población $(\mathcal{X},\mathcal{Y})$.\\
 
 \begin{definition}[Clasificador arbitrario]
 Un \textit{clasificador arbitrario} se define como una aplicación $g\colon \mathcal{X} \to \mathcal{Y}$ del conjunto de características $\mathcal{X}$ al conjunto de resultados $\mathcal{Y}$, de forma que $ g(\nm{x})$ es el resultado predicho para el individuo $\nm{x}$.
-\end{definition}
+\end{definition}\
 
 \begin{definition}[Función de pérdida]
 Una \textit{función de pérdida} es una función definida como $\ell \colon \mathcal{Y} \times \mathcal{Y} \to \R$ que asigna un valor real no-negativo $\ell(y',y)$ que denota el coste del valor de la predicción $y'$ cuando la etiqueta real es $y$.
@@ -1291,8 +1243,106 @@ El \textit{riesgo empírico} de un clasificador arbitrario $g$ con respecto a un
 La \textit{minimización del riesgo empírico} es el problema de optimización que busca encontrar un clasificador $g$ en una familia de funciones $\mathcal{H}$ tal que minimice el riesgo empírico, $$\underset{g\in \mathcal{H}}{\text{arg min}} \  R_{\mathcal{D}}(g).$$
 \end{definition}\
 
-\begin{example}[Otra definición del algoritmo perceptrón]
-Podemos representar el algoritmo del Apartado \ref{subsec:perceptron} como una instancia de la minimización del riesgo empírico (\cite{fairnesslearning2019}). Por la descripción del algoritmo, estamos buscando un separador lineal y por tanto, nuestra clase de funciones corresponde con el conjunto de funciones lineales $$\mathcal H = \{ f(\nm{x}) = \langle \nm{w},\nm{x} \rangle \ : \ \nm{w} \in \mathbb R^d \}.$$
+La introducción del concepto de minimización del riesgo empírico genera diversas dudas que intentaremos abordar a lo largo de este capítulo y que pueden resumirse en las siguientes tres preguntas:
+
+\begin{itemize}
+    \item[1.] ¿Cuál es la clase de funciones $\mathcal{H}$ que deberíamos escoger?
+    \item[2.] ¿Cómo podemos resolver de manera eficiente el problema de optimización resultante?
+    \item[3.] ¿El clasificador encontrado tendrá el mismo rendimiento sobre los ejemplos del conjunto de entrenamiento que sobre el conjunto de datos de prueba?
+\end{itemize}
+
+Estas cuestiones están relacionadas entre sí y dan lugar a los conceptos de representación, optimización y generalización respectivamente.
+
+\subsection{Representación}
+
+Normalmente las aplicaciones que utilizan datos con un número relativamente pequeño de características suelen usar modelos de predicción lineales. Por otro lado, si los datos de entrenamiento del modelo incluyen imágenes o audio, se suelen aplicar modelos no lineales. Las redes neuronales por ejemplo, aplican una secuencia de transformaciones de cada tipo para obtener mejores resultados sobre el conjunto de datos de entrada.
+
+Lo más relevante de la representación para este trabajo es conocer que la mecánica de entrenamiento de un modelo sigue siendo la misma, y los detalles del tipo de modelo utilizado rara vez importa para las cuestiones relativas a la equidad.
+
+
+\subsection{Optimización}
+
+Si nuestro objetivo es minimizar la exactitud de un clasificador, sería evidente pensar en resolver directamente el problema de minimización del riesgo empírico con respecto a la siguiente función de pérdida $$\ell(y',y)=\left \{
+\begin{array}{l l}
+1, & \mbox{si } y\neq y', \\
+0, & \mbox{si } y=y'.
+\end{array}
+\right.$$
+
+El problema de usar esta función es que es difícil de optimizar. Los gradientes de la pérdida 0-1 toman el valor cero en todo su dominio, por lo que no podemos esperar que los métodos basados en el gradiente optimicen directamente la pérdida 0-1.
+
+A continuación, veremos una serie de métodos de optimización diferentes que, en determinadas circunstancias, encuentran un mínimo global o local del objetivo de riesgo empírico y aproximan en cierta medida la pérdida 0-1.
+
+\begin{itemize}
+    \item \textbf{Pérdida al cuadrado} (\textit{squared loss}) dada por $\frac{1}{2}(y-y')^2$. La minimización empírica del riesgo con esta función de pérdida equivale a la regresión lineal por mínimos cuadrados. 
+    \item \textbf{Pérdida de bisagra} (\textit{hinge loss}) se expresa como $\max\{1-yy',0\}$. Los algoritmos SVM se refieren a la minimización empírica del riesgo con esta función junto con la regularización $\ell_2$.
+    \clearpage
+    \item \textbf{Pérdida logística} (\textit{logistic loss}) definida como $$\left \{
+    \begin{array}{l l}
+    -\log(\sigma(y')), & \mbox{si } y=1, \\
+    -\log(1-\sigma(y')), & \mbox{si } y=-1.
+    \end{array}
+    \right.$$
+    Donde $\sigma(y')=1/(1+e^{-y'})$ es la función logística. La minimización empírica del riesgo con esta función de pérdida equivale a la regresión logística. 
+\end{itemize}
+
+La elección de la función de pérdida se realizará comparando los rendimientos de las diferentes aproximaciones mediante prueba y error, eligiendo la que mejor funcione en cada caso.
+
+\subsection{Generalización}
+
+La generalización en el aprendizaje automático hace referencia a cómo de bueno es un modelo predictivo que etiqueta correctamente datos con los que ha entrenado previamente realizando la misma tarea sobre un nuevo conjunto de datos que sigue la misma distribución de la que se extrajeron los datos de entrenamiento. %Este tipo de generalización se puede considerar una interpolación. El modelo es capaz de suavizar los huecos entre los datos de entrenamiento y de actuar bien para la distribución de la que proceden los datos. 
+
+No obstante, incluso los modelos más avanzados suelen funcionar peor cuando los datos de prueba se extraen de una distribución que difiere ligeramente de la seguida por los datos de entrenamiento. Un ejemplo de ello fue el caso de la creación de un nuevo conjunto de pruebas para la base de datos ImageNet (\cite{generalize2019}).
+
+\section{Creación de modelos de aprendizaje}
+
+Dado el esquema de configuración del problema de aprendizaje supervisado de la Figura \ref{fig:learningesq} discutiremos la creación de un modelo simple de aprendizaje. Sea $\mathcal{X}=\R^d$ el espacio de entrada, donde $\R^d$ es el espacio euclídeo $d$-dimensional y sea $\mathcal{Y}=\{-1,1\}$ el espacio de salida denotando una decisión binaria (si/no). En el ejemplo de concesión de crédito, las diferentes coordenadas del vector $\nm{x}\in \mathcal{X}$ corresponden a los datos relativos del individuo que solicita el crédito. La salida binaria $y$ corresponde a la aprobación o denegación del préstamo. Especificamos el conjunto de hipótesis $\mathcal{H}$ mediante una forma funcional común a todas las hipótesis $h\in \mathcal{H}$. La forma funcional $h(\nm{x})$ elegida, asigna pesos diferentes a cada coordenada del vector $\nm{x}$, reflejando su importancia en la decisión del problema. Las coordenadas ponderadas se combinan para formar una puntuación y el resultado se compara con un valor umbral previamente establecido. Si el solicitante supera el umbral, el crédito es aprobado, si no, es denegado: $$\text{Aprobar crédito si } \sum_{i=1}^d w_ix_i > \text{ umbral},$$ $$\text{Denegar crédito si } \sum_{i=1}^d w_ix_i < \text{ umbral}.$$
+
+Esta fórmula se puede escribir de forma más compacta como 
+\begin{equation} \label{eq:sign-6}
+h(\nm{x})=\text{sign}\left(\left( \sum_{i=1}^d w_ix_i\right)+b \right),
+\end{equation}
+
+
+donde $x_1,\dots,x_d$ son los componentes del vector $\nm{x}$; $h(\nm{x})=1$ significa la aprobación del crédito y $h(\nm{x})=-1$ significa la denegación del crédito; $\text{sign}(s)=1$ si $s>0$ y $\text{sign}(s)=-1$ si $s<0$. Los pesos $w_1,\dots,w_d$ y el umbral viene determinado en términos del sesgo $b$, el crédito se aprueba si $\displaystyle \sum_{i=1}^d w_ix_i > -b.$ 
+
+Uno de los ejemplos más comunes en la literatura del aprendizaje automático es el del perceptrón introducido por el neurocientífico e informático teórico \cite{perceptron1957}. Este algoritmo de aprendizaje intenta encontrar $\mathcal{H}$ buscando los pesos y el sesgo que funcionen bien en el conjunto de datos. Algunos de los pesos $w_1,\dots,w_d$ podrían acabar siendo negativos, teniendo un efecto adverso en la aprobación del crédito. Por ejemplo, el peso del campo relativo a deudas pendientes debería ser negativo, ya que una mayor deuda no es buena señal para la aprobación de un crédito. El valor del sesgo $b$ podría terminar siendo muy grande o muy pequeño, reflejando lo indulgente o estricto que debe ser el banco a la hora de conceder créditos. La elección óptima de los pesos y el sesgo define la hipótesis final $g \in \mathcal{H}$ que produce el algoritmo.\\
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=12.4cm]{gbclassified.png}
+	\caption{Clasificación de datos linealmente separables en un espacio bidimensional.}
+    \label{fig:linsep}
+\end{figure}
+
+En la Figura \ref{fig:linsep} ilustra dos ejemplos de clasificación de un perceptrón en un espacio de entrada bidimensional ($d=2$). En el dibujo de la izquierda los ejemplos están perfectamente clasificados mientras que en el de la derecha hay algunos ejemplos mal clasificados. Diferentes valores para los parámetros $b,w_1,w_2$ dan lugar a diferentes rectas $w_1x_1+w_2x_2+b=0$. Si el conjunto de datos es linealmente separable existe una elección de parámetros que clasifica todos los ejemplos correctamente.
+
+\subsection{Ejemplo: Perceptrón} \label{subsec:perceptron}
+
+Introduciremos el algoritmo de aprendizaje del perceptrón usando la notación proporcionada en \cite{learning2012}. Para simplificar la notación de la fórmula del perceptrón, trataremos el sesgo $b$ como un peso $w_0=b$ y lo añadiremos como una coordenada más al vector de pesos $\nm{w}=(w_0,w_1,\dots,w_d)^T$. Hemos añadido una coordenada $x_0=1$ al vector $\nm{x}=(x_0,x_1,\dots,x_d)^T$. Notar que tratamos $\nm{x}$ y $\nm{w}$ como vectores columna. Formalmente denotamos el espacio de entrada ahora como $$\mathcal{X}=\{1\}\times \R^d=\{\nm{x}=(x_0,x_1,\dots,x_d)^T \ : \ x_0=1, \ x_1,\dots,x_d \in \R\}.$$
+
+Denotando $\nm{w}^T\nm{x}=\displaystyle \sum_{i=0}^d w_ix_i$, podemos reescribir la Ecuación \ref{eq:sign-6} como $$h(\nm{x})=\text{sign}(\nm{w}^T\nm{x}).$$
+
+El algoritmo determinará el valor de $\nm{w}$ basado en los datos. Supondremos que el conjunto de datos es linealmente separable, lo que significa que podemos encontrar un vector $\nm{w}$ tal que $h(\nm{x})$ consigue una decisión correcta $h(\nm{x}_n)=y_n$ para todos los ejemplos del conjunto de datos de entrenamiento.\\
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=7.8cm]{movclassified.png}
+	\caption{Esquema de actualización del algoritmo del perceptrón.}
+    \label{fig:movsep}
+\end{figure}
+
+Nuestro algoritmo de aprendizaje encontrará este $w$ usando un simple método iterativo, que funciona de la siguiente forma:
+
+En cada paso $t=0,1\dots$, hay un valor actual del vector de pesos $\nm{w}_t$, selecionamos aleatoriamente un índice $i\in \{1,\dots,n\}$ correspondiente a un ejemplo actualmente mal clasificado lo denota como $(\nm{x}_t,y_t)$ y lo usa para actualizar el valor de $\nm{w}_t$. Como el ejemplo está mal clasificado, tenemos que $y_t\neq \text{sign}(\nm{w}^T_t\nm{x}_t)$. La regla de actualización es $$\nm{w}_{t+1}=\nm{w}_t+y_t\nm{x}_t.$$
+
+Esta regla mueve la frontera con el objetivo de cambiar la dirección en la clasificación correcta de $\nm{x}_t$, como se puede ver en la Figura \ref{fig:movsep}. El algoritmo continua con las sucesivas iteraciones hasta que no haya ejemplos mal clasificados en el conjunto de datos.
+
+Aunque la regla de actualización solo considera un único ejemplo del conjunto de entrenamiento y podría desordenar la clasificación para otros ejemplos no implicados en la iteración actual, el algoritmo garantiza una solución óptima (véase Teorema 1 en~\cite{perceptronproof2012}). El resultado se mantiene de forma independiente al ejemplo que elijamos y a la inicialización del vector de pesos al comienzo del algoritmo. Por simplicidad, elegiremos un ejemplo mal clasificado aleatorio e inicializaremos $w_0$ a un vector de ceros.
+
+\subsection*{Otra definición del algoritmo}
+
+Podemos representar el algoritmo de perceptrón como una instancia de la minimización del riesgo empírico (\cite{fairnesslearning2019}). Por la descripción del algoritmo, buscamos un separador lineal y por tanto, nuestra clase de funciones corresponde con el conjunto de funciones lineales $$\mathcal H = \{ f(\nm{x}) = \langle \nm{w},\nm{x} \rangle \ : \ \nm{w} \in \mathbb R^d \}.$$
 
 Utilizaremos el método de gradiente estocástico como base del algoritmo, ya que es un método de optimización que elige un ejemplo aleatorio en cada paso y realiza una actualización de los parámetros del modelo. Se define con la regla siguiente: $$\nm{w}_{t+1}=\nm{w}_t-\eta \nabla_{\nm{w}_t} \ell (f(\nm{x}_t),y_t).$$
 
@@ -1307,74 +1357,66 @@ Su gradiente se define como $$\nabla \ell (y,\langle \nm{w},\nm{x} \rangle)=\lef
 \end{array}
 \right.$$
 
-Con la expresión anterior obtenemos una parte de la regla de actualización del perceptrón, la otra parte la deducimos al añadir una penalización por peso $\frac{\upalpha}{2}\norm{\nm{w}}^2$ a la función de pérdida que impide a los pesos tomar valores por encima de un límite establecido. Esta penalización se denomina \textit{regularización $\ell_2$} o \textit{regularización de Tíjonov}. El propósito de la regularización es promover la generalización.
+Con la expresión anterior obtenemos una parte de la regla de actualización del perceptrón, la otra parte la deduciremos al añadir una penalización por peso $\frac{\upalpha}{2}\norm{\nm{w}}^2$ (donde $\norm{\cdot}$ denota la norma euclídea) a la función de pérdida que impide a los pesos tomar valores por encima de un límite establecido. Esta penalización se denomina \textit{regularización $\ell_2$} o \textit{regularización de Tíjonov}. El propósito de la regularización es fomentar la generalización.
 
 Sumando las dos funciones de pérdida, obtenemos el problema de minimización del riesgo empírico regularizado por $\ell_2$ para la función de pérdida de bisagra: $$\frac{1}{n}\sum_{i=1}^n \max (1-y_i\langle \nm{w},\nm{x}_i \rangle,0)+\frac{\upalpha}{2}\norm{\nm{w}}^2.$$
 
 Definimos el algoritmo perceptrón como la resolución de este problema de riesgo empírico utilizando el método del gradiente estocástico.
-\end{example}
 
-\subsection{Problemas de la minimización del riesgo empírico}
+\subsection{Regresión lineal}
 
-La introducción del concepto de minimización del riesgo empírico también da lugar a las siguientes preguntas:
+Volviendo al ejemplo del apartado \ref{subsec:ejemplobanco}, recordemos que el banco tiene un registro de clientes con variables que pueden ser usadas para aprender un clasificador lineal de decisión para la aprobación del crédito. En este caso, en lugar de limitarnos a tomar una decisión binaria (aprobar o no el crédito), en el caso de aprobación, podríamos querer establecer un umbral en el valor del crédito concedido. Esta tarea, puede ser automatizada haciendo uso del aprendizaje por regresión. 
 
-\begin{itemize}
-    \item[1.] ¿Cuál es la clase de funciones $\mathcal{H}$ que deberíamos escoger?
-    \item[2.] ¿Cómo podemos resolver de manera eficiente el problema de optimización resultante?
-    \item[3.] ¿El clasificador encontrado tendrá el mismo rendimiento sobre los ejemplos del conjunto de entrenamiento que sobre el conjunto de datos de prueba?
-\end{itemize}
+El banco parte de un conjunto de datos $\mathcal{D}=\{(\nm{x}_1,y_1),\dots,(\nm{x}_n,y_n)\}$, donde $\nm{x}_n$ es la información del cliente e $y_n$ es el límite de crédito establecido por uno de los expertos del banco. Ahora $y_n$ será un número real en lugar de un valor binario. El banco querrá usar un modelo de aprendizaje para encontrar una hipótesis $g$ que replique la actuación humana en los límites de crédito. En este caso, no buscaremos una función determinista $y = f(x)$ y en su lugar, asumiremos que la etiqueta $y_n$ proviene de una distribución $P(y \mid \nm{x})$. No obstante, la naturaleza del problema sigue siendo la misma. Tenemos una distribución desconocida $P(\nm{x}, y)$ que genera cada $(\nm{x}_n, y_n)$ y queremos encontrar una hipótesis $g$ que minimice el error entre $g(\nm{x})$ e $y$ con respecto a esa distribución.
 
-Estas tres cuestiones están relacionadas entre sí y dan lugar a los conceptos de representación, optimización y generalización respectivamente. La elección de la representación influye tanto en la dificultad de la optimización como en el rendimiento de la generalización, mientras que las mejoras en la optimización pueden perjudicar o no a la generalización. Pero también existen diferencias entre los tres conceptos. Si podemos demostrar que la optimización funciona, normalmente será independiente de cómo se representó la muestra. Sin embargo, para razonar sobre la generalización, necesitaremos suposiciones sobre el proceso de generación de datos.
+\subsection*{Algoritmo de regresión lineal}
 
-\subsection{Representación}
+El algoritmo se basa en la minimización del riesgo empírico para la pérdida al cuadrado entre $h(\nm{x})$ e $y$. El problema es equivalente a minimizar la siguiente función:
+\begin{equation*}
+    R_{\mathcal{D}}(h) = \frac{1}{n} \sum_{i=1}^n (h(\nm{x}_i)-y_i)^2.
+\end{equation*}
 
-%Normalmente las aplicaciones que utilizan datos con un  número relativamente pequeño de características suelen usar modelos de predicción lineales. Por otro lado, si los datos de entrenamiento del modelo son imágenes, vídeos, fragmentos de audio o texto, se suelen aplicar modelos no lineales para obtener mejores resultados.
+En regresión lineal, $h$ se expresa como una combinación lineal de los componentes de $\nm{x}$,
+\begin{equation*}
+    h(\nm{x})=\sum_{i=0}^d w_i x_i = \nm{w}^T \nm{x},
+\end{equation*}
 
-Las redes neuronales son modelos que realizan una secuencia de transformaciones a los datos de entrada. Cada transformación, o capa, suele realizar una transformación lineal afín seguida de una función no lineal aplicada por coordenadas. El enfoque para cualquier modelo usualmente consiste en, entrenar los parámetros del modelo utilizando algoritmos de descenso del gradiente estocástico.
+donde $x_0=1$ y $\nm{x} \in \{1\} \times \R^d$ y $\nm{w} \in \R^{d+1}$. Para el caso lineal, es bastante usual tener una matriz de representación de $R_{\mathcal{D}}(h)$. La matriz de datos se define como $X\in \R^{N \times (d+1)}$ teniendo como filas los vectores $\nm{x}_n$ y definiendo $\nm{y}\in \R^n$ como el vector columna cuyas componentes son los valores objetivo $y_n$. Podemos expresar el error en función de $\nm{w}, X$ e $\nm{y}$ como:
+\begin{equation}
+\begin{split}
+    R_{\mathcal{D}}(\nm{w})&=\frac{1}{n}\sum_{i=1}^n (\nm{w}^T\nm{x}_i-y_i)^2=\frac{1}{n} \norm{X\nm{w}-\nm{y}}^2\\
+    &=\frac{1}{n} (\nm{w}^TX^TX\nm{w} -2\nm{w}^TX^T\nm{y}+\nm{y}^T\nm{y}).
+\end{split}
+\label{eq:derivable}
+\end{equation}
 
-Lo más relevante de la representación para este trabajo es conocer que la mecánica de entrenamiento de un modelo sigue siendo la misma, y los detalles de las arquitecturas de las redes neuronales rara vez importan para las cuestiones relativas a la equidad. %Para cualquier afirmación sobre un sistema de aprendizaje automático, hay que estudiar su correspondencia en el caso de modelos lineales simples y si no tiene sentido para estos, probablemente tampoco lo tendrá para los modelos no lineales.
+Nuestro problema se reduce a minimizar la función dada por: 
+\begin{equation}
+    \underset{\nm{w}\in \R^{d+1}}{\text{arg min}} \ R_{\mathcal{D}}(\nm{w}).
+    \label{eq:soloptima}
+\end{equation}\ 
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=13.5cm]{linear_regresion.png}
+	\caption{Problema de regresión lineal en una y dos dimensiones respectivamente.}
+    \label{fig:reglin}
+\end{figure}
 
-\subsection{Optimización}
+La Figura \ref{fig:reglin} ilustra la solución para los casos unidimensional y bidimensional respectivamente. La Ecuación \ref{eq:derivable} implica que $R_{\mathcal{D}}(\nm{w})$ es diferenciable, por lo que podemos encontrar el mínimo de esta función igualando su gradiente a cero.
+\begin{equation*}
+    \nabla R_{\mathcal{D}}(\nm{w}) = \frac{2}{n} (X^TX\nm{w}-X^T\nm{y}) = 0.
+\end{equation*}
 
-Si nuestro objetivo es minimizar la exactitud de un clasificador, sería evidente pensar en resolver directamente el problema de minimización del riesgo empírico con respecto a la siguiente función de pérdida $$\ell(y',y)=\left \{
-\begin{array}{l l}
-1, & \mbox{si } y\neq y', \\
-0, & \mbox{si } y=y'.
-\end{array}
-\right.$$ Esta función, nos da una penalización de uno si nuestra etiqueta es incorrecta y de cero si el valor de la etiqueta predicha $y'$ coincide con la etiqueta real $y$.
-
-El problema de usar esta función es que es difícil de optimizar. Los gradientes de la pérdida 0-1 toman el valor cero en todo su dominio, por lo que no podemos esperar que los métodos basados en el gradiente optimicen directamente la pérdida 0-1.
-
-A continuación, veremos una serie de métodos de optimización diferentes que, en determinadas circunstancias, encuentran un mínimo global o local del objetivo de riesgo empírico y aproximan en cierta medida la pérdida 0-1.
-
-\begin{itemize}
-    \item \textbf{Pérdida al cuadrado} (\textit{squared loss}) dada por $\frac{1}{2}(y-y')^2$. La minimización empírica del riesgo con esta función de pérdida equivale a la regresión lineal por mínimos cuadrados. 
-    \item \textbf{Pérdida de bisagra} (\textit{hinge loss}) se expresa como $\max\{1-yy',0\}$. Los algoritmos SVM se refieren a la minimización empírica del riesgo con esta función junto con la regularización $\ell_2$.
-    \item \textbf{Pérdida logística} (\textit{logistic loss}) definida como $$\left \{
-    \begin{array}{l l}
-    -\log(\sigma(y')), & \mbox{si } y=1, \\
-    -\log(1-\sigma(y')), & \mbox{si } y=-1.
-    \end{array}
-    \right.$$
-    Donde $\sigma(y')=1/(1+e^{-y'})$ es la función logística. La minimización empírica del riesgo con esta función de pérdida equivale a la regresión logística. 
-\end{itemize}
-
-En general, la elección de la función de pérdida se realizará comparando los rendimientos de las diferentes aproximaciones mediante prueba y error, eligiendo la que mejor funcione en cada caso.
-
-\subsection{Generalización}
-
-La generalización en el aprendizaje automático hace referencia a cómo de bueno es un modelo predictivo que etiqueta correctamente datos con los que ha entrenado previamente realizando la misma tarea sobre un nuevo conjunto de datos que sigue la misma distribución de la que se extrajeron los datos de entrenamiento. %Este tipo de generalización se puede considerar una interpolación. El modelo es capaz de suavizar los huecos entre los datos de entrenamiento y de actuar bien para la distribución de la que proceden los datos. 
-
-No obstante, incluso los modelos más avanzados suelen funcionar peor cuando los datos de prueba se extraen de una distribución que difiere ligeramente de la seguida por los datos de entrenamiento. Un ejemplo de ello fue el caso de la creación de un nuevo conjunto de pruebas para ImageNet. El protocolo para su creación fue el mismo que para el original, pero el rendimiento de todos los modelos conocidos fue sustancialmente peor en el nuevo que en el ya existente (\cite{generalize2019}).
+Para encontrar la solución se debe cumplir que $X^TX\nm{w}=X^T\nm{y}$. Si $X^TX$ es regular, $\nm{w}=(X^TX)^{-1}X^T \nm{y}$ es la única solución óptima para la Ecuación \ref{eq:soloptima}. En otro caso, existirá una solución óptima, pero no será única.
 
 \section{Evaluación en aprendizaje automático}
 
 \label{sec:evalaa}
 
-Diremos que un modelo en aprendizaje automático funciona bien, cuando puede predecir resultados correctos a partir de un conjunto de datos de entrada no conocido previamente, a este proceso lo conocemos como generalización. La manera de medir este fenómeno, no es única, por lo que existen una gran cantidad de métricas de rendimiento en el ámbito del \textit{machine learning}. 
+Diremos que un modelo en aprendizaje automático funciona bien, cuando puede predecir resultados correctos a partir de un conjunto de datos de entrada no conocido previamente, a este proceso lo conocemos como generalización. La manera de medir este fenómeno, no es única, por lo que existen una gran cantidad de métricas de rendimiento en el ámbito del \textit{machine learning}. La elección de la métrica de rendimiento dependerá del problema específico, su dominio y de las restricciones del mismo al mundo real. Sin embargo, la mayoría de las métricas vienen descritas como funciones de una matriz de confusión. 
 
-La elección de la métrica de rendimiento dependerá del problema específico, su dominio y de las restricciones del mismo al mundo real. Sin embargo, la mayoría de las métricas vienen descritas como funciones de una matriz de confusión. Una matriz de confusión define un modelo de predicción a partir de las dimensiones de los valores reales de las etiquetas y de sus posibles predicciones, resumiendo el número de predicciones correctas e incorrectas por clase.\\
+Una matriz de confusión define un modelo de predicción a partir de las dimensiones de los valores reales de las etiquetas y de sus posibles predicciones, resumiendo el número de predicciones correctas e incorrectas por clase.\\
 
 \begin{table}[h]
 \centering
@@ -1394,23 +1436,18 @@ La elección de la métrica de rendimiento dependerá del problema específico, 
 En el caso de una matriz de confusión binaria como la del Cuadro \ref{tab:table2}, tenemos una matriz $2 \times 2$ que nos ofrece información sobre el número de verdaderos positivos (TP) ($y=1 \ \wedge \ \hat{y}=1$), falsos positivos (FP) ($y=-1 \ \wedge \ \hat{y}=1$), falsos negativos (FN) ($y=1 \ \wedge \ \hat{y}=-1$) y verdaderos negativos (TN) ($y=-1 \ \wedge \ \hat{y}=-1$). A partir de ellos, podemos obtener el número total de positivos predichos (TP+FP), el número total de negativos predichos (TN+FN), el número total de etiquetados positivos (TP+FN), y
 el número total de etiquetados negativos (TN+FP). 
 
-Además, podemos definir las siguientes métricas de clasificación avanzadas construidas a partir de combinaciones lineales de las básicas:\\
+Además, podemos definir las siguientes métricas de clasificación avanzadas construidas a partir de combinaciones lineales de las básicas:
 
 \begin{itemize}
     \item \textbf{Tasa de verdaderos positivos} (\textit{Recall}), $$\text{TPR}=\ddfrac{\text{TP}}{\text{TP+FN}}.$$
     \item \textbf{Tasa de falsos negativos}, $$\text{FNR}=1-\text{TPR}=\ddfrac{\text{FN}}{\text{TP+FN}}.$$
-    \item \textbf{Tasa de verdaderos negativos} (\textit{Specificity}), $$\text{TNR}=\ddfrac{\text{TN}}{\text{TN+FP}}.$$
-    \item \textbf{Tasa de falsos positivos}, $$\text{FPR}=1-\text{TNR}=\ddfrac{\text{FP}}{\text{TN+FP}}.$$
-    \item \textbf{Valor positivo predictivo} (\textit{Precision}),  $$\text{PPV}=\ddfrac{\text{TP}}{\text{TP+FP}}.$$
-    \item \textbf{Tasa de falso descubrimiento}, $$\text{FDR}=1-\text{PPV}=\ddfrac{\text{FP}}{\text{TP+FP}}.$$
-    \item \textbf{Valor negativo predictivo}, $$\text{NPV}=\ddfrac{\text{TN}}{\text{TN+FN}}.$$
-    \item \textbf{Tasa de falsa omisión}, $$\text{FOR}=1-\text{NPV}=\ddfrac{\text{FN}}{\text{TN+FN}}.$$
-    \item \textbf{Exactitud} (\textit{Accuracy}), $$\text{Accuracy}=\ddfrac{\text{TP+TN}}{\text{TP+TN+FP+FN}}.$$
-\end{itemize}\
+\end{itemize}
+
+\clearpage
 
 \begin{table}[h]
 \centering
-\resizebox{16.9cm}{!} {
+\resizebox{16.2cm}{!} {
 \begin{tabular}{cc|c|c|cc}
 \cline{3-4}
                                                            &              & \multicolumn{2}{c|}{\textbf{Etiqueta real}}                                                                                                                                 &                                                                                                             &                                                                                                                    \\ \cline{3-4}
@@ -1425,9 +1462,19 @@ Además, podemos definir las siguientes métricas de clasificación avanzadas co
 \label{tab:tableadv}
 \end{table}
 
-Normalmente mediremos el rendimiento de un modelo con una de las métricas mencionadas o con una combinación de ambas. Una de las medidas de rendimiento más usadas es el valor positivo predictivo o precisión, que mide el porcentaje de predicciones correctas realizas. No obstante, existen problemas derivados de utilizar la precisión a la hora de medir el rendimiento cuando abordamos problemas que contienen desequilibrio entre las clases del conjunto de datos. Por ejemplo, si solo $5$ de cada $100$ muestras es positiva, el modelo trivial que siempre prediga la clase negativa tendrá una precisión del $95\%$.
+\begin{itemize}
+    \item \textbf{Tasa de verdaderos negativos} (\textit{Specificity}), $$\text{TNR}=\ddfrac{\text{TN}}{\text{TN+FP}}.$$
+    \item \textbf{Tasa de falsos positivos}, $$\text{FPR}=1-\text{TNR}=\ddfrac{\text{FP}}{\text{TN+FP}}.$$
+    \item \textbf{Valor positivo predictivo} (\textit{Precision}),  $$\text{PPV}=\ddfrac{\text{TP}}{\text{TP+FP}}.$$
+    \item \textbf{Tasa de falso descubrimiento}, $$\text{FDR}=1-\text{PPV}=\ddfrac{\text{FP}}{\text{TP+FP}}.$$
+    \item \textbf{Valor negativo predictivo}, $$\text{NPV}=\ddfrac{\text{TN}}{\text{TN+FN}}.$$
+    \item \textbf{Tasa de falsa omisión}, $$\text{FOR}=1-\text{NPV}=\ddfrac{\text{FN}}{\text{TN+FN}}.$$
+    \item \textbf{Exactitud} (\textit{Accuracy}), $$\text{Accuracy}=\ddfrac{\text{TP+TN}}{\text{TP+TN+FP+FN}}.$$
+\end{itemize}
 
 \clearpage
+
+Normalmente mediremos el rendimiento de un modelo con una de las métricas mencionadas o con una combinación de ambas. Una de las medidas de rendimiento más usadas es el valor positivo predictivo o precisión, que mide el porcentaje de predicciones correctas realizas. No obstante, existen problemas derivados de utilizar la precisión a la hora de medir el rendimiento cuando abordamos problemas que contienen desequilibrio entre las clases del conjunto de datos. Por ejemplo, si solo $5$ de cada $100$ muestras es positiva, el modelo trivial que siempre prediga la clase negativa tendrá una precisión del $95\%$.\\
 
 \begin{figure}[h]
 	\centering
