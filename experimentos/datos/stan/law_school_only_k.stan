@@ -2,7 +2,7 @@ data {
   int<lower = 0> N; // number of observations
   int<lower = 0> C; // number of covariates
   matrix[N, C]   A; // sensitive variables
-  real           UGPA[N]; // UGPA
+  real           GPA[N]; // GPA
   int            LSAT[N]; // LSAT
   
   real           b_G;
@@ -26,6 +26,6 @@ model {
   K ~ normal(0, 1);
 
   // have data about these
-  UGPA ~ normal(b_G + K * wK_G + A * wA_G, sigma_G); 
+  GPA ~ normal(b_G + K * wK_G + A * wA_G, sigma_G); 
   LSAT ~ poisson(exp(b_L + K * wK_L + A * wA_L)); 
 }

@@ -7,10 +7,10 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
-import pickle
-import statsmodels.api as sm
+#import pickle
+#import statsmodels.api as sm
 from sklearn.metrics import mean_squared_error
-from pathlib import Path
+#from pathlib import Path
 
 # Crea un diccionario compatible con pystan para el conjunto de datos y los atributos protegidos dados
 def create_pystan_dic(data, protected_attr):
@@ -18,9 +18,9 @@ def create_pystan_dic(data, protected_attr):
     dic_data['N'] = len(data)
     dic_data['C'] = len(protected_attr)
     dic_data['A'] = np.array(data[protected_attr])
-    dic_data['UGPA'] = list(data['UGPA'])
+    dic_data['GPA'] = list(data['UGPA'])
     dic_data['LSAT'] = list(data['LSAT'])
-    dic_data['ZFYA'] = list(data['ZFYA'])
+    dic_data['FYA'] = list(data['ZFYA'])
     return dic_data
 
 
@@ -51,19 +51,18 @@ def preprocess_data():
     # Creamos un diccionario compatible con pystan para los conjuntos creados anteriormente
     dic_train = create_pystan_dic(train, protected_attr)
     dic_test = create_pystan_dic(test, protected_attr)
-    dic_full = create_pystan_dic(dataset, protected_attr)
 
-    return dic_train, dic_test, dic_full
+    return dic_train, dic_test
 
     
 # Modelo Total: usa todos los atributos para la predicción
 def mod_full(dic_train, dic_test):
     # Construcción de los conjuntos de entrenamiento y tests para el modelo
-    x_train = np.hstack((dic_train['A'], np.array(dic_train['UGPA']).reshape(-1,1), 
+    x_train = np.hstack((dic_train['A'], np.array(dic_train['GPA']).reshape(-1,1), 
                          np.array(dic_train['LSAT']).reshape(-1,1)))
-    x_test = np.hstack((dic_test['A'], np.array(dic_test['UGPA']).reshape(-1,1), 
+    x_test = np.hstack((dic_test['A'], np.array(dic_test['GPA']).reshape(-1,1), 
                         np.array(dic_test['LSAT']).reshape(-1,1)))
-    y = dic_train['ZFYA']
+    y = dic_train['FYA']
 
     # Entrenamiento del modelo sobre el conjunto x_train
     lr_full = LinearRegression()
@@ -77,11 +76,11 @@ def mod_full(dic_train, dic_test):
 # Modelo equidad por desconocimiento: no usa los atributos sensibles en predicción
 def mod_unaware(dic_train, dic_test):
     # Construcción de los conjuntos de entrenamiento y tests para el modelo
-    x_train = np.hstack((np.array(dic_train['UGPA']).reshape(-1,1), 
+    x_train = np.hstack((np.array(dic_train['GPA']).reshape(-1,1), 
                          np.array(dic_train['LSAT']).reshape(-1,1)))
-    x_test = np.hstack((np.array(dic_test['UGPA']).reshape(-1,1), 
+    x_test = np.hstack((np.array(dic_test['GPA']).reshape(-1,1), 
                         np.array(dic_test['LSAT']).reshape(-1,1)))
-    y = dic_train['ZFYA']
+    y = dic_train['FYA']
     
     # Entrenamiento del modelo sobre el conjunto x_train
     lr_unaware = LinearRegression()
@@ -97,7 +96,7 @@ def mod_unaware(dic_train, dic_test):
 def get_useful_param(samples, dic):
     dic_data = {}
     # Añadimos los parámetros comunes que comparte con el diccionario original    
-    param_base = ['N', 'C', 'A', 'UGPA', 'LSAT']
+    param_base = ['N', 'C', 'A', 'GPA', 'LSAT']
     for param in param_base:
         dic_data[param] = dic[param]
         
@@ -142,7 +141,7 @@ def mod_fair_k(dic_train, dic_test):
     # Obtenemos los conjuntos dde entrenamiento y prueba con la nueva variable 'K'
     x_train = k_model(dic_train_post)
     x_test = k_model(dic_test_post)
-    y = dic_train['ZFYA']
+    y = dic_train['FYA']
     
     # Entrenamiento del modelo sobre el conjunto x_train
     lr_fair_k = LinearRegression()
@@ -153,42 +152,53 @@ def mod_fair_k(dic_train, dic_test):
 
     return preds
 
-# Modelo determinista: añadimos términos de error aditivos independientes de los atributos protegidos
-def mod_fair_add(dic_train, dic_test, dataset):
-    # Construimos el conjunto total
-    lr_eps_G = LinearRegression()
-    lr_eps_G.fit(dataset['A'], dataset['UGPA'])
-    eps_g_train = dic_train['UGPA'] - lr_eps_G.predict(dic_train['A'])
-    eps_g_test = dic_test['UGPA'] - lr_eps_G.predict(dic_test['A'])
+# Estima el error entrenando el modelo sobre el conjunto total de datos para una variable 
+# observada pasada por parámetro utilizando los atributos protegidos dados por 'A'
+def fit_eps(dic_train, dic_test, var):
+    # Reconstruimos el conjunto total para las variables que vamos a usar
+    data_a = np.vstack((dic_train['A'], dic_test['A']))
+    data_var = dic_train[var] + dic_test[var]
     
-    # abduct the epsilon_L values
-    lr_eps_l = LinearRegression()
-    lr_eps_l.fit(dataset['A'], dataset['LSAT'])
-    eps_l_train = dic_train['LSAT'] - lr_eps_l.predict(dic_train['A'])
-    eps_l_test = dic_test['LSAT'] - lr_eps_l.predict(dic_test['A'])
+    # Entrenamos un modelo para estimar el error para el parámetro var
+    lr_eps = LinearRegression()
+    lr_eps.fit(data_a, data_var)
+    
+    # Calculamos los residuos de cada modelo como eps_var = var - Ŷ_var(A)
+    eps_train = dic_train[var] - lr_eps.predict(dic_train['A'])
+    eps_test = dic_test[var] - lr_eps.predict(dic_test['A'])
+    
+    return eps_train, eps_test
 
-    # predict on target using abducted latents
+# Modelo determinista: añadimos términos de error aditivos independientes de los atributos protegidos
+def mod_fair_add(dic_train, dic_test):
+    # Estimamos el error para GPA
+    eps_train_G, eps_test_G = fit_eps(dic_train, dic_test, 'GPA')
+    # Estimamos el error para LSAT
+    eps_train_L, eps_test_L = fit_eps(dic_train, dic_test, 'LSAT')
+    y = dic_train['FYA']
+
+    # Entrenamiento del modelo usando los errores de train
     lr_fair_add =  LinearRegression()
-    lr_fair_add.fit(np.hstack((eps_g_train.reshape(-1,1),eps_l_train.reshape(-1,1))),dic_train['ZFYA'])
+    lr_fair_add.fit(np.hstack((eps_train_G.reshape(-1,1), eps_train_L.reshape(-1,1))), y)
 
-    # predict on test epsilons
-    preds = lr_fair_add.predict(np.hstack((eps_g_test.reshape(-1,1),eps_l_test.reshape(-1,1))))
+    # Predicción de las etiquetas usando los errores para test
+    preds = lr_fair_add.predict(np.hstack((eps_test_G.reshape(-1,1), eps_test_L.reshape(-1,1))))
 
     return preds
     
 if __name__ == '__main__':  
 
     # Obtiene en un diccionario el conjunto de datos y en una partición 80 (train) 20 (test)
-    dic_train, dic_test, data_full = preprocess_data()
+    dic_train, dic_test = preprocess_data()
 
     # Obtiene las predicciones para cada modelo
     preds_full = mod_full(dic_train, dic_test)
     preds_unaware = mod_unaware(dic_train, dic_test)
-    #preds_fair_k = mod_fair_k(dic_train, dic_test)
-    preds_fair_add = mod_fair_add(dic_train, dic_test, data_full)
+    preds_fair_k = mod_fair_k(dic_train, dic_test)
+    preds_fair_add = mod_fair_add(dic_train, dic_test)
 
     # Imprime las predicciones resultantes
-    print('Full: %.3f' % np.sqrt(mean_squared_error(preds_full, dic_test['ZFYA'])))
-    print('Unaware: %.3f' % np.sqrt(mean_squared_error(preds_unaware, dic_test['ZFYA'])))
-    #print('Fair K: %.3f' % np.sqrt(mean_squared_error(preds_fair_k, dic_test['ZFYA'])))
-    print('Fair Add: %.3f' % np.sqrt(mean_squared_error(preds_fair_add, dic_test['ZFYA'])))
+    print('Full: %.3f' % np.sqrt(mean_squared_error(preds_full, dic_test['FYA'])))
+    print('Unaware: %.3f' % np.sqrt(mean_squared_error(preds_unaware, dic_test['FYA'])))
+    print('Fair K: %.3f' % np.sqrt(mean_squared_error(preds_fair_k, dic_test['FYA'])))
+    print('Fair Add: %.3f' % np.sqrt(mean_squared_error(preds_fair_add, dic_test['FYA'])))
