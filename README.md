@@ -1,6 +1,7 @@
 # TFG-HGJAA
 
 Repository for my Bachelor's thesis about an experimental study of different counterfactual equity models. 
+
 I have made an implementation in Python, based on the models presented in Matt Kusner's paper.
 
 ## Descripción
