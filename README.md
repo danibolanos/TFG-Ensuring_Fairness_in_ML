@@ -3,11 +3,9 @@
 Repository for my Bachelor's thesis about an experimental study of different counterfactual equity models. 
 I have made an implementation in Python, based on the models presented in Matt Kusner's paper.
 
-Repositorio para el Trabajo Fin de Grado: Herramientas para Garantizar Justicia en Aprendizaje Automático.
-
 ## Descripción
 
-El TFG se propone como reto, tras un exhaustivo estudio de la bibliografía y las herramientas existentes sobre el tema, realizar un análisis comparativo en Python que incluya evaluaciones de justicia de todas las familias y visualizaciones para la interpretación de resultados y modelos.
+El TFG, Herramientas para Garantizar Justicia en Aprendizaje Automático, propone como reto, tras un exhaustivo estudio de la bibliografía y las herramientas existentes sobre el tema, realizar un análisis comparativo en Python que incluya evaluaciones de justicia de todas las familias y visualizaciones para la interpretación de resultados y modelos.
 
 Asimismo, este TFG analizará matemáticamente las definiciones de diversas medidas de equidad y justicia, demostrando sus propiedades, limitaciones y posibles incompatibilidades (teorema de imposibilidad de la equidad), explorando así mismo las diferentes opciones para mejorar los resultados obtenidos mediante un proceso de aprendizaje automático en los términos planteados previamente. 
 
