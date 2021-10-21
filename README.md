@@ -1,4 +1,4 @@
-# TFG - Herramientas para garantizar Justicia en AA
+# TFG - Tools to Guarantee Fairness in Machine Learning
 
 Repository for my Bachelor's thesis about an experimental study of different counterfactual equity models.
 
