@@ -1,8 +1,9 @@
 # TFG-HGJAA
-Repositorio para el Trabajo Fin de Grado: Herramientas para Garantizar Justicia en Aprendizaje Automático.
 
 Repository for my Bachelor's thesis about an experimental study of different counterfactual equity models. 
 I have made an implementation in Python, based on the models presented in Matt Kusner's paper.
+
+Repositorio para el Trabajo Fin de Grado: Herramientas para Garantizar Justicia en Aprendizaje Automático.
 
 ## Descripción
 
