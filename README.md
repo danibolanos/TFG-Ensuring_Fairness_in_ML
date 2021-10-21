@@ -1,4 +1,4 @@
-# TFG-HGJAA
+# TFG-Herramientas para garantizar Justicia en AA
 
 Repository for my Bachelor's thesis about an experimental study of different counterfactual equity models.
 
