@@ -1,10 +1,10 @@
 # TFG-HGJAA
 
-Repository for my Bachelor's thesis about an experimental study of different counterfactual equity models. I have made an implementation in Python, based on the models presented in Matt Kusner's paper.
+Repository for my Bachelor's thesis about an experimental study of different counterfactual equity models.
 
 ## Description
 
-My Bachelor's thesis, Herramientas para Garantizar Justicia en Aprendizaje Automático, proposes as a challenge, after an exhaustive study of the existing bibliography and tools on the subject, to carry out a comparative analysis in Python that includes fairness evaluations of all the families and visualisations for the interpretation of results and models.
+It proposes as a challenge, after an exhaustive study of the existing bibliography and tools on the subject, to carry out a comparative analysis in Python that includes fairness evaluations of all the families and visualisations for the interpretation of results and models.
 
 Likewise, this thesis will mathematically analyse the definitions of various measures of fairness and justice, demonstrating their properties, limitations and possible incompatibilities (impossibility theorem of fairness), exploring the different options for improving the results obtained by means of a process of machine learning in the terms previously proposed.
 
