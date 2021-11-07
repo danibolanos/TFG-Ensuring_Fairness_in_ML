@@ -26,10 +26,10 @@
 ]{doclicense}
 
 % Glossaries
-\usepackage[toc, nopostdot,  style=super, nonumberlist, section=chapter ]{glossaries}
-\newglossary{symbols}{sym}{sbl}{List of Abbreviations and Symbols}
-\makeglossaries
-\loadglsentries{bibliography/glossary}
+%\usepackage[toc, nopostdot,  style=super, nonumberlist, section=chapter ]{glossaries}
+%\newglossary{symbols}{sym}{sbl}{List of Abbreviations and Symbols}
+%\makeglossaries
+%\loadglsentries{bibliography/glossary}
 
 %------------------------
 % Estilos para los teoremas
@@ -107,9 +107,9 @@
 % frequentemente usados.
 \newcommand*\diff{\mathop{}\!\mathrm{d}}
 \newcommand\ddfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
-\providecommand{\abs}[1]{\left\lvert#1\right\rvert}   
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert} 
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
-\providecommand{\norminf}[1]{\left \| #1 \right \|_\infty} 
+\newcommand{\norminf}[1]{\left \| #1 \right \|_\infty} 
 \newcommand{\KN}{\mathbb K^{\mathbb N}}
 \newcommand{\RN}{\mathbb R^{\mathbb N}}
 \newcommand{\K}{\mathbb K}

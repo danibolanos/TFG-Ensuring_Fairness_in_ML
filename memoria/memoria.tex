@@ -124,13 +124,17 @@ The source code of this text and developed programs are available in the Github 
 
 \chapter{Introducción}
 
-Actualmente, los algoritmos de aprendizaje automático se utilizan en ámbitos diversos con un gran impacto en la sociedad, como son: el proceso de concesión de créditos bancarios (\cite{prestamo2018}), selección de personal para un puesto de trabajo (\cite{contratar2015}) o decisión de una condena en justicia penal (\cite{condena2016}). Estos ejemplos de aplicación son propensos a la discriminación, la cual está prohibida por la legislación internacional (\cite{ley1964}). Las causas de las disparidades en los sistemas de aprendizaje automático provienen esencialmente del sesgo humano que existe en los conjuntos de datos de entrenamiento debido a razones históricas. Algunas de las posibles causas (\cite{bigdata2016}) son:
+\section{Contexto histórico}
+
+Actualmente, los algoritmos de aprendizaje automático se utilizan en ámbitos diversos con un gran impacto en la sociedad, como son: el proceso de concesión de créditos bancarios (\cite{prestamo2018}), selección de personal para un puesto de trabajo (\cite{contratar2015}) o decisión de una condena en justicia penal (\cite{condena2016}). Estos ejemplos de aplicación son propensos a la discriminación, la cual está prohibida por la legislación internacional (\cite{ley1964}). 
+
+Las causas de las disparidades en los sistemas de aprendizaje automático provienen esencialmente del sesgo humano que existe en los conjuntos de datos de entrenamiento debido a razones históricas. Algunas de las posibles causas (\cite{bigdata2016}) son:
 
 \begin{itemize}
     \item Los sistemas de aprendizaje automático mantienen la discriminación existente en los datos antiguos debido al sesgo humano. Por ejemplo, si un sistema de contratación a la hora de seleccionar a los aspirantes al cargo utiliza como etiquetas de predicción las decisiones tomadas por un directivo en lugar de sus capacidades reales, en la mayoría de los casos se podrían rechazar candidatos con un alto nivel de rendimiento.
-    \item Normalmente la cantidad de ejemplos y la información que ofrecen sus características son menores para el grupo minoritario, por lo que es menos probable que se modelen correctamente con respecto a los individuos del grupo mayoritario. Esto tendrá desventajas a la hora de predecir sobre nuevos ejemplos del grupo desfavorecido.
-    \item Si ya existe un sesgo inicial, probablemente se agravará con el tiempo. Por ejemplo, en el registro policial de delitos solo constan delitos observados por la policía. El departamento de policía tiende a enviar más agentes a lugares donde se ha detectado una mayor tasa de delincuencia inicialmente y, por tanto, será más probable que se detecten delitos en esas regiones. 
-    \item Aunque los atributos sensibles no se utilicen en el entrenamiento de un sistema de aprendizaje automático, podrán existir atributos derivados de estos. Si se incluyen estas características, el sesgo seguirá presente. A veces, es muy difícil determinar si un atributo relevante está correlacionado con los atributos sensibles y si debemos incluirlo o no en el proceso de entrenamiento.
+    \item La cantidad de ejemplos y la información que ofrecen sus características normalmente son menores para el grupo minoritario, por lo que es menos probable que se modelen correctamente con respecto a los individuos del grupo mayoritario. Esto tendrá inconvenientes a la hora de predecir sobre nuevos ejemplos pertenecientes al grupo desfavorecido.
+    \item Aunque los atributos sensibles no se utilicen en el entrenamiento del modelo, podrán existir atributos derivados de estos, los cuales si se incluyen, mantendrán el sesgo en el conjunto. A veces, es muy difícil determinar si un atributo relevante está correlacionado con los atributos sensibles y si debemos incluirlo o no en el proceso de entrenamiento.
+    \item Si ya existe un sesgo inicial, probablemente se agravará con el tiempo. Por ejemplo, en el registro policial de delitos solo constan delitos observados por la policía. El departamento de policía tenderá entonces a enviar más agentes a lugares donde se ha detectado una mayor tasa de delincuencia en un inicio y por tanto, será más probable que se detecten delitos en esas regiones. 
 \end{itemize}
 
 Estos problemas han llevado al desarrollo de numerosas investigaciones sobre la equidad en el ámbito del aprendizaje automático, enfocadas en cómo surge la discriminación, cómo puede medirse y cómo puede mitigarse. El objetivo de la equidad será por tanto, diseñar algoritmos que hagan predicciones justas, evitando perjudicar a un determinado grupo de la población.
@@ -138,13 +142,11 @@ Estos problemas han llevado al desarrollo de numerosas investigaciones sobre la 
 A pesar de estos avances, en algunos escenarios, la discriminación en los modelos sigue siendo difícil de abordar y mucho más de entender debido principalmente a: 
 
 \begin{itemize}
-    \item Las aplicaciones generalmente actúan como modelos de caja negra en las cuales tenemos acceso restringido al clasificador por cuestiones de privacidad o derechos de propiedad intelectual de los datos utilizados (\cite{blackbox2014}). Por ejemplo, si estamos usando una API de predicción.
-	\item Los modelos se despliegan en una población dónde la distribución de los datos no refleja los patrones contenidos en los datos de entrenamiento (\cite{distributionmodel2017}). Por ejemplo, podrían aparecer diferencias entre los individuos del grupo debido a un cambio en la distribución de la población de interés.
+    \item Las aplicaciones generalmente actúan como modelos de caja negra en las cuales tenemos acceso restringido al clasificador por cuestiones de privacidad o derechos de propiedad intelectual de los datos utilizados (\cite{blackbox2014}).
+	\item Los modelos se despliegan sobre una población dónde la distribución de los datos no refleja los patrones contenidos en los datos de entrenamiento debido, por ejemplo, a un cambio en la distribución de la población de interés (\cite{distributionmodel2017}).
 \end{itemize}
 
-En este trabajo, estudiaremos cómo se formaliza el concepto de equidad en el ámbito del aprendizaje automático y presentaremos estas formalizaciones en las diferentes ramas de la ingeniería informática y las matemáticas. Las medidas de equidad parten de las ideas de justicia distributiva del ámbito de las ciencias sociales y, por ello, pueden aparecer conceptos que entren en conflicto con otros, por lo que las predicciones producidas por los algoritmos y modelos que las utilizan también diferirán enormemente. 
-
-Desde el punto de vista práctico, es importante estudiar estos criterios de equidad y sus implicaciones realizando un análisis teórico y empírico a partir de las nociones de la literatura de las ciencias sociales. Este análisis tendrá la intención de ayudar a determinar la bondad de las formalizaciones existentes y poder valorar las ventajas e inconvenientes de cada criterio con el objetivo de mejorar o construir nuevas formalizaciones de equidad en un futuro. 
+En este trabajo, estudiaremos cómo se formaliza el concepto de equidad en el ámbito del aprendizaje automático y presentaremos estas formalizaciones en las diferentes ramas de la ingeniería informática y las matemáticas. Desde el punto de vista práctico, es importante estudiar estos criterios de equidad y sus implicaciones realizando un análisis teórico y empírico a partir de las nociones de la literatura de las ciencias sociales. Este análisis tendrá la intención de ayudar a determinar la bondad de las formalizaciones existentes y poder valorar las ventajas e inconvenientes de cada criterio con el objetivo de mejorar o construir nuevas formalizaciones de equidad en un futuro. 
 
 \section{Análisis del problema}
 
@@ -177,33 +179,40 @@ Debido a la gran cantidad de opciones que se nos presentan, nos gustaría saber 
 
 \section{Objetivos del trabajo}
 
-Nuestro objetivo principal es hallar modelos en el ámbito del aprendizaje automático que tengan una buena relación equidad-precisión. Queremos encontrar una mitigación del sesgo que no aumente la complejidad de los modelos utilizados, no necesite conocimiento específico del dominio y tenga el menor número de limitaciones en su aplicación sobre problemas del mundo real.
-
-Abordaremos estas tareas realizando un análisis teórico de las nociones de equidad y de los algoritmos construidos en base a ellas. Estudiaremos qué criterios aportan más beneficios sobre un modelo de caja negra del que únicamente podamos conocer los datos antes o después de ser procesados, e indagaremos sobre los métodos de optimización de las nociones de justicia con el propósito de satisfacer la equidad en el modelo minimizando la pérdida de rendimiento del mismo.
+Nuestro objetivo principal será realizar un análisis teórico de las nociones de equidad y de los algoritmos construidos en base a ellas. Estudiaremos qué criterios aportan más beneficios sobre un modelo de caja negra del que únicamente podamos conocer los datos antes o después de ser procesados, e indagaremos sobre los métodos de optimización de las nociones de justicia con el propósito de satisfacer la equidad en el modelo minimizando la pérdida de rendimiento del mismo.
 
 Como resultado de los objetivos planteados, sugerimos una revisión bibliográfica exhaustiva
-de los métodos de mitigación del sesgo y de las medidas de equidad que se nos presentan en diferentes artículos como \cite{formalizing2018} o \cite{definitions2018}. Nos proponemos detallar las herramientas matemáticas que nos serán útiles para la formalización de las medidas de equidad, haciendo especial hincapié en la inferencia causal como base sobre la que se construye el modelo de equidad contrafactual que estudiaremos en este trabajo.
+de los métodos de mitigación del sesgo y de las medidas de equidad que se nos presentan en diferentes artículos como \cite{formalizing2018} o \cite{definitions2018}. Nos proponemos detallar las herramientas matemáticas que nos serán útiles para la formalización de las medidas de equidad, haciendo especial hincapié en la inferencia causal como base sobre la que se construye el modelo de equidad contrafactual que desarrollaremos en este trabajo.
 
-Finalmente realizaremos un análisis de la herramienta de software Aequitas (\cite{aequitas2019}) dedicado al estudio de equidad sobre problemas del mundo real. Haremos pruebas sobre un conjunto de datos y evaluaremos sus carencias respecto a la teoría. Además replicaremos un ejemplo utilizando la noción de equidad contrafactual (\cite{counterfactual2018}) en el lenguaje de programación Python y aportaremos herramientas de visualización para facilitar la interpretación de los resultados a otros investigadores o científicos de datos interesados en el tema.
+\clearpage
+
+En la práctica, realizaremos un análisis de la herramienta de software Aequitas (\cite{aequitas2019}) dedicada al estudio de la equidad sobre ejemplos del mundo real que pudiesen tener problemas de sesgo entre determinados grupos demográficos. Utilizaremos el software sobre un conjunto de datos de prueba y evaluaremos sus resultados. Además replicaremos un ejemplo basado en la noción de equidad contrafactual (\cite{counterfactual2018}) utilizando el lenguaje de programación Python. Extraeremos las conclusiones desde la perspectiva causal y los compararemos con los resultados obtenidos con Aequitas para el mismo conjunto de datos. Finalmente, aportaremos algunas gráficas para facilitar la interpretación de los resultados a otros investigadores o científicos de datos interesados en el tema
 
 \section{Contribuciones}
 
-En resumen, las contribuciones principales de este proyecto son:
+En resumen, las contribuciones principales de este trabajo son:
 
 \begin{itemize}
-    \item Discutir y formalizar las distintas familias de medidas de equidad y algoritmos de mitigación de sesgo de mayor interés en este ámbito.
+    \item Formalizar las distintas familias de medidas de equidad y analizar los algoritmos de mitigación de sesgo de mayor interés en este ámbito.
     \item Facilitar una demostración alternativa del teorema de imposibilidad para mostrar las incompatibilidades entre los diferentes criterios de equidad de grupo.
     \item Proporcionar un análisis empírico utilizando el software Aequitas para las evaluaciones de las medidas de justicia estudiadas teóricamente.
     \item Replicar un ejemplo del mundo real sobre un modelo causal en el lenguaje de programación Python basándonos en el concepto de equidad contrafactual, disponible en: \href{https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML.git}{danibolanos/TFG-Guarantee\_Fairness\_in\_ML}
     \item Implementar gráficas en Python para la interpretación de los resultados al aplicar las técnicas de equidad contrafactual.
-    \item \textcolor{red}{Comparar nociones de equidad/Esquema prototipo}.
 \end{itemize}
 
 \section{Esquema general}
 
-\textcolor{red}{Completar y revisar al final}
+En líneas generales, el trabajo desarrollado tiene la siguiente estructura:
 
-En la Sección , formalizaremos los conceptos de equidad para cada una de las familias propuestas por la literatura del aprendizaje automático. En la Sección $X$ discutiremos las limitaciones de algunos conceptos vistos en la sección anterior. En la Parte \ref{part:analisis_exp} crearemos y discutiremos herramientas para el análisis de los conceptos de equidad y analizaremos empíricamente cada concepto en base a herramientas de visualización de sus resultados. Por último, en la Parte \ref{part:debate_fut}, discutiremos diferentes vías para la formalización de conceptos de equidad futuros.
+\begin{itemize}
+    \item \textbf{PARTE} \ref{part:princbasic} - \textbf{Principios matemáticos básicos.} En esta parte se realizará un análisis básico de los fundamentos matemáticos utilizados a lo largo del trabajo con el objetivo de aportar una base al lector sin conocimientos previos en la materia. En el Capítulo \ref{ch:teoriaprob} definiremos resultados relativos a la teoría de probabilidad. En el Capítulo \ref{ch:disprob} presentaremos algunos ejemplos de distribuciones de probabilidad que nos serán útiles en el proyecto. En el Capítulo \ref{ch:estapar} haremos un repaso de las nociones básicas de la estadística paramétrica. Finalmente en el Capítulo \ref{ch:teorgraf} se introducirán algunos conceptos sobre teoría de grafos que servirán como base de la inferencia causal propuesta más adelante.\\
+    \item \textbf{PARTE} \ref{part:jusaa} - \textbf{Justicia en aprendizaje automático.} En esta parte se introducirán las herramientas necesarias para formalizar las diferentes medidas de equidad de la literatura de justicia en aprendizaje automático y se realizará un análisis de los algoritmos más populares relacionados con el tema. En el Capítulo \ref{ch:conceptosaa} haremos una introducción al aprendizaje automático presentando sus propiedades, técnicas de actuación y sus principales métricas de evaluación. En el Capítulo \ref{ch:formalmedeq} formalizaremos las medidas de equidad más populares de la literatura y estableceremos una subdivisión en familias. Finalmente en el Capítulo \ref{ch:algmitigar} clasificaremos los diferentes algoritmos de mitigación de sesgo y presentaremos algunos ejemplos de cada tipo.\\
+    \item \textbf{PARTE} \ref{part:fundamentoseqcontra} - \textbf{Fundamentos de la equidad contrafactual.} Esta parte tendrá como objetivo presentar el concepto de equidad contrafactual aportando tanto la base matemática en la que se fundamenta como las razones que motivan su construcción. En el Capítulo \ref{ch:inferenciacau} introduciremos la inferencia causal y definiremos los modelos y grafos causales como herramientas útiles para trabajar en este campo. En el Capítulo \ref{ch:teoremaimposibilidad} proporcionaremos una demostración alternativa del teorema de imposibilidad de la equidad, la cual será una de las razones principales que motiven la utilización de la equidad contrafactual frente al resto de medidas propuestas. Finalmente en el Capítulo \ref{ch:medidascausal} presentaremos el concepto de medidas causales y definiremos la equidad contrafactual como una subclase de las mismas a partir de la noción de contrafactual.\\
+    \item \textbf{PARTE} \ref{part:analisis_exp} - \textbf{Análisis experimental.} En esta parte se elaborará un ejemplo práctico en Python sobre la equidad contrafactual basado en el problema propuesto en \cite{counterfactual2018}. En el Capítulo \ref{ch:descdise} describiremos el problema y analizaremos los diferentes diseños de los modelos causales propuestos. Finalmente en el Capítulo \ref{ch:implementaresult} analizaremos el código de la solución propuesta, las condiciones de la experimentación y discutiremos los resultados obtenidos. Incluiremos también un manual paso a paso para reproducir el experimento.\\
+    \item \textbf{PARTE} \ref{part:debate_fut} - \textbf{Conclusiones y vías futuras.} En esta parte se analizarán las conclusiones generales extraídas del proyecto y se presentarán ideas futuras que puedan ser desarrolladas a partir de las conclusiones y el contexto inicial del trabajo. En el Capítulo \ref{ch:conclusion} haremos la conclusión del proyecto y en el Capítulo \ref{ch:trabajos_fut} analizaremos las vías futuras.\\
+    \item \textbf{APÉNDICES.} En el Apéndice \ref{ap:herr_just} introduciremos la herramienta Aequitas y comprobaremos su funcionamiento para las diferentes medidas de equidad de grupo estudiadas sobre varios conjuntos de datos. En el Apéndice \ref{ap:coste_plan} realizaremos una estimación de la planificación y coste del proyecto simulando su valoración en el ámbito laboral.\\
+    \item \textbf{BIBLIOGRAFÍA.} Recopilación de las distintas fuentes bibliográficas referidas a lo largo del trabajo.
+\end{itemize}
 
 \ctparttext{
   \color{black}
@@ -211,9 +220,9 @@ En la Sección , formalizaremos los conceptos de equidad para cada una de las fa
     Definiciones y resultados relativos a teoría de probabilidad, estadística y teoría de grafos.
   \end{center}
 }
-\part{Principios matemáticos básicos}
+\part{Principios matemáticos básicos} \label{part:princbasic}
 
-\chapter{Teoría de la Probabilidad}
+\chapter{Teoría de la Probabilidad} \label{ch:teoriaprob}
 
 En este capítulo incluiremos definiciones y resultados previos de la teoría de probabilidad que utilizaremos a lo largo del desarrollo del trabajo. La fuente principal utilizada en este capítulo parte del trabajo contenido en \cite{probability2014}.
 
@@ -462,7 +471,7 @@ y son \textit{idénticamente distribuidas}: $$F_{X_1}(x)=F_{X_i}(x), \ \text{par
 \end{definition}
 
 
-\chapter{Distribuciones de probabilidad}
+\chapter{Distribuciones de probabilidad} \label{ch:disprob}
 
 En este capítulo recordaremos algunos ejemplos de distribuciones de probabilidad que usaremos durante el desarrollo del trabajo y definiremos algunos conceptos matemáticos estadísticos previos a la construcción de las distribuciones. Utilizaremos como referencias bibliográficas a \cite{random2004} y \cite{probability2014}.
 
@@ -602,7 +611,7 @@ Las distribuciones pueden ser \textit{unimodales, bimodales} o \textit{multimoda
      \caption{Ejemplos de distribuciones de probabilidad.}
 \end{figure}
 
-\subsection{Distribución Bernoulli}
+\subsection*{Distribución Bernoulli}
 
 La \textit{distribución Bernoulli} es una distribución de probabilidad aplicada a una variable aleatoria discreta, la cual solo puede tomar dos resultados mutuamente excluyentes (éxito o fracaso).\\
 
@@ -627,7 +636,7 @@ Si $X \sim Bernoulli(p)$, entonces la variable aleatoria $X$ satisface las sigui
 
 \clearpage
 
-\subsection{Distribución de Poisson}
+\subsection*{Distribución de Poisson}
 
 La \textit{distribución de Poisson} es una distribución de probabilidad discreta que modela el número de sucesos raros que ocurren en un determinado periodo de tiempo.\\
 
@@ -701,7 +710,7 @@ Sea $Y$ el número de suspensos en 3 clases. Sabemos que: $$Y \sim Poisson(2.4\c
      \caption{Distribuciones calculadas en el Ejemplo \ref{ex:ejpoisson}.}
 \end{figure}
 
-\subsection{Distribución Normal}
+\subsection*{Distribución Normal}
 
 La \textit{distribución normal} o  \textit{distribución de Gauss} se utiliza para representar variables aleatorias de valor real cuyas distribuciones son desconocidas.\\
 
@@ -784,7 +793,7 @@ donde $\bm{\mu}\in \Rn$ y $\bm{\Sigma}\in \mathcal{M}(\R)$.
 
 Escribiremos la distribución como $\nm{X} \sim \mathcal{N}(\bm{\mu}, \bm{\Sigma})$, donde recordemos el parámetro $\bm{\mu}$ se refiere al vector de las medias de la distribución y $\bm{\Sigma}$ a la matriz de covarianzas.
 
-\subsection{Distribución Uniforme}
+\subsection*{Distribución Uniforme}
 
 \begin{definition}[Distribución uniforme discreta]
 Una variable aleatoria discreta $X$ con posibles valores $\{x_1,\dots,x_n\}$ diremos que sigue una \textit{distribución uniforme} si: $$P(X=x_i)=\frac{1}{n}, \ \text{para todo} \ i=1,\dots,n.$$
@@ -811,7 +820,7 @@ Si $X \sim U(a,b)$, entonces la variable aleatoria $X$ satisface las siguientes 
 \end{proposition}
 
 
-\subsection{Distribución Gamma}
+\subsection*{Distribución Gamma}
 
 \begin{definition}[Distribución gamma]
 Una variable aleatoria continua $X$ sigue una \textit{distribución gamma} de parámetros $\alpha$ y $\lambda$ si su función de densidad viene dada por: $$f(x)=\ddfrac{\lambda^{\alpha}x^{\alpha-1}e^{-\lambda x}}{\Gamma(\alpha)}.$$
@@ -832,7 +841,7 @@ Si $X \sim \Gamma(\alpha,\lambda)$, entonces la variable aleatoria $X$ satisface
 Una variable aleatoria continua $X$ sigue una \textit{distribución gamma inversa} de parámetros $\alpha$ y $\lambda$ si su función de densidad viene dada por: $$f(x)=\ddfrac{\lambda^\alpha x^{-(\alpha+1)} e^{\frac{-\lambda}{x}}}{\Gamma(\alpha)}.$$
 \end{definition}
 
-\chapter{Estadística paramétrica}
+\chapter{Estadística paramétrica} \label{ch:estapar}
 
 La \textit{estadística paramétrica} es una rama de la inferencia estadística que comprende los procedimientos estadísticos y de decisión basados en distribuciones conocidas que vienen determinadas por un número finito de parámetros. En este capítulo definiremos algunos conceptos de este campo de la estadística que utilizaremos a lo largo del trabajo y que es tratado en mayor profundidad en \cite{inferencia2012}.\\
 
@@ -1033,7 +1042,7 @@ Estas medidas de evaluación pueden particularizarse para modelos de predicción
 Sea $\hat{\nm{y}}$ un vector de $n$ predicciones e $\nm{y}$ el vector con las etiquetas reales de las mismas, entonces podemos calcular las medidas de de evaluación anteriores como: $$\text{ECM}=\frac{1}{n}\sum_{i=1}^n (\hat{y}_i-y_i)^2.$$ $$\text{RMSE}=\sqrt{\text{ECM}}=\sqrt{\frac{1}{n}\sum_{i=1}^n (\hat{y}_i-y_i)^2}.$$
 \end{proposition}
 
-\chapter{Teoría de grafos}
+\chapter{Teoría de grafos} \label{ch:teorgraf}
 
 En esta capítulo incluiremos algunos conceptos fundamentales que nos serán útiles en la construcción de los modelos causales que funcionan como base del concepto de equidad contrafactual que trataremos a lo largo del trabajo. La referencia básica de este capítulo es el libro de \cite{graphtheory2001}.
 
@@ -1188,10 +1197,10 @@ Para comprender las definiciones anteriores, definiremos los conjuntos de padres
 \ctparttext{\color{black}\begin{center}
 Conceptos básicos del aprendizaje automático, formalización de las medidas de equidad y definición de los principales algoritmos de mitigación del sesgo.
 \end{center}}
-\part{Justicia en Aprendizaje Automático}
+\part{Justicia en Aprendizaje Automático} \label{part:jusaa}
 
 
-\chapter{Conceptos básicos del Aprendizaje Automático}
+\chapter{Conceptos básicos del Aprendizaje Automático} \label{ch:conceptosaa}
 
 En este capítulo presentaremos algunos conceptos básicos del aprendizaje automático. Definiremos el concepto de aprendizaje supervisado, discutiremos el proceso de creación de modelos predictivos a partir de un conjunto de datos dado y comentaremos las medidas básicas de evaluación de un modelo de clasificación.
 
@@ -1203,9 +1212,7 @@ El \textit{aprendizaje automático} o \textit{machine learning} se encarga de ex
 
 A grandes rasgos, consideramos tres tipos de algoritmos de aprendizaje automático: los de aprendizaje supervisado que actúan sobre datos etiquetados, los de aprendizaje no supervisado que actúan sobre datos no etiquetados y los de aprendizaje por refuerzo que actúan en un entorno de ensayo-error. Nos centraremos en el entorno de \textit{aprendizaje supervisado}, ya que nuestro trabajo utilizará algoritmos de este tipo. 
 
-\subsection{Aprendizaje supervisado}
-
-\label{subsec:ejemplobanco}
+\subsection{Aprendizaje supervisado} \label{subsec:ejemplobanco}
 
 Definiremos los componentes del aprendizaje a partir de un ejemplo real: la aprobación de un crédito bancario. En principio, el banco no conoce ninguna fórmula ideal que pueda decirle cuando debe aprobar un crédito. El banco utilizará los registros de los clientes anteriores para aprender sobre ellos y encontrar una buena fórmula para la aprobación de las nuevas peticiones de créditos. Cada registro de clientes tiene información relativa al mismo, como pueden ser salario anual, años de residencia, préstamos pendientes, etc. También registra si la aprobación del crédito para ese cliente fue una buena idea, es decir, si le proporcionó o no beneficios a la entidad financiera. Estos datos serán los que guíen la construcción de una fórmula de éxito para la aprobación del crédito que podrá utilizarse con futuros solicitantes.
 
@@ -1494,9 +1501,7 @@ El área bajo la curva ROC (AUC) se interpreta como la probabilidad de que el mo
 
 
 
-\chapter{Formalización de las Medidas de equidad}
-
-\label{ch:formalmedeq}
+\chapter{Formalización de las Medidas de equidad} \label{ch:formalmedeq}
 
 En este capítulo presentaremos el concepto de equidad, realizaremos un análisis de las distintas nociones de equidad conocidas y formalizaremos sus definiciones.
 
@@ -1614,7 +1619,8 @@ Imaginemos tres candidatos a un puesto de trabajo, $A$, $B$ y $C$. $A$ tiene ún
 En este ejemplo podemos observar los problemas de la equidad individual comentados anteriormente y cómo dependen directamente de la construcción de la métrica de distancia entre individuos.
 \end{example}
 
-\section{Equidad de grupo}
+\section{Equidad de grupo} 
+\label{sec:groupmetrics}
 
 La \textit{equidad de grupo} mide el impacto dispar entre grupos desfavorecidos y privilegiados, como podrían ser grupos de diferentes razas, edad o género.
 
@@ -1663,8 +1669,6 @@ tanto, no requieren del valor de la etiqueta $Y$. Definimos las métricas de dis
 
 \subsection*{Métricas de grupo basadas en la etiqueta real}
 
-\label{subsec:groupmetrics}
-
 A continuación, discutiremos diferentes métricas que surgen dependiendo de la coincidencia o no entre los valores de predicción y, en este caso, de la etiqueta real $Y$. La mayoría de ellas, ya fueron presentadas en la Sección \ref{sec:evalaa}. Las métricas de grupo basadas en los errores y aciertos son las siguientes:
 
 \begin{itemize} 
@@ -1707,13 +1711,12 @@ Sea $A \in \mathcal{A}$ un atributo sensible multivaluado y $g\colon \mathcal{X}
 
 \subsection*{Relajaciones y aproximaciones}
 
-Podemos \textit{relajar} el concepto de paridad demográfica suponiendo que $\hat{Y}=1$ y aproximando su definición con una acotación en valor absoluto de las probabilidades a partir una constante fijada $\epsilon \in (0,1]$, donde $\epsilon=\frac{p}{100}$ para que se satisfaga la ''regla $p$'' (\cite{constraints2017}). De esta manera, aproximamos este criterio de equidad como: 
-
+Podemos \textit{relajar} el concepto de paridad demográfica suponiendo que $\hat{Y}=1$ y aproximando su definición con una acotación en valor absoluto de las probabilidades (\cite{constraints2017}) a partir una constante fijada $\tau \in (0,1]$. De esta manera, aproximamos este criterio de equidad como: 
 \begin{equation*}
-\abs{P(\hat{Y}=1 \mid A=a_r)-P(\hat{Y}=1 \mid A=a_o)} \leq \epsilon.
+\abs{P(\hat{Y}=1 \mid A=a_r)-P(\hat{Y}=1 \mid A=a_o)} \leq \tau.
 \end{equation*}
 
-Tomando un $\epsilon \in (0,1]$ también podemos aproximar el concepto de paridad demográfica de la siguiente manera:
+Tomando un $\epsilon \in [0,1)$ también podemos aproximar el concepto de paridad demográfica de la siguiente manera:
 \begin{equation}\label{eq:p}
    1-\epsilon \leq \ddfrac{P(\hat{Y}=1 \mid A=a_o)}{P(\hat{Y}=1 \mid A=a_r)}. 
 \end{equation}
@@ -1791,9 +1794,7 @@ Consideremos un sistema de contratación y dos grupos de igual tamaño, $A$ y $B
 En este ejemplo podemos observar que la igualdad de oportunidades no ayuda a cerrar la brecha entre los dos grupos, es más la brecha entre el grupo $A$ y el grupo $B$, tenderá a ampliarse con el tiempo. 
 \end{example}
 
-\subsection{Tasa de paridad predictiva}
-
-\label{subsec:suficiencia}
+\subsection{Tasa de paridad predictiva} \label{subsec:suficiencia}
 
 La \textit{tasa de paridad predictiva}, también denominada \textit{suficiencia} surge de una motivación equivalente a la del criterio de las probabilidades igualadas. El concepto se define de igual manera haciendo uso de la independencia condicional, pero cambiando los papeles de $\hat{Y}$ e $Y$. \\
 
@@ -1834,7 +1835,7 @@ en los problemas del mundo real es casi imposible cumplir el equilibrio simultá
 
 \subsection{Igualdad de las métricas de predicción}
 
-Como hemos podido observar, en general, la mayoría de los criterios de equidad definidos surgen como una igualación de las métricas de grupo presentadas en el Apartado \ref{subsec:groupmetrics}. De esta forma podemos definir, un nuevo criterio para cada métrica de la siguiente forma.\\
+Como hemos podido observar, en general, la mayoría de los criterios de equidad definidos surgen como una igualación de las métricas de grupo presentadas al inicio de la Sección \ref{sec:groupmetrics}. De esta forma podemos definir, un nuevo criterio para cada métrica de la siguiente forma.\\
 
 \begin{definition}[Paridad métrica]\label{def:parmetr}
 Sea $A \in \mathcal{A}$ un atributo sensible multivaluado y $g\colon \mathcal{X} \to \mathcal{Y}$ un clasificador arbitrario. Se dice que $g$ cumple con la \textit{paridad métrica} si, y solo si, $$\text{Métrica}_{a_r}=\text{Métrica}_{a_o}.$$
@@ -1843,14 +1844,14 @@ Donde Métrica podrá ser cualquier métrica de grupo definida previamente.
 
 Aunque esta definición nos permite crear una gran variedad de criterios de equidad, la formulación a partir de una igualdad sigue siendo difícil a la hora de aplicarla en la práctica. 
 
-\subsection{Impacto desigual}
+\subsection{Impacto desigual} \label{subsec:impactdesi}
 
 Para facilitar la implementación práctica de las medidas anteriores, aparece el término \textit{impacto desigual} (no confundir con el término impacto dispar definido en el Cuadro \ref{tab:table1}) como una aproximación más de la paridad demográfica. Esta noción está directamente relacionada con la ''regla $p$'', antes mencionada, y que podemos encontrar en la literatura jurídica (\cite{prule2018}), según la cual una decisión es discriminatoria si el coeficiente del impacto desigual es inferior a un valor $p$.\\
 
 \begin{definition}(Impacto desigual) \label{def:mdi}
 Sea $A \in \mathcal{A}$ un atributo sensible multivaluado, $g\colon \mathcal{X} \to \mathcal{Y}$ un clasificador arbitrario y $p\in (0,1]$. Se dice que $g$ satisface el \textit{impacto desigual} si, y solo si,
 \begin{equation} \label{eq:1p}
-    \ddfrac{P(\hat{Y}=1 \mid A=a_o)}{P(\hat{Y}=1 \mid A=a_r)}\leq p.
+    \ddfrac{P(\hat{Y}=1 \mid A=a_o)}{P(\hat{Y}=1 \mid A=a_r)}\leq \frac{1}{p}.
 \end{equation}
 \end{definition}\
 
@@ -1858,32 +1859,32 @@ En el mundo real, si un clasificador aplicado a una tarea en una empresa satisfa
 
 \subsection*{Construcción de otras medidas en la práctica}
 
-Combinando las acotaciones de las Ecuaciones (\ref{eq:1p}) y (\ref{eq:p}), obtenemos un criterio de equidad popularmente utilizado, en concreto por el software de Aequitas (\cite{aequitas2019}). Además esta formalización también puede extenderse a cualquier métrica de grupo de las explicadas en el Apartado \ref{subsec:groupmetrics}.
+Combinando las acotaciones de las Ecuaciones (\ref{eq:1p}) y (\ref{eq:p}), obtenemos un criterio de equidad popularmente utilizado, en concreto por el software de Aequitas (\cite{aequitas2019}). Además esta formalización también puede extenderse a cualquier métrica de grupo de las explicadas en la Sección \ref{sec:groupmetrics}.
 
 Podemos, por ejemplo, definir la tasa de falsas omisiones (FOR) como:
 
 \begin{equation*} 
-\text{Métrica FOR}_G =\frac{\text{FOR}{a_o}}{\text{FOR}{a_r}}=\frac{P(Y=1 \mid A=a_o, \hat{Y}=-1)}{P(Y=1 \mid A=a_r, \hat{Y}=-1)}.
+\text{Métrica FOR}_{G(a_o)} =\frac{\text{FOR}{a_o}}{\text{FOR}{a_r}}=\frac{P(Y=1 \mid A=a_o, \hat{Y}=-1)}{P(Y=1 \mid A=a_r, \hat{Y}=-1)}.
 \end{equation*}
 
 Aequitas utiliza la tasa de positivos predichos (PPR) para aproximar el concepto de paridad demográfica. Además, usando la prevalencia predicha (PPrev), observamos que la métrica generada es equivalente a la Definición \ref{def:mdi} y por tanto al concepto de paridad de impacto.
 
 \begin{equation*} 
-\text{Métrica PPrev}_G=\frac{\text{PPrev}{a_o}}{\text{PPrev}{a_r}}=\frac{P(\hat{Y}=1 \mid A=a_o)}{P(\hat{Y}=1 \mid A=a_r)}.
+\text{Métrica PPrev}_{G(a_o)}=\frac{\text{PPrev}{a_o}}{\text{PPrev}{a_r}}=\frac{P(\hat{Y}=1 \mid A=a_o)}{P(\hat{Y}=1 \mid A=a_r)}.
 \end{equation*}
 
-La formulación aportada por Aequitas se basa en calcular la fracción de la métrica de grupo elegida y una vez calculada, comprobar si se encuentra dentro de un rango definido. Tomando $p=\frac{1}{1-\epsilon}$, obtenemos la acotación que define el rango. La pertenencia o no al rango es una aproximación a la igualación de las métricas en la Definición \ref{def:parmetr}.
+La formulación aportada por Aequitas se basa en calcular la fracción de la métrica de grupo elegida y una vez calculada, comprobar si se encuentra dentro de un rango definido. Tomando $p=1-\epsilon$, obtenemos la acotación que define el rango. La pertenencia o no al rango es una aproximación a la igualación de las métricas en la Definición \ref{def:parmetr}.
 
 \begin{equation}
 1-\epsilon \leq \text{Métrica de disparidad}_{G} \leq \frac{1}{1-\epsilon}.
 \end{equation}
 
 Usamos $\epsilon \in
-(0,1]$ para controlar el rango de valores de disparidad que pueden considerarse justos. Para aplicar la regla del 80\%, simplemente bastaría con tomar $1-\epsilon=0,8$. Diremos que un clasificador será tan justo como lo permita el valor máximo del sesgo entre los grupos definidos por $A$. 
+[0,1)$ para controlar el rango de valores de disparidad que pueden considerarse justos. Para aplicar la regla del 80\%, simplemente bastaría con tomar $1-\epsilon=0,8$. Diremos que un clasificador será tan justo como lo permita el valor máximo del sesgo entre los grupos definidos por $A$. 
 
 Usaremos unas métricas u otras en función del impacto y el objetivo que quiera intervenir el usuario. Si las intervenciones pueden perjudicar a los individuos (punitivas), entonces querremos minimizar los falsos positivos (centrándonos en la Tasa de Falsos Descubrimientos (FDR) o la Tasa de Falsos Positivos (FPR)). Si por otro lado, tienen como objetivo beneficiar a los individuos (asistenciales), deberíamos preocuparnos más por los falsos negativos (centrándonos en la Tasa de Falsa Omisión (FOR) o la Tasa de Falsos Negativos (FNR)).
 
-\chapter{Algoritmos de mitigación de sesgo}
+\chapter{Algoritmos de mitigación de sesgo} \label{ch:algmitigar}
 
 En este capítulo discutiremos los diferentes algoritmos existentes para la mitigación del sesgo, daremos algunos ejemplos específicos de los aportados en la bibliografía y comentaremos sus características más relevantes.
 
@@ -2145,9 +2146,9 @@ En el artículo presentado por \cite{woodworth2017} se amplía el trabajo de \ci
 \ctparttext{\color{black}\begin{center}
 Discusión sobre la inferencia causal, el cálculo de contrafactuales y el teorema de incompatibilidad como fundamentos matemáticos de la equidad contrafactual.
 \end{center}}
-\part{Fundamentos de la equidad contrafactual}
+\part{Fundamentos de la equidad contrafactual} \label{part:fundamentoseqcontra}
 
-\chapter{Inferencia causal}
+\chapter{Inferencia causal} \label{ch:inferenciacau}
 
 En este capítulo formalizaremos algunos conceptos básicos para desarrollar la teoría relativa a la causalidad en el ámbito de la equidad. Además, introduciremos los grafos como herramienta para describir los modelos causales explicados, así como los efectos que tienen estos modelos en las poblaciones donde se aplican.
 
@@ -2157,9 +2158,7 @@ Elegiremos los \textit{modelos causales estructurales} aprovechando que pueden o
 
 Imaginemos que en lugar de muestras de una distribución, tenemos un programa informático que genera muestras a partir de una semilla aleatoria. El código de este programa, partiría de una semilla aleatoria simple e iría construyendo muestras cada vez más complejas. Esta idea es la misma que utiliza un modelo causal estructural cambiando la sintaxis de programación por lenguaje matemático.
 
-\subsection{Ejemplo: Construcción de un modelo causal}
-
-\label{subsec:sobrepeso}
+\subsection{Ejemplo: Construcción de un modelo causal} \label{subsec:sobrepeso}
 
 Supongamos una población en la que un individuo hace ejercicio regularmente con una probabilidad de $\frac{1}{2}$. Con una probabilidad de $\frac{1}{3}$, el individuo tiene predisposición a desarrollar sobrepeso en ausencia de ejercicio regular. Del mismo modo, en ausencia de ejercicio, la aparición de una enfermedad cardíaca puede aparecer con una probabilidad de $\frac{1}{3}$. Denotaremos por $X$ el indicador de ejercicio regular, por $Y$ el de exceso de peso, y por $Z$ el indicador de la enfermedad cardíaca. A continuación, construiremos un modelo causal estructural para generar muestras de esta población hipotética (\cite{fairnesslearning2019}).
 
@@ -2216,7 +2215,7 @@ Un \textit{modelo causal estructural} $M$ se define como una tupla $(U,V,F)$ de 
 \begin{itemize}
     \item $U$ es un conjunto de variables aleatorias de ruido, las cuales deben ser conjuntamente independientes. Corresponden a factores no causados por ninguna variable del conjunto $V$ de variables observadas.
     \item $F$ es un conjunto de funciones $\{f_1,\dots,f_n\}$, una para cada $V_i\in V$, tal que, $$V_i=f_i(pa_i,U_i), \ \text{para todo} \ i=1,\dots,n.$$
-    donde $pa_i \subseteq V \setminus \{V_i\}$ y $U_i \subseteq U$. Estas ecuaciones también son conocidas como ecuaciones estructurales.
+    donde $pa_i \subseteq V \setminus \{V_i\}$ y $U_i \subseteq U$. Estas ecuaciones también son conocidas como \textit{ecuaciones estructurales}.
 \end{itemize}
 \end{definition}\
 
@@ -2483,9 +2482,7 @@ La Figura \ref{fig:unobserved} muestra dos casos de confusión no observada. En 
 
 Cabe destacar que podemos combatir la confusión no observada aumentando el número de variables consideradas, pero esto aumentaría progresivamente la complejidad de nuestro modelo causal. En la práctica, es habitual controlar el mayor número posible de variables con el objetivo de eliminar el sesgo de confusión. Sin embargo, como hemos visto, el control de mediadores y \textit{colliders} podría ser problemático en la resolución de nuestro problema.
 
-\chapter{Teorema de imposibilidad de la equidad}
-
-\label{ch:teoremaimposibilidad}
+\chapter{Teorema de imposibilidad de la equidad} \label{ch:teoremaimposibilidad}
 
 En este capítulo se propondrá una demostración del teorema de imposibilidad de equidad. Este enunciado surge como una formalización de la \textit{incompatibilidad} entre los criterios de paridad demográfica, probabilidades igualadas y tasa de paridad predictiva.
 
@@ -2752,12 +2749,95 @@ Consideremos un problema de clasificación binaria con una tasa de falsos positi
 Bajo las hipótesis del teorema, aplicamos los Lemas \ref{lem:demopred}, \ref{lem:demoigu} y \ref{lem:preigual}.
 \end{proof}
 
-Podemos consultar una versión diferente de la demostración del Teorema \ref{th:teoimpos} desde la perspectiva de la inferencia causal en el artículo propuesto por \cite{impossibilityth2021}.
+\section{Perspectiva causal}
 
-\textcolor{red}{Añadir si hay tiempo los criterios de mejora que propone Saravakumar}
+Podemos consultar una versión diferente de la demostración del Teorema \ref{th:teoimpos} desde la perspectiva de la inferencia causal en el artículo propuesto por \cite{impossibilityth2021}. Además, el artículo presenta una propuesta teórica de corrección de los datos de entrenamiento con el objetivo de mitigar el sesgo presente en el mismo y ajustarlo a las nociones de equidad actuales que pudiesen cambiar con el tiempo.\\
 
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+  node distance=1cm and 1cm,
+  mynode/.style={draw,circle, minimum width=1.2cm},
+]
+\node[mynode] (z) {$Y$};
+\node[mynode,right=of z] (x) {$\hat{Y}$};
+\node[mynode,below=of z] (y) {$A$};
+\node[mynode,below=of x] (w) {$C$};
+\node[mynode,right=of w, fill={rgb:black,1;white,2}] (e) {$U_C$};
+\draw[-latex] (z) -- (x);
+\draw[-latex] (y) -- (z);
+\draw[-latex] (w) -- (x);
+\draw[-latex] (e) -- (w);
+\draw[-latex] (y) -- (w);
+\end{tikzpicture}
+\caption{Diagrama causal con la variable de corrección.}
+\label{fig:varcorrect}
+\end{figure}
 
-\chapter{Medidas causales}
+El diagrama causal para el proceso de generación de datos puede representarse entonces, como podemos observar en la Figura \ref{fig:varcorrect}, introduciendo una variable de corrección $C$ que determinará si la información de la etiqueta verdadera $Y$ debe propagarse a la predicción $\hat{Y}$ o no. 
+
+La variable de corrección se define como una función dependiente del atributo sensible ($C \not\perp A$) pero que no permite el paso de la información de $A$ a través de ella. Por otro lado, el flujo de información de $Y$ a $\hat{Y}$ no tiene que estar necesariamente bloqueado para el grupo favorecido, esto es deseable si queremos evitar el sesgo sobre el grupo marginado.\\
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+  node distance=1cm and 1cm,
+  mynode/.style={draw,circle, minimum width=1.4cm},
+]
+\node[mynode, fill={rgb:green,1;white,3}] (z) {$Y$};
+\node[mynode,right=of z, fill={rgb:red,1;white,3}] (x) {$\hat{Y}$};
+\node[mynode,below=of z] (y) {$A$};
+\node[mynode,below=of x, font=\small] (w) {$C=0$};
+\node[mynode,right=of w, fill={rgb:black,1;white,2}] (e) {$U_C$};
+\node[mynode,right=of e] (f) {$A$};
+\node[mynode,right=of f, font=\small] (g) {$C=1$};
+\node[mynode,right=of g, fill={rgb:black,1;white,2}] (h) {$U_C$};
+\node[mynode,above=of g, fill={rgb:green,1;white,3}] (i) {$\hat{Y}$};
+\node[mynode,above=of f, fill={rgb:green,1;white,3}] (j) {$Y$};
+\draw[-latex] (z) -- (x);
+\draw[-latex] (y) -- (z);
+\draw[-latex] (w) -- (x);
+\draw[-latex] (e) -- (w);
+\draw[-latex] (y) -- (w);
+\draw[latex-] (j) -- (f);
+\draw[latex-] (g) -- (f);
+\draw[latex-] (g) -- (h);
+\draw[-latex] (g) -- (i);
+\draw[latex-] (g) -- (h);
+\draw[-latex] (j) -- (i);
+\draw (0.8,-0.5) -- (1.5,0.5);
+\end{tikzpicture}
+\caption{Efecto de la variable de corrección.}
+\label{fig:effectcorrec}
+\end{figure}\
+
+\begin{proposition} 
+Sea $g$ un clasificador arbitrario y $U_C$ una variable de ruido para la variable de corrección $C$. Redefinimos la ecuación estructural de $\hat{Y}$ como:
+\begin{equation*}
+\begin{split}
+    f_C &= A \oplus U_C \\
+    \hat{Y} &= \left \{
+\begin{array}{l l}
+g(y), & \mbox{si } C = 1, \\
+g(a), & \mbox{si } C =0.
+\end{array}
+\right.
+\end{split}
+\end{equation*}
+\label{prop:correccion}
+\end{proposition}\
+
+La Proposición \ref{prop:correccion} propone la utilización de una corrección del sesgo eligiendo el grado de desviación de la dependencia de los datos de $Y$. De esta forma, la probabilidad con la que $U_C$ toma el valor 0 o 1 puede ser interpretada como un hiperparámetro ajustable con el objetivo de reflejar cómo de injustos son los datos y cuánta desviación respecto de los datos históricos se desea alcanzar en el clasificador desarrollado.
+
+Dada esta nueva aproximación, las nociones de paridad demográfica y el criterio de probabilidades igualadas podrían ser satisfechas conjuntamente ajustando el hiperparámetro $U_C$. Obteniendo las siguientes ecuaciones de equidad modificadas:
+\begin{equation*}
+    \begin{split}
+        \hat{Y} &\perp A \mid (C=0)\\
+        \hat{Y} &\perp A \mid Y,C.
+    \end{split}
+\end{equation*}
+
+\chapter{Medidas causales} \label{ch:medidascausal}
 
 En este capítulo realizaremos un estudio del modelo contrafactual y cómo sirve de base para diferentes medidas causales, en particular para la equidad contrafactual que discutiremos más detalladamente. 
 
@@ -2937,9 +3017,7 @@ Elaboración de un ejemplo práctico sobre la equidad contrafactual y su discusi
 \part{Análisis experimental}  \label{part:analisis_exp}
 
 
-\chapter{Descripción y diseño}
-
-\label{ch:descdise}
+\chapter{Descripción y diseño} \label{ch:descdise}
 
 En este capítulo se describirá un problema real de justicia en el ámbito de la educación y se propondrán varios diseños de modelos causales que puedan ser tratados por un algoritmo de equidad contrafactual con el objetivo de eliminar el tratamiento dispar en el problema.
 
@@ -2949,7 +3027,9 @@ En este capítulo se describirá un problema real de justicia en el ámbito de l
 
 El algoritmo propuesto por \cite{counterfactual2018} parte de la necesidad de relacionar $\hat{Y}$ con $Y$. Para ello restringiremos $\hat{Y}$ para que funcione como una función parametrizada de los nodos no descendientes de $A$ apoyándonos en el Lema \ref{lem:nodescent}. 
 
-Calculemos la predicción $\hat{Y}$ a partir de un clasificador parametrizado por $\btheta$ al que denominaremos como $g_{\btheta}(U,X_{\not \succ A})$, donde $X_{\not \succ A} \subseteq X$ denota el conjunto de no descendientes de $A$. Dada una función de pérdida $l(\cdot,\cdot)$ (\textit{squared} o \textit{logistic loss}) y un conjunto de datos $\mathcal{D}=\{(A^{(i)},X^{(i)},Y^{(i)}) \ : \ i=1,\dots,n\}$. Definimos $L(\btheta)=\displaystyle \frac{1}{n} \sum_{i=1}^n \mathbb{E}[l(y^{(i')},g_{\btheta}(U^{(i')},x_{\not \succ A}^{(i')}))\mid x^{(i)},a^{(i)}]$ como la pérdida empírica al minimizar sobre $\btheta$. Cada esperanza es respecto a la variable $U^{(i)} \sim P_{\mathcal{M}}(U \mid x^{(i)},a^{(i)})$ donde $P_{\mathcal{M}}(U \mid x,a)$ es la distribución condicional de las variables de ruido dada por el modelo causal $\mathcal{M}$. En tiempo de predicción, crearemos una nueva variable $\tilde{Y}=\mathbb{E}[\hat{Y}(U^\ast,x_{\not \succ A}^\ast)\mid x^\ast, a^\ast]$ para un nuevo elemento del conjunto de datos $(a^\ast,x^\ast)$. 
+Calculemos la predicción $\hat{Y}$ a partir de un clasificador parametrizado por $\btheta$ al que denominaremos como $g_{\btheta}(U,X_{\not \succ A})$, donde $X_{\not \succ A} \subseteq X$ denota el conjunto de no descendientes de $A$. Dada una función de pérdida $l(\cdot,\cdot)$ (\textit{squared} o \textit{logistic loss}) y un conjunto de datos $\mathcal{D}=\{(A^{(i)},X^{(i)},Y^{(i)}) \ : \ i=1,\dots,n\}$. 
+
+Definimos $L(\btheta)=\displaystyle \frac{1}{n} \sum_{i=1}^n \mathbb{E}[l(y^{(i')},g_{\btheta}(U^{(i')},x_{\not \succ A}^{(i')}))\mid x^{(i)},a^{(i)}]$ como la pérdida empírica al minimizar sobre $\btheta$. Cada esperanza es respecto a la variable $U^{(i)} \sim P_{\mathcal{M}}(U \mid x^{(i)},a^{(i)})$ donde $P_{\mathcal{M}}(U \mid x,a)$ es la distribución condicional de las variables de ruido dada por el modelo causal $\mathcal{M}$. En tiempo de predicción, crearemos una nueva variable $\tilde{Y}=\mathbb{E}[\hat{Y}(U^\ast,x_{\not \succ A}^\ast)\mid x^\ast, a^\ast]$ para un nuevo elemento del conjunto de datos $(a^\ast,x^\ast)$. 
 
 Para calcular la esperanza, utilizaremos el \textit{método de Monte Carlo basado en cadenas de Markov} (MCMC) para aproximarla (\cite{mcmc2003}). Los métodos MCMC son una clase de algoritmos de simulación para el muestreo y estimación de distribuciones de probabilidad a posteriori. Al construir un cadena de Markov usando una distribución deseada como distribución de equilibrio de la cadena, se puede hacer un muestreo de la distribución registrando los diferentes estados del grafo. Cuantas más iteraciones realicemos con el método de Monte Carlo, la distribución de la cadena, se acercará más a la distribución deseada real.
 
@@ -2986,7 +3066,7 @@ En nuestro trabajo, no será necesario especificar un modelo totalmente determin
 
 Ilustraremos la aplicación de justicia contrafactual sobre un problema del mundo real que requiere equidad. El objetivo de este experimento es cuantificar el comportamiento del Algoritmo \ref{alg:fairlearn} con tamaños de muestra finitos sobre una suposición real compatible con un modelo sintético.
 
-\subsection{Descripción del problema}
+\subsection{Descripción del problema} \label{subsec:desproblem}
 
 El Consejo de Admisión de las Facultades de Derecho realizó una encuesta en 163 facultades de Derecho de Estados Unidos (\cite{lsac1998}). Contiene información sobre 21.790 estudiantes de Derecho, tales como las puntuaciones de su examen de acceso (LSAT), su media del expediente (GPA) antes de entrar en la facultad, y su nota media del primer año (FYA) en la carrera de Derecho.
 
@@ -3036,7 +3116,7 @@ Compararemos el escenario propuesto por la equidad contrafactual con dos líneas
     \item \textbf{Desconocimiento}: aplicaremos la noción de equidad por desconocimiento discutida en la Sección \ref{sec:eqdesconocimiento}.
 \end{itemize} 
 
-\chapter{Implementación y resultados}
+\chapter{Implementación y resultados} \label{ch:implementaresult}
 
 En este capítulo explicaremos los procedimientos empleados en la implementación de los diseños y algoritmos definidos en el capítulo anterior. Todo lo relativo a implementación se encuentra disponible en: \href{https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML.git}{danibolanos/TFG-Guarantee\_Fairness\_in\_ML}
 
@@ -3056,9 +3136,15 @@ Es recomendable que antes de aplicar cualquier modelo o algoritmo sobre un conju
 
 El lenguaje de programación seleccionado para la implementación del proyecto ha sido Python (\url{https://www.python.org/}) en su versión 3.8.5. La elección de Python se debe a que es un lenguaje muy popular en el ámbito de la ciencia de datos, con una gran cantidad de bibliotecas útiles para la visualización de datos y altamente compatible con otros lenguajes de programación que nos pueden ser útiles tanto como para el tratamiento de datos como para la construcción de modelos causales.
 
+\textcolor{red}{hablar sobre el código una vez terminado}
+
 \section{Contraste de los resultados}
 
+\textcolor{red}{Resultados del experimento y comparar con Apéndice A}
+
 \section{Condiciones de la experimentación}
+
+En esta sección se hará un repaso de los diferentes entornos en los que se ha trabajado para la elaboración de este experimento, así como las bibliotecas que se utilizan para la programación del mismo.
 
 \subsection{Entorno de ejecución}
 
@@ -3074,7 +3160,9 @@ Los experimentos realizados en este capítulo se han ejecutado en un equipo con 
 
 \subsection{Entorno de programación}
 
-Spyder.
+Spyder (\url{https://docs.spyder-ide.org/current/index.html}) es un potente entorno de desarrollo interactivo (IDE) de código abierto para el lenguaje Python. Dispone de funciones avanzadas de edición, control interactivo de pruebas y depuración. Gracias a su intérprete interactivo de Python y su compatibilidad con bibliotecas como NumPy, SciPy o matplotlib se ha convertido en uno de los entornos de programación para Python más populares. 
+
+Spyder incluye soporte de herramientas interactivas para la inspección de datos e incorpora controles de calidad específicos de Python. Además puede instalarse a través del sistema de gestión de paquetes de código abierto Anaconda (\url{https://docs.anaconda.com/}) considerándose un IDE multiplataforma.
 
 \subsection{Bibliotecas y herramientas auxiliares}
 
@@ -3082,9 +3170,9 @@ Algunas de las bibliotecas más importantes utilizadas junto al número de sus v
 
 \begin{itemize}
     \item Pandas 1.2.4
-    \item Numpy 1.19.2
+    \item NumPy 1.19.2
     \item Scikit-learn 0.24.2
-    \item \textcolor{red}{pickle}, %path 15.0.0.
+    \item \textcolor{red}{pickle, AÑADIR MÁS CUANDO ESTÉ TERMINADO}, %path 15.0.0.
 \end{itemize}
 
 Además se ha utilizado el módulo PyStan 2.19.1.1 (\url{https://pystan.readthedocs.io/en/latest}) que funciona como una interfaz de Python para el lenguaje de programación probabilística Stan (\url{https://mc-stan.org}). El cual permite generar muestras de datos a partir de métodos que trabajan con cadenas de Markov (como MCMC) y crear modelos causales sobre los que operar gracias a la inferencia estadística Bayesiana.
@@ -3097,11 +3185,11 @@ Conclusiones extraídas a lo largo del desarrollo del proyecto y debate de posib
 \end{center}}
 \part{Conclusiones y Vías Futuras} \label{part:debate_fut}
 
-\chapter{Conclusión}
+\chapter{Conclusión} \label{ch:conclusion}
 
 \textcolor{red}{conclusiones obtenidas del trabajo en general}
 
-\chapter{Trabajos futuros}
+\chapter{Trabajos futuros} \label{ch:trabajos_fut}
 
 \textcolor{red}{Equidad individual se ha quedado sin tratar, trabajo futuro para TFM de matemáticas estudio de clase de funciones que puedan ser interesantes para implementar la métrica de distancia entre individuos}
 
@@ -3120,36 +3208,28 @@ def leeimagen(filename, flagColor):
   return im
 \end{minted}
 
-
-
 \ctparttext{\color{black}\begin{center}
 \end{center}}
 \part*{\textsc{Apéndices}}
 
 \appendix
-\chapter{Herramientas para garantizar justicia en AA}\label{ap:herr_just}
+\chapter{Herramientas software para garantizar justicia}\label{ap:herr_just}
 \input{appendixes/A}
 
 \chapter{Estimación del coste y planificación}\label{ap:coste_plan}
 \input{appendixes/B}
 
-\addtocontents{toc}{\vspace{1\baselineskip}}
+%\addtocontents{toc}{\vspace{1\baselineskip}}
 
-\clearpage
+%\clearpage
 
-\printglossary[title={\textsc{notación}}]
-\glsaddallunused
+%\printglossary[title={\textsc{notación}}]
+%\glsaddallunused
 
-\addtocontents{toc}{\vspace{1\baselineskip}}
-
-\clearpage
-
-% Añade sección de referencias al final del documento.
-% Selecciona un estilo de cita.
 \bibliographystyle{plainnat}
-% En research.bib están las entradas de los artículos que citamos.
-% Podemos cambiar el nombre del archivo aquí.
-\bibliography{bibliography/research.bib}   
+\bibliography{bibliography/research}
+
+\addtocontents{toc}{\vspace{1\baselineskip}}
 
 \addcontentsline{toc}{chapter}{\textsc{bibliografía}}
 
