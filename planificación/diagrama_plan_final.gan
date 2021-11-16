@@ -45,14 +45,12 @@
         <task id="7" name="Análisis de los algoritmos de mitigación de sesgo" color="#66ccff" meeting="false" start="2021-07-22" duration="8" complete="0" thirdDate="2019-09-02" thirdDate-constraint="0" expand="true"/>
         <task id="22" name="Investigación sobre los modelos y medidas causales" color="#66ccff" meeting="false" start="2021-08-03" duration="9" complete="0" thirdDate="2019-09-02" thirdDate-constraint="0" expand="true"/>
         <task id="23" name="Instalación de SO, IDE y bibliotecas" color="#66ff66" meeting="false" start="2021-08-16" duration="2" complete="0" thirdDate="2019-09-02" thirdDate-constraint="0" expand="true"/>
-        <task id="26" name="Replicación equidad contrafactual en Python" color="#66ff66" meeting="false" start="2021-08-18" duration="28" complete="0" thirdDate="2019-09-02" thirdDate-constraint="0" expand="true"/>
-        <task id="35" name="Implementación de gráficas para visualización" color="#66ff66" meeting="false" start="2021-09-27" duration="5" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true"/>
-        <task id="38" name="Análisis con Aequitas" color="#66ff66" meeting="false" start="2021-10-04" duration="5" complete="0" thirdDate="2020-02-03" thirdDate-constraint="0" expand="true"/>
-        <task id="29" name="Validación y testeo del código" color="#66ff66" meeting="false" start="2021-08-18" duration="38" complete="0" thirdDate="2020-06-29" thirdDate-constraint="0" expand="true"/>
-        <task id="41" name="Contraste de los resultados obtenidos" color="#66ff66" meeting="false" start="2021-10-11" duration="4" complete="0" thirdDate="2020-02-03" thirdDate-constraint="0" expand="true"/>
-        <task id="63" name="Diseño del esquema del prototipo" color="#66ff66" meeting="false" start="2021-10-15" duration="9" complete="0" thirdDate="2020-03-10" thirdDate-constraint="0" expand="true"/>
-        <task id="90" name="Análisis de requisitos del problema" color="#66ff66" meeting="false" start="2021-10-28" duration="8" complete="0" thirdDate="2021-11-03" thirdDate-constraint="0" expand="true"/>
-        <task id="43" name="Redacción memoria / Reuniones" color="#ff9999" meeting="false" start="2021-04-01" duration="162" complete="0" thirdDate="2020-06-09" thirdDate-constraint="0" expand="true"/>
+        <task id="26" name="Replicación equidad contrafactual en Python" color="#66ff66" meeting="false" start="2021-08-17" duration="34" complete="0" thirdDate="2019-09-02" thirdDate-constraint="0" expand="true"/>
+        <task id="35" name="Implementación de gráficas para visualización" color="#66ff66" meeting="false" start="2021-10-01" duration="5" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true"/>
+        <task id="38" name="Análisis con Aequitas" color="#66ff66" meeting="false" start="2021-10-07" duration="8" complete="0" thirdDate="2020-02-03" thirdDate-constraint="0" expand="true"/>
+        <task id="29" name="Validación y testeo del código" color="#66ff66" meeting="false" start="2021-08-17" duration="47" complete="0" thirdDate="2020-06-29" thirdDate-constraint="0" expand="true"/>
+        <task id="41" name="Contraste de los resultados obtenidos" color="#66ff66" meeting="false" start="2021-10-20" duration="16" complete="0" thirdDate="2020-02-03" thirdDate-constraint="0" expand="true"/>
+        <task id="43" name="Redacción memoria / Reuniones" color="#ff9999" meeting="false" start="2021-04-01" duration="167" complete="0" thirdDate="2020-06-09" thirdDate-constraint="0" expand="true"/>
     </tasks>
     <resources/>
     <allocations/>
