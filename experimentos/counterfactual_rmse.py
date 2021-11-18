@@ -119,7 +119,7 @@ def preprocess_data(data, protected_attr):
 
     return dic_train, dic_test, train_orig, test_orig
     
-# Modelo Total: usa todos los atributos para la predicción
+# Modelo Completo: usa todos los atributos para la predicción
 def mod_full(dic_train, dic_test):
     # Construcción de los conjuntos de entrenamiento y tests para el modelo
     x_train = np.hstack((dic_train['A'], np.array(dic_train['GPA']).reshape(-1,1), 
