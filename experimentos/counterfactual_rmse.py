@@ -169,7 +169,7 @@ def mod_unaware(dic_train, dic_test):
 
 # Creamos un diccionario con la media de los parámetros útiles para el modelo de 'K'
 # obtenidos en el entrenamiento previo para el modelo base
-def get_useful_param(samples, dic):
+def get_mean_param(samples, dic):
     dic_data = {}
     # Añadimos los parámetros comunes que comparte con el diccionario original    
     param_base = ['N', 'C', 'A', 'GPA', 'LSAT']
@@ -202,24 +202,37 @@ def MCMC(dic_post, path_model, path_stan):
     
     return fit_samples
 
-
-# Modelo no determinista: suponemos variable de ruido 'K' para generar la distribución del resto
-def mod_fair_k(dic_train, dic_test):
-    
+def fair_learning(dic_train, dic_test):
     modelos_dir = Path("./datos/modelos")
     
+    # Comprobamos si ya existe un archivo con el modelo entrenado
     if not modelos_dir.exists():
         crear_borrar_directorio(modelos_dir, True)
         
-    # Comprobamos si ya existe un archivo con el modelo entrenado
+    # Entrenamos el modelo utilizando el MCMC y obtenemos las muestras para cada punto
     train_samples = MCMC(dic_train, "./datos/modelos/train_k_model.pkl", "./datos/stan/law_school_train.stan")
+
+    # Obtenemos la media de la variable K para train
+    train_k = np.mean(train_samples["K"], axis=0).reshape(-1, 1)
     
-    x_train = np.mean(train_samples['K'], axis=0).reshape(-1,1)
+    # Usamos la distribución de K aprendida y hacemos las medias del resto de variables para test
+    #dic_means = get_mean_params(train_samples, dic_test)
+    dic_means=dic_test
     
-    dic_test_post = get_useful_param(train_samples, dic_test)
+    # Volvemos a inferir sobre el modelo esta vez usando el modelo sin FYA para test
+    test_samples = MCMC(dic_means, "./datos/modelos/test_k_model.pkl", "./datos/stan/law_school_only_k.stan")
+    # Obtenemos la media de la variable K para test
+    test_k = np.mean(test_samples["K"], axis=0).reshape(-1, 1)
     
-    test_samples = MCMC(dic_test_post, "./datos/modelos/test_k_model.pkl", "./datos/stan/law_school_only_k.stan")
-    x_test = np.mean(test_samples['K'], axis=0).reshape(-1,1)
+    return train_k, test_k
+
+
+# Modelo no determinista: suponemos variable de ruido 'K' para generar la distribución del resto
+def mod_fair_k(dic_train, dic_test):
+    train_k, test_k = fair_learning(dic_train, dic_test)
+    # Construcción de los conjuntos de entrenamiento y tests para el modelo
+    x_train = train_k
+    x_test = test_k
     y = dic_train['FYA']
     
     # Entrenamiento del modelo sobre el conjunto x_train
@@ -368,7 +381,6 @@ def tabla_medidas_equidad(data, attr_ref, tau=0.8):
     f = Fairness()
     # Establecemos el valor del umbral con la variable tau
     fdf = f.get_group_value_fairness(bdf, tau=tau)
-    #parity_detrminations = f.list_parities(fdf)
     # Tabla con si se cumplen las medidas de equidad para cada atributo
     tabla_equidad = f.get_group_attribute_fairness(fdf)
     return tabla_equidad
