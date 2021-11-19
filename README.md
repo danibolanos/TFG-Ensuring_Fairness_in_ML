@@ -1,22 +1,22 @@
 ## TFG - Tools to Guarantee Fairness in Machine Learning
 
-Repository for my Bachelor's thesis about an experimental study of different counterfactual equity models. 
-A compiled version of the notebook can be downloaded at [this link](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/memoria.pdf). A tutorial on running the experiment based on Jupyter Notebook can be downloaded at [this link](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/manual_uso.ipynb).
+Repository for my **Bachelor's thesis** about an experimental study of different counterfactual equity models. 
+A compiled version of the notebook can be downloaded at [this link](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/memoria.pdf). A tutorial on running the experiment based on *Jupyter Notebook* can be downloaded at [this link](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/manual_uso.ipynb).
 
 ### Description (English)
 
-It proposes as a challenge, after an exhaustive study of the existing bibliography and tools on the subject, to carry out a comparative analysis in Python that includes fairness evaluations of all the families and visualisations for the interpretation of results and models.
+It proposes as a challenge, after an exhaustive study of the existing bibliography and tools on the subject, to carry out a comparative analysis in *Python* that includes fairness evaluations of all the families and visualisations for the interpretation of results and models.
 
 To do so, we will start by carrying out an exhaustive review of the different mathematical formalisations of the concept of fairness in the literature, analysing the advantages and disadvantages of each one both from a theoretical point of view and in terms of their practical implementation in specific classification problems by means of automatic learning. In addition, a study and classification of the most popular published algorithms that work with fairness will be carried out and a study of the advantages and disadvantages of each one will be made.
 
 -----
 
-Repositorio de mi trabajo de fin de grado sobre un estudio experimental de diferentes modelos de equidad contrafactual. 
-Puede descargar una versión compilada de la memoria en [este enlace](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/memoria.pdf). Un tutorial de la ejecución del experimento basado en Jupyter Notebook puede ser descargado en el [siguiente enlace](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/manual_uso.ipynb).
+Repositorio de mi **trabajo de fin de grado** sobre un estudio experimental de diferentes modelos de equidad contrafactual. 
+Puede descargar una versión compilada de la memoria en [este enlace](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/memoria.pdf). Un tutorial de la ejecución del experimento basado en *Jupyter Notebook* puede ser descargado en el [siguiente enlace](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/manual_uso.ipynb).
 
 ### Descripción (Español)
 
-Se propone como reto, tras un estudio exhaustivo de la bibliografía y herramientas existentes sobre el tema, realizar un análisis comparativo en Python que incluya evaluaciones de equidad de las familias y visualizaciones para la interpretación de resultados y modelos.
+Se propone como reto, tras un estudio exhaustivo de la bibliografía y herramientas existentes sobre el tema, realizar un análisis comparativo en *Python* que incluya evaluaciones de equidad de las familias y visualizaciones para la interpretación de resultados y modelos.
 
 Asimismo, en esta tesis se analizarán matemáticamente las definiciones de diversas medidas de equidad y justicia, demostrando sus propiedades, limitaciones y posibles incompatibilidades (teorema de imposibilidad de la equidad), explorando las diferentes opciones de mejora de los resultados obtenidos mediante un proceso de aprendizaje automático en los términos anteriormente propuestos.
 
