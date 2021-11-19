@@ -1,6 +1,7 @@
 # TFG - Tools to Guarantee Fairness in Machine Learning
 
-Repository for my Bachelor's thesis about an experimental study of different counterfactual equity models. A compiled version of the report can be found at this link.
+Repository for my Bachelor's thesis about an experimental study of different counterfactual equity models. 
+A compiled version of the report can be found at [this link](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/memoria.pdf).
 
 ## Description (English)
 
@@ -12,7 +13,8 @@ To do so, we will start by carrying out an exhaustive review of the different ma
 
 -----
 
-Repositorio de mi trabajo de fin de grado sobre un estudio experimental de diferentes modelos de equidad contrafactual. Puede encontrar una versión compilada de la memoria en el este enlace.
+Repositorio de mi trabajo de fin de grado sobre un estudio experimental de diferentes modelos de equidad contrafactual. 
+Puede encontrar una versión compilada de la memoria en el [este enlace](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/memoria.pdf).
 
 ## Descripción (Español)
 
@@ -24,7 +26,7 @@ Comenzaremos realizando una revisión exhaustiva de las diferentes formalizacion
 
 -----
 
-## Bibliography
+## Main Bibliography
 
 - Barocas, S., Hardt, M., & Narayanan, A. (2018). Fairness and Machine Learning. fairmlbook. org, 2018. URL: http://www.fairmlbook.org.
 
