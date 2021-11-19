@@ -1,6 +1,6 @@
 ## TFG - Tools to Guarantee Fairness in Machine Learning
 
-Repositorio de mi **trabajo de fin de grado** para el *Doble Grado en Ingeniería Informática y Matemáticas* de la [Universidad de Granada](http://www.ugr.es) sobre un estudio experimental para diferentes modelos de equidad contrafactual. Puede descargar una versión compilada de la memoria en [este enlace](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/memoria.pdf). Un tutorial de la ejecución del experimento basado en *Jupyter Notebook* puede ser descargado en el [siguiente enlace](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/blob/main/experimentos/tutorial.ipynb).
+Repositorio de mi **trabajo de fin de grado** para el *Doble Grado en Ingeniería Informática y Matemáticas* de la [Universidad de Granada](http://www.ugr.es) sobre un estudio experimental para diferentes modelos de equidad contrafactual. Puede descargar una versión compilada de la memoria en [este enlace](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/memoria.pdf). Un tutorial para la ejecución del experimento basado en *Jupyter Notebook* puede ser consultado en el [siguiente enlace](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/blob/main/experimentos/tutorial.ipynb).
 
 ### Descripción (Español)
 
@@ -12,7 +12,7 @@ Comenzaremos realizando una revisión exhaustiva de las diferentes formalizacion
 
 -----
 
-Repository for my **bachelor's thesis** for the *Double Degree in Computer Engineering and Mathematics* at the [University of Granada](http://www.ugr.es) about an experimental study of different counterfactual fairness models. A compiled version of the notebook can be downloaded at [this link](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/memoria.pdf). A tutorial on running the experiment based on *Jupyter Notebook* can be downloaded at [this link](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/blob/main/experimentos/tutorial.ipynb).
+Repository for my **bachelor's thesis** for the *Double Degree in Computer Engineering and Mathematics* at the [University of Granada](http://www.ugr.es) about an experimental study of different counterfactual fairness models. A compiled version of the notebook can be downloaded at [this link](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/memoria.pdf). A tutorial for running the experiment based on *Jupyter Notebook* can be found at [this link](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/blob/main/experimentos/tutorial.ipynb).
 
 ### Description (English)
 
