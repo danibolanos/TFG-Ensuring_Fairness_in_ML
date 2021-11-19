@@ -1,7 +1,6 @@
-## TFG - Tools to Guarantee Fairness in Machine Learning - University of Granada
+## TFG - Tools to Guarantee Fairness in Machine Learning
 
-Repository for my **bachelor's thesis** about an experimental study of different counterfactual equity models. 
-A compiled version of the notebook can be downloaded at [this link](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/memoria.pdf). A tutorial on running the experiment based on *Jupyter Notebook* can be downloaded at [this link](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/manual_uso.ipynb).
+Repository for my **bachelor's thesis** about an experimental study of different counterfactual fairness models for the Double Degree in Computer Engineering and Mathematics at the [University of Granada](http://www.ugr.es). A compiled version of the notebook can be downloaded at [this link](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/memoria.pdf). A tutorial on running the experiment based on *Jupyter Notebook* can be downloaded at [this link](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/manual_uso.ipynb).
 
 ### Description (English)
 
@@ -11,7 +10,7 @@ To do so, we will start by carrying out an exhaustive review of the different ma
 
 -----
 
-Repositorio de mi **trabajo de fin de grado** sobre un estudio experimental de diferentes modelos de equidad contrafactual. 
+Repositorio de mi **trabajo de fin de grado** sobre un estudio experimental de diferentes modelos de equidad contrafactual para el Doble Grado en Ingeniería Informática y Matemáticas de la [Universidad de Granada](http://www.ugr.es). 
 Puede descargar una versión compilada de la memoria en [este enlace](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/memoria.pdf). Un tutorial de la ejecución del experimento basado en *Jupyter Notebook* puede ser descargado en el [siguiente enlace](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/manual_uso.ipynb).
 
 ### Descripción (Español)
