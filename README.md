@@ -2,13 +2,24 @@
 
 Repository for my Bachelor's thesis about an experimental study of different counterfactual equity models.
 
-## Description
+## Description (English)
 
 It proposes as a challenge, after an exhaustive study of the existing bibliography and tools on the subject, to carry out a comparative analysis in Python that includes fairness evaluations of all the families and visualisations for the interpretation of results and models.
 
 Likewise, this thesis will mathematically analyse the definitions of various measures of fairness and justice, demonstrating their properties, limitations and possible incompatibilities (impossibility theorem of fairness), exploring the different options for improving the results obtained by means of a process of machine learning in the terms previously proposed.
 
 To do so, we will start by carrying out an exhaustive review of the different mathematical formalisations of the concept of fairness in the literature, analysing the advantages and disadvantages of each one both from a theoretical point of view and in terms of their practical implementation in specific classification problems by means of automatic learning. In addition, a study and classification of the most popular published algorithms that work with fairness will be carried out and a study of the advantages and disadvantages of each one will be made.
+
+-----
+
+## Descripción (Español)
+
+Se propone como reto, tras un estudio exhaustivo de la bibliografía y herramientas existentes sobre el tema, realizar un análisis comparativo en Python que incluya evaluaciones de equidad de las familias y visualizaciones para la interpretación de resultados y modelos.
+
+Asimismo, en esta tesis se analizarán matemáticamente las definiciones de diversas medidas de equidad y justicia, demostrando sus propiedades, limitaciones y posibles incompatibilidades (teorema de imposibilidad de la equidad), explorando las diferentes opciones de mejora de los resultados obtenidos mediante un proceso de aprendizaje automático en los términos anteriormente propuestos.
+
+Comenzaremos realizando una revisión exhaustiva de las diferentes formalizaciones matemáticas del concepto de equidad existentes en la literatura, analizando las ventajas e inconvenientes de cada una de ellas tanto desde el punto de vista teórico como en lo que respecta a su implementación práctica en problemas concretos de clasificación mediante aprendizaje automático. Además, se realizará un estudio y clasificación de los algoritmos publicados más populares que trabajan con la equidad y se estudiarán las ventajas e inconvenientes de cada uno de ellos.
+
 
 ## Bibliography
 
