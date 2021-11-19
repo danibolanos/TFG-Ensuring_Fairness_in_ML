@@ -1,6 +1,6 @@
 # TFG - Tools to Guarantee Fairness in Machine Learning
 
-Repository for my Bachelor's thesis about an experimental study of different counterfactual equity models.
+Repository for my Bachelor's thesis about an experimental study of different counterfactual equity models. A compiled version of the report can be found at this link.
 
 ## Description (English)
 
@@ -11,6 +11,8 @@ Likewise, this thesis will mathematically analyse the definitions of various mea
 To do so, we will start by carrying out an exhaustive review of the different mathematical formalisations of the concept of fairness in the literature, analysing the advantages and disadvantages of each one both from a theoretical point of view and in terms of their practical implementation in specific classification problems by means of automatic learning. In addition, a study and classification of the most popular published algorithms that work with fairness will be carried out and a study of the advantages and disadvantages of each one will be made.
 
 -----
+
+Repositorio de mi trabajo de fin de grado sobre un estudio experimental de diferentes modelos de equidad contrafactual. Puede encontrar una versión compilada de la memoria en el este enlace.
 
 ## Descripción (Español)
 
