@@ -1,7 +1,7 @@
 # TFG - Tools to Guarantee Fairness in Machine Learning
 
 Repository for my Bachelor's thesis about an experimental study of different counterfactual equity models. 
-A compiled version of the report can be found at [this link](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/memoria.pdf).
+A compiled version of the project can be found at [this link](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/memoria.pdf).
 
 ## Description (English)
 
