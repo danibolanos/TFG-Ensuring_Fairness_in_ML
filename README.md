@@ -20,6 +20,7 @@ Asimismo, en esta tesis se analizarán matemáticamente las definiciones de dive
 
 Comenzaremos realizando una revisión exhaustiva de las diferentes formalizaciones matemáticas del concepto de equidad existentes en la literatura, analizando las ventajas e inconvenientes de cada una de ellas tanto desde el punto de vista teórico como en lo que respecta a su implementación práctica en problemas concretos de clasificación mediante aprendizaje automático. Además, se realizará un estudio y clasificación de los algoritmos publicados más populares que trabajan con la equidad y se estudiarán las ventajas e inconvenientes de cada uno de ellos.
 
+-----
 
 ## Bibliography
 
