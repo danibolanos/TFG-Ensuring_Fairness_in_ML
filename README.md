@@ -1,7 +1,7 @@
 # TFG - Tools to Guarantee Fairness in Machine Learning
 
 Repository for my Bachelor's thesis about an experimental study of different counterfactual equity models. 
-A compiled version of the project can be found at [this link](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/memoria.pdf).
+A compiled version of the project can be found at [this link](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/memoria.pdf). A tutorial on how to run the experiment is available at [Jupyter Notebook](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/manual_uso.ipynb).
 
 ## Description (English)
 
@@ -12,7 +12,7 @@ To do so, we will start by carrying out an exhaustive review of the different ma
 -----
 
 Repositorio de mi trabajo de fin de grado sobre un estudio experimental de diferentes modelos de equidad contrafactual. 
-Puede encontrar una versión compilada de la memoria en el [este enlace](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/memoria.pdf).
+Puede encontrar una versión compilada de la memoria en el [este enlace](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/memoria.pdf). Un tutorial de la ejecución del experimento está disponible en [Jupyter Notebook](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/manual_uso.ipynb).
 
 ## Descripción (Español)
 
