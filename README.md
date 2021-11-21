@@ -1,12 +1,22 @@
 ## TFG - Tools to Guarantee Fairness in Machine Learning
 
-Repositorio de mi **trabajo de fin de grado** para el *Doble Grado en Ingeniería Informática y Matemáticas* de la [Universidad de Granada](http://www.ugr.es) sobre un estudio experimental para diferentes modelos de equidad contrafactual. Puede descargar una versión compilada de la memoria en [este enlace](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/TFG_Herramientas_para_Garantizar_Justicia_en_Aprendizaje_Automatico.pdf). Un tutorial para la ejecución del experimento basado en *Jupyter Notebook* puede ser consultado en el [siguiente enlace](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/blob/main/experimentos/tutorial.ipynb). Si desea ejecutarlos en su ordenador será necesario que descargue las dependencias a los paquetes, bien manualmente o bien puede utilizar el siguiente comando:
+Repositorio de mi **trabajo de fin de grado** para el *Doble Grado en Ingeniería Informática y Matemáticas* de la [Universidad de Granada](http://www.ugr.es) sobre un estudio experimental para diferentes modelos de equidad contrafactual. Puede descargar una versión compilada de la memoria en [este enlace](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/TFG_Herramientas_para_Garantizar_Justicia_en_Aprendizaje_Automatico.pdf). Un tutorial para la ejecución del experimento basado en *Jupyter Notebook* puede ser consultado en el [siguiente enlace](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/blob/main/experimentos/tutorial.ipynb). Si desea ejecutarlos en su ordenador será necesario que descargue las dependencias a los siguientes paquetes: 
+
+* Pandas 1.2.4
+* NumPy 1.19.2
+* Scikit-learn 0.24.2
+* matplotlib 3.4.3
+* seaborn 0.11.2
+* pathlib2 2.3.6
+* Aequitas 0.42.0
+* PyStan 2.19.1.1
+* [PyMC3](https://github.com/pymc-devs/pymc/wiki/Installation-Guide-(Linux)) (opcional)
+
+Puede hacerlo, bien manualmente, o bien puede utilizar el siguiente comando:
 
 ```
  pip install -r requirements.txt --no-index --find-links file:///tmp/packages
  ```
- 
-* [PyMC3](https://github.com/pymc-devs/pymc/wiki/Installation-Guide-(Linux)) (opcional)
 
 ### Descripción (Español)
 
