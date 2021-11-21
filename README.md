@@ -10,7 +10,7 @@ Repositorio de mi **trabajo de fin de grado** para el *Doble Grado en Ingenierí
 * pathlib2 2.3.6
 * Aequitas 0.42.0
 * PyStan 2.19.1.1
-* [PyMC3](https://github.com/pymc-devs/pymc/wiki/Installation-Guide-(Linux)) (opcional)
+* [PyMC3](https://github.com/pymc-devs/pymc/wiki/Installation-Guide-(Linux)) (opcional; para *otras_pruebas.py*)
 
 Puede hacerlo, bien manualmente, o bien puede utilizar el siguiente comando:
 
