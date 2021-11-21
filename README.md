@@ -15,7 +15,7 @@ Repositorio de mi **trabajo de fin de grado** para el *Doble Grado en Ingenierí
 Puede hacerlo, bien manualmente, o bien puede utilizar el siguiente comando:
 
 ```
- pip install -r requirements.txt --no-index --find-links file:///tmp/packages
+python -m pip install -r requirements.txt
  ```
 
 ### Descripción (Español)
