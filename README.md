@@ -7,9 +7,9 @@ Repositorio de mi **trabajo de fin de grado** para el *Doble Grado en Ingenierí
 * Scikit-learn 0.24.2
 * matplotlib 3.4.3
 * seaborn 0.11.2
-* Aequitas 0.42.0
 * pathlib2 2.3.6
-* [PyStan 2.19.1.1](https://pystan.readthedocs.io/en/latest/installation.html)
+* [Aequitas](https://dssg.github.io/aequitas/installation.html) 0.42.0
+* [PyStan](https://pystan.readthedocs.io/en/latest/installation.html) 2.19.1.1
 * [PyMC3](https://github.com/pymc-devs/pymc/wiki/Installation-Guide-(Linux)) (opcional)
 
 ### Descripción (Español)
@@ -29,9 +29,9 @@ Repository for my **bachelor's thesis** for the *Double Degree in Computer Engin
 * Scikit-learn 0.24.2
 * matplotlib 3.4.3
 * seaborn 0.11.2
-* Aequitas 0.42.0
 * pathlib2 2.3.6
-* [PyStan 2.19.1.1](https://pystan.readthedocs.io/en/latest/installation.html)
+* [Aequitas](https://dssg.github.io/aequitas/installation.html) 0.42.0
+* [PyStan](https://pystan.readthedocs.io/en/latest/installation.html) 2.19.1.1
 * [PyMC3](https://github.com/pymc-devs/pymc/wiki/Installation-Guide-(Linux)) (optional)
 
 ### Description (English)
