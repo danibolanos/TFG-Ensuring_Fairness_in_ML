@@ -1,32 +1,32 @@
-En este capítulo, hablaremos de algunas herramientas y paquetes de Python que existen actualmente para garantizar la equidad en aprendizaje automático. Hablaremos de algunos de los más influyentes, entre los que destacaremos Aequitas. 
+En este capítulo hablaremos de algunas herramientas y paquetes de Python que existen actualmente para garantizar la equidad en aprendizaje automático. Hablaremos de algunos de los más influyentes, entre los que destacaremos Aequitas. 
 
 \section{Paquetes de Python para equidad en AA}
 
 \section*{Ethik}
 
-Ethik es un paquete de Python para realizar estudios sobre equidad en aprendizaje automático y obtener explicaciones sobre la misma. Ethik, utiliza el enfoque de la equidad contrafactual para dar solución a escenarios hipotéticos de injusticia en una población concreta. El paquete contiene una recopilación de conjuntos de datos sobre problemas de equidad a partir de la cual hemos podido extraer el \textit{dataset} denominado law\_data.csv que contiene el problema del Apartado \ref{subsec:desproblem} usando la función \textit{load\_law\_school()}.
+Ethik es un paquete de Python para realizar estudios sobre equidad en aprendizaje automático y obtener explicaciones sobre la misma. Ethik utiliza el enfoque de la equidad contrafactual para dar solución a escenarios hipotéticos de injusticia en una población concreta. El paquete contiene una recopilación de conjuntos de datos sobre problemas de equidad a partir de la cual hemos podido extraer el \textit{dataset} denominado \textit{law\_data.csv}, que contiene el problema del Apartado \ref{subsec:desproblem}, usando la función \texttt{load\_law\_school()}.
 
-Podemos encontrar la documentación y herramientas que proporciona el paquete en el siguiente enlace: \url{https://xai-aniti.github.io/ethik/}
+Podemos encontrar la documentación y herramientas que proporciona el paquete en el \href{https://xai-aniti.github.io/ethik/}{siguiente enlace}\footnote{https://xai-aniti.github.io/ethik/}.
 
 \section*{Fairlearn}
 
-Fairlearn es un paquete de Python que permite a los científicos de datos y desarrolladores de aplicaciones de \textit{machine learning} evaluar la equidad de su sistema y mitigar cualquier problema de sesgo en una población para un conjunto de datos observado. Fairlearn contiene  algoritmos de mitigación, así como métricas para la evaluación del modelo.
+Fairlearn es un paquete de Python que permite a los científicos de datos y desarrolladores de aplicaciones de \textit{machine learning} evaluar la equidad de su sistema, y mitigar cualquier problema de sesgo en una población para un conjunto de datos observado. Fairlearn contiene  algoritmos de mitigación, así como métricas para la evaluación del modelo.
 
-Podemos encontrar la documentación y guía de uso del paquete en el siguiente enlace: \url{https://fairlearn.org/v0.5.0/user_guide/index.html}
+Podemos encontrar la documentación y una guía de uso del paquete en el \href{https://fairlearn.org/v0.5.0/user_guide/index.html}{siguiente enlace}\footnote{https://fairlearn.org/v0.5.0/user\_guide/index.html}.
 
 \section{Aequitas}
 
 Aequitas (\cite{aequitas2019}) es una herramienta de auditoría desarrollada por el \textit{Center for Data Science and Public Policy} de la
-Universidad de Chicago. Es una herramienta de código abierto que consta de diversas utilidades de soporte para la auditoría de sesgos creado para ser utilizado por analistas de todo tipo relacionados con el ámbito del aprendizaje automático y cuyo principal objetivo es auditar los modelos de \textit{machine learning} con el fin de encontrar posibles discriminaciones en ellos y evitarlas en un futuro.
+Universidad de Chicago. Es una herramienta de código abierto que consta de diversas utilidades de soporte para la auditoría de sesgos; creado para ser utilizado por analistas de todo tipo relacionados con el ámbito del aprendizaje automático, y cuyo principal objetivo es auditar los modelos de \textit{machine learning}, con el fin de encontrar posibles discriminaciones en ellos y evitarlas en un futuro.
 
 Aequitas nos permite detectar dos tipos de sesgos:
 
 \begin{itemize}
     \item Acciones sesgadas que no ocurren de forma representativa en la población.
-    \item Resultados sesgados a causa de errores de clasificación de nuestro sistema con respecto a ciertos grupos de la población.
+    \item Resultados sesgados, a causa de errores de clasificación de nuestro sistema, con respecto a ciertos grupos de la población.
 \end{itemize}
 
-Para utilizar la herramienta, se necesitan aportar los siguientes datos:
+Para utilizar la herramienta se necesita aportar los siguientes datos:
 
 \begin{itemize}
     \item Datos sobre los atributos específicos (raza, sexo, etc.) que queramos auditar.
@@ -38,26 +38,26 @@ Para utilizar la herramienta, se necesitan aportar los siguientes datos:
 Podemos dividir en tres apartados (conformados por columnas en Aequitas) los datos que debemos aportar para el correcto funcionamiento de la herramienta.
 
 \begin{itemize}
-    \item \textbf{score}: representa la conclusión a la que llega un modelo, puede ser puede ser binaria ($0$ o $1$) o continua (decimal entre $0$ y $1$). Esta decisión representa si el sujeto es apto o no, por ejemplo, si se le concede un crédito bancario.
-    \item \textbf{label\_value}: representa los datos reales, es decir, si la predicción realizada por el modelo fue correcta. Por ejemplo, el sujeto fue capaz de devolver el crédito en su totalidad. Es por esto, por lo que el modelo solo puede ser auditado después de su aplicación y no antes. Se representa como un valor binario, $1$ significa que la predicción fue correcta, $0$ que no lo fue.
-    \item \textbf{attributes}: categorías de los atriburtos definidos por el usuario y utilizados para decidir la equidad del modelo. Algunos ejemplos de atributos son la raza, sexo, educación, edad o ingresos.
+    \item \textbf{score}: representa la conclusión a la que llega un modelo, puede ser binaria ($0$ o $1$) o continua (decimal entre $0$ y $1$). Esta decisión representa si el sujeto es apto o no, por ejemplo, si se le concede un crédito bancario.
+    \item \textbf{label\_value}: representa los datos reales; es decir, si la predicción realizada por el modelo fue correcta. Por ejemplo, el sujeto fue capaz de devolver el crédito en su totalidad. Es por esto por lo que el modelo solo puede ser auditado después de su aplicación y no antes. Se representa como un valor binario, $1$ significa que la predicción fue correcta, $0$ que no lo fue.
+    \item \textbf{attributes}: categorías de los atributos definidos por el usuario y utilizados para decidir la equidad del modelo. Algunos ejemplos de atributos son la raza, sexo, educación, edad o ingresos.
 \end{itemize}
 
-El funcionamiento de Aequitas viene determinado por los conceptos y métricas definidas previamente en la Sección \ref{sec:groupmetrics}. Podemos acceder a una lista de los conceptos y métricas que utiliza Aequitas a partir del siguiente enlace: \url{https://dssg.github.io/aequitas/metrics.html}
+El funcionamiento de Aequitas viene determinado por los conceptos y métricas definidas previamente en la Sección \ref{sec:groupmetrics}. Podemos acceder a una lista de los conceptos y métricas que utiliza Aequitas desde el \href{https://dssg.github.io/aequitas/metrics.html}{siguiente enlace}\footnote{https://dssg.github.io/aequitas/metrics.html}.
 
 La herramienta devuelve una interpretación gráfica de los resultados junto a información relevante acerca de tres tipos de métricas:
 
 \begin{itemize}
-    \item \textbf{Métricas de grupo -} los grupos podrán definirse utilizando la clase \textit{Group()}.
-    \item \textbf{Métricas de disparidad -} las disparidades podrán ser calculadas haciendo uso de la clase \textit{Bias()} una vez calculadas las métricas de grupo.
-    \item \textbf{Medidas de equidad -} estudiaremos la equidad y gráficos de distribución de las métricas de grupo y disparidad a partir de la clase \textit{Fairness()}.
+    \item \textbf{Métricas de grupo -} Los grupos podrán definirse utilizando la clase \textit{Group()}.
+    \item \textbf{Métricas de disparidad -} Las disparidades podrán ser calculadas haciendo uso de la clase \textit{Bias()}, una vez calculadas las métricas de grupo.
+    \item \textbf{Medidas de equidad -} Estudiaremos la equidad y gráficos de distribución de las métricas de grupo y disparidad a partir de la clase \textit{Fairness()}.
 \end{itemize}
 
-A continuación mostraremos dos ejemplos de uso de Aequitas haciendo uso de las diferentes alternativas que ofrece para auditar un \textit{dataset}. Por un lado, usaremos la herramienta WEB para analizar la información acerca de las medidas de equidad ofrecidas y por otro, la API de Python que incluye un mayor número de métricas y gráficas para interpretar los resultados.
+A continuación mostraremos dos ejemplos de uso de Aequitas haciendo uso de las diferentes alternativas que ofrece para auditar un \textit{dataset}. Por un lado, usaremos la herramienta WEB para analizar la información acerca de las medidas de equidad ofrecidas, y por otro la API de Python que incluye un mayor número de métricas y gráficas para interpretar los resultados.
 
 \subsection{Ejemplo: Puntuación del riesgo de reincidencia delictiva}
 
-En este apartado, analizaremos como se definen las diferentes métricas con las que trabaja Aequitas a partir de los conceptos previamente estudiados. Mostraremos un ejemplo sobre el conjunto de datos \textit{COMPAS} cuyo objetivo era identificar a las personas con riesgo de reincidencia para respaldar las decisiones de liberación previa al juicio.\\
+En este apartado, analizaremos cómo se definen las diferentes métricas con las que trabaja Aequitas a partir de los conceptos previamente estudiados. Mostraremos un ejemplo sobre el conjunto de datos \textit{COMPAS}, cuyo objetivo era identificar a las personas con riesgo de reincidencia, para respaldar las decisiones de liberación previa al juicio.\\
 
 \begin{table}[h]
 \centering
@@ -74,13 +74,13 @@ En este apartado, analizaremos como se definen las diferentes métricas con las 
 \label{tab:ejcompasaeq}
 \end{table}
 
-Los datos están basados en las estadísticas recogidas en el condado de Broward y puestas a disposición del público por la organización ProPublica (\cite{condena2016}). Este conjunto de datos contiene una puntuación del riesgo de reincidencia para 7.214 individuos, sus resultados reales de reincidencia a los dos años y una serie de atributos recogidos entre 2013 y 2014. Para tratar la puntuación de riesgo con Aequitas, convertiremos el \textit{score} original (1-10) a uno binario donde 0 indica riesgo bajo y 1 medio o alto.
+Los datos están basados en las estadísticas recogidas en el condado de Broward y puestas a disposición del público por la organización ProPublica (\cite{condena2016}). Este conjunto de datos contiene una puntuación del riesgo de reincidencia para 7.214 individuos, sus resultados reales de reincidencia a los dos años, y una serie de atributos recogidos entre 2013 y 2014. Para tratar la puntuación de riesgo con Aequitas, convertiremos el \textit{score} original (1-10) a uno binario donde 0 indica riesgo bajo y 1 medio o alto.
 
 \subsection*{Análisis de los datos}
 
-En los gráficos siguientes, podemos notar una gran diferencia en la distribución de las puntuaciones por raza (Figura \ref{fig:barrasrace}), con una mayoría de personas de raza caucásica pronosticadas como riesgo bajo (\textit{score}=0) y una mayoría de población afroamericana pronosticada como riesgo medio o alto (\textit{score}=1). En cuanto al atributo edad (Figura \ref{fig:barrasage}), se predicen como riesgo bajo la mayoría de las personas de edad superior a 25 años y como riesgo medio-alto a la mayoría de los menores de 25 años. Finalmente, aunque existen muchos más hombres que mujeres en la base de datos (los hombres tienen un índice de criminalidad mayor que las mujeres), parece que, en principio, el sexo (Figura \ref{fig:barrassex}) no es determinante a la hora de puntuar la reincidencia.
+En los gráficos siguientes podemos notar una gran diferencia en la distribución de las puntuaciones por raza (Figura \ref{fig:barrasrace}), con una mayoría de personas de raza caucásica pronosticadas como riesgo bajo (\textit{score}=0) y una mayoría de población afroamericana pronosticada como riesgo medio o alto (\textit{score}=1). En cuanto al atributo edad (Figura \ref{fig:barrasage}), se predicen como riesgo bajo la mayoría de las personas de edad superior a 25 años y como riesgo medio-alto a la mayoría de los menores de 25 años. Finalmente, aunque existen muchos más hombres que mujeres en la base de datos (los hombres tienen un índice de criminalidad mayor que las mujeres); parece que, en principio, el sexo (Figura \ref{fig:barrassex}) no es determinante a la hora de puntuar la reincidencia.
 
-Además, incluimos gráficos de cómo se distribuyen las etiquetas reales según los atributos protegidos. Las etiquetas reales contienen la información sobre si el sujeto reincidió (\textit{label\_value}=1) o no (\textit{label\_value}=0), es decir, si el individuo sufrió una nueva detención en un plazo de dos años. Con esta información, podremos comprobar directamente la precisión de las predicciones.\\
+Además, incluimos gráficos de cómo se distribuyen las etiquetas reales según los atributos protegidos. Las etiquetas reales contienen la información sobre si el sujeto reincidió (\textit{label\_value}=1) o no (\textit{label\_value}=0); es decir, si el individuo sufrió una nueva detención en un plazo de dos años. Con esta información podremos comprobar directamente la precisión de las predicciones.\\
 
 \begin{figure}[h]
     \minipage{0.53\textwidth}
@@ -115,7 +115,7 @@ Además, incluimos gráficos de cómo se distribuyen las etiquetas reales según
      \label{fig:barrassex}
 \end{figure}
 
-En la Figura \ref{fig:barrasrace}, podemos observar que donde se detecta una mayor diferencia entre las gráficas de puntuación de riesgo y la reincidencia real, es en el grupo de los individuos de raza afroamericana. Este hecho, induce a preguntarnos si estos patrones podrían reflejar o no un sesgo en la población que fuese perjudicial a la hora de utilizar \textit{COMPAS} como un conjunto de datos de entrenamiento para un modelo de aprendizaje automático.
+En la Figura \ref{fig:barrasrace} podemos observar que donde se detecta una mayor diferencia entre las gráficas de puntuación de riesgo y la reincidencia real, es en el grupo de los individuos de raza afroamericana. Este hecho induce a preguntarnos si estos patrones podrían reflejar o no un sesgo en la población, que fuese perjudicial a la hora de utilizar \textit{COMPAS} como un conjunto de datos de entrenamiento para un modelo de aprendizaje automático.
 
 Utilizaremos la herramienta de Aequitas para realizar un estudio de los posibles patrones de sesgo que pudiesen existir entre los diferentes grupos de la población que representa el conjunto de datos \textit{COMPAS}.
 
@@ -146,7 +146,7 @@ Haciendo uso de la clase \textit{Group()}, calcularemos una tabla con los valore
 
 Tomaremos como atributo de referencia la raza \textit{Caucasian}. En nuestro caso la raza \textit{Caucasian} no es la raza mayoritaria en el conjunto de datos, pero la tomaremos como referencia debido a que históricamente en el ámbito en el que nos movemos es la que sufre menos sesgos.
 
-A continuación, usaremos la clase \textit{Bias()} para medir la disparidad entre cada grupo objetivo y el grupo de referencia seleccionado. Aequitas calcula la disparidad a partir de la fórmula que ya definimos en el Apartado \ref{subsec:impactdesi}. $$\text{Métrica de disparidad}_{G(a_o)}=\ddfrac{\text{Métrica}_{a_o}}{\text{Métrica}_{a_r}}.$$ Donde Métrica hace referencia a una métrica de grupo de la Sección \ref{sec:groupmetrics}. Es evidente que la disparidad de cualquier métrica sobre el grupo de referencia será 1. $$\text{Métrica de disparidad}_{G(a_r)}=\ddfrac{\text{Métrica}_{a_r}}{\text{Métrica}_{a_r}}=1.$$
+A continuación usaremos la clase \textit{Bias()} para medir la disparidad entre cada grupo objetivo y el grupo de referencia seleccionado. Aequitas calcula la disparidad a partir de la fórmula que ya definimos en el Apartado \ref{subsec:impactdesi}. $$\text{Métrica de disparidad}_{G(a_o)}=\ddfrac{\text{Métrica}_{a_o}}{\text{Métrica}_{a_r}},$$ donde Métrica hace referencia a una métrica de grupo de la Sección \ref{sec:groupmetrics}. Es evidente que la disparidad de cualquier métrica sobre el grupo de referencia será 1. $$\text{Métrica de disparidad}_{G(a_r)}=\ddfrac{\text{Métrica}_{a_r}}{\text{Métrica}_{a_r}}=1.$$
 
 Si queremos calcular por ejemplo la disparidad del ratio de falsos negativos (FNR) sobre el grupo de raza \textit{Asian}, se calculará de la siguiente forma: $$\text{FNR}_{\text{G(Asian)}}=\ddfrac{\text{FNR}_{\text{Asian}}}{\text{FNR}_{\text{Caucasian}}}=\ddfrac{0.33}{0.48}=0.7.$$
 
@@ -178,9 +178,9 @@ Completando la tabla con las métricas de disparidad para todas las métricas de
 
 La equidad siempre se define en relación con un grupo de referencia. Podemos ver que el cálculo de la equidad, depende de la métrica de disparidad. En la evaluación del criterio de equidad definiremos un $\tau \in (0,1]$ como umbral de equidad. Diremos que un grupo cumple con la paridad métrica si $$\tau \leq \text{\text{Métrica de disparidad}}_{\text{G}} \leq \ddfrac{1}{\tau}.$$
 
-En nuestro ejemplo, hemos tomando $\tau=0.8$ por lo que cualquier métrica de disparidad se considerará justa si se está contenida en el intervalo $[0.8,1.25]$.
+En nuestro ejemplo, hemos tomado $\tau=0.8$ por lo que cualquier métrica de disparidad se considerará justa si se está contenida en el intervalo $[0.8,1.25]$.
 
-En el Cuadro \ref{fig:ejaq2}, hemos destacado en verde los valores contenidos en el intervalo y en rojo, los que se encuentran fuera del mismo. En los resultados finales, si para todos los atributos existe una métrica de disparidad que contiene todos sus valores en color verde, el modelo se evaluará como justo para esa métrica. De lo contrario, lo considerará injusto y procederá a enumerar los grupos afectados según los criterios de equidad dados.\\
+En la Tabla \ref{fig:ejaq2} hemos destacado en verde los valores contenidos en el intervalo, y en rojo los que se encuentran fuera del mismo. En los resultados finales, si para todos los atributos existe una métrica de disparidad que contiene todos sus valores en color verde, el modelo se evaluará como justo para esa métrica. De lo contrario, lo considerará injusto, y procederá a enumerar los grupos afectados según los criterios de equidad dados.\\
 
 \begin{table}[h]
 \centering
@@ -199,7 +199,7 @@ FOR Parity - Todos los grupos protegidos tienen igual proporción de falsos nega
     \label{fig:medequmbral}
 \end{table}
 
-En nuestro ejemplo, estamos usando la regla del 80\% recomendada por la EEOC (\cite{adverse2009}) donde $\tau=\frac{p}{100}$ y por tanto $\tau=0.8$. En este caso, todas las métricas de disparidad aparecen como injustas, como podemos observar en el Cuadro \ref{fig:medequmbral}. En la versión WEB, podemos obtener más detalles sobre cada métrica de disparidad, como podemos ver en la Figura \ref{fig:ejunfairaq2} para la FDR Parity.
+En nuestro ejemplo estamos usando la regla del 80\% recomendada por la EEOC (\cite{adverse2009}), donde $\tau=\frac{p}{100}$ y por tanto $\tau=0.8$. En este caso, todas las métricas de disparidad aparecen como injustas, como podemos observar en la Tabla \ref{fig:medequmbral}. En la versión WEB podemos obtener más detalles sobre cada métrica de disparidad, como podemos ver en la Figura \ref{fig:ejunfairaq2} para la FDR Parity.
 
 \begin{figure}[h]
 	\centering
@@ -208,7 +208,7 @@ En nuestro ejemplo, estamos usando la regla del 80\% recomendada por la EEOC (\c
     \label{fig:ejunfairaq2}
 \end{figure}
 
-Si cambiamos la ''regla $p$\%'' de un 80\% a, por ejemplo, un 60\% el intervalo del umbral para $\tau=0.6$ sería $[0.6,1.67]$, obteniendo los siguientes resultados.\\
+Si cambiamos la regla $p$\% de un 80\% a, por ejemplo, un 60\%, el intervalo del umbral para $\tau=0.6$ sería $[0.6,1.67]$, obteniendo los siguientes resultados.\\
 
 \begin{table}[h]
 \centering
@@ -229,16 +229,15 @@ Si cambiamos la ''regla $p$\%'' de un 80\% a, por ejemplo, un 60\% el intervalo 
     \label{fig:ejaq22}
 \end{table}
 
-En el Cuadro \ref{fig:ejaq22}, podemos observar que la paridad de la tasa de falso descubrimiento (FDR) tiene todos los valores de su columna en verde. Aequitas indicará entonces que basándonos en el umbral establecido ($\tau=0.6$), todos los grupos cumplen la definición de la métrica y por tanto considera justo el concepto de FDR Parity.
+En la Tabla \ref{fig:ejaq22} podemos observar que la paridad de la tasa de falso descubrimiento (FDR) tiene todos los valores de su columna en verde. Aequitas indicará entonces que, basándonos en el umbral establecido ($\tau=0.6$), todos los grupos cumplen la definición de la métrica y por tanto considera justo el concepto de FDR Parity.
 
 \subsection*{Estudio de la equidad}
 
-Finalmente utilizaremos la clase \textit{Fairness()} para hacer un estudio más exhaustivo sobre los criterios de paridad estudiados en el Cuadro \ref{fig:ejaq2}.
+Finalmente utilizaremos la clase \textit{Fairness()} para hacer un estudio más exhaustivo sobre los criterios de paridad estudiados en la Tabla \ref{fig:ejaq2}.
 
-La Figura \ref{fig:compasdgroup} muestra los resultados detallados de algunas de las métricas de grupo más populares. Las barras verdes representan los grupos para los que el modelo no presenta un sesgo dentro de esa métrica, mientras que las barras rojas indican un sesgo desfavorable en comparación con el grupo de referencia. Seguimos utilizando el umbral de equidad $\tau = 0.8$. Los resultados muestran que para cada métrica existe al menos un grupo con algún tipo de sesgo respecto al grupo de referencia. \textit{COMPAS} considera mayoritariamente como de alto riesgo a los menores de 25 años, a los hombres y a los afroamericanos. Según las métricas PPR, que muestran las entidades con \textit{score}=1, vemos que, en comparación con el tamaño de cada grupo, los más jóvenes, los nativosamericanos y los afroamericanos son seleccionados de forma desproporcionada.
+La Figura \ref{fig:compasdgroup} muestra los resultados detallados de algunas de las métricas de grupo más populares: las barras verdes representan los grupos para los que el modelo no presenta un sesgo dentro de esa métrica, mientras que las barras rojas indican un sesgo desfavorable en comparación con el grupo de referencia. Seguimos utilizando el umbral de equidad $\tau = 0.8$. Los resultados muestran que para cada métrica existe al menos un grupo con algún tipo de sesgo respecto al grupo de referencia. \textit{COMPAS} considera mayoritariamente como de alto riesgo a los menores de 25 años, a los hombres y a los afroamericanos. Según las métricas PPR, que muestran las entidades con \textit{score}=1; vemos que, en comparación con el tamaño de cada grupo, los más jóvenes, los nativos-americanos y los afroamericanos son seleccionados de forma desproporcionada.
 
-Para visualizar las disparidades entre los distintos grupos, la herramienta
-también produce resultados para las métricas de disparidad. A continuación, tenemos que determinar qué medida de sesgo es relevante para nuestro entorno. Dado que en el marco del \textit{COMPAS} las predicciones se utilizan para tomar decisiones de liberación previa al juicio, las intervenciones serán punitivas (proporcionar esta intervención a los individuos que son falsos positivos les perjudicará), así que deberemos tener en cuenta las tasas de falsos descubrimientos (FDR) y las tasas de falsos positivos (FPR).
+Para visualizar las disparidades entre los distintos grupos, la herramienta también produce resultados para las métricas de disparidad. A continuación tenemos que determinar qué medida de sesgo es relevante para nuestro entorno. Dado que en el marco del \textit{COMPAS}, las predicciones se utilizan para tomar decisiones de liberación previa al juicio, las intervenciones serán punitivas (proporcionar esta intervención a los individuos que son falsos positivos les perjudicará), así que deberemos tener en cuenta las tasas de falsos descubrimientos (FDR) y las tasas de falsos positivos (FPR).
 
 \clearpage
 
@@ -249,7 +248,7 @@ también produce resultados para las métricas de disparidad. A continuación, t
     \label{fig:compasdgroup}
 \end{figure}
 
-Observando la Figura \ref{fig:compasdisparity}, podemos ver que el conjunto de datos \textit{COMPAS} es justo para la métrica FDR para la raza, pero la FPR para los afroamericanos es casi el doble que para los caucásicos, por lo que existe un problema evidente de sesgo. También existen problemas de sesgo para los atributos de sexo y edad. En cuanto al sexo, los resultados del FPR son justos, pero el FDR para las mujeres es 1.34 veces mayor que el de los hombres. Por otro lado, si consideramos la distribución de errores falsos positivos teniendo en cuenta la edad, observamos lo contrario: el modelo es justo para el FDR pero el FPR para los menores de 25 años es 1.62 veces mayor que el de 25-45.
+Observando la Figura \ref{fig:compasdisparity} podemos ver que el conjunto de datos \textit{COMPAS} es justo para la métrica FDR para la raza, pero la FPR para los afroamericanos es casi el doble que para los caucásicos, por lo que existe un problema evidente de sesgo. También existen problemas de sesgo para los atributos de sexo y edad. En cuanto al sexo, los resultados del FPR son justos, pero el FDR para las mujeres es 1.34 veces mayor que el de los hombres. Por otro lado, si consideramos la distribución de errores falsos positivos teniendo en cuenta la edad, observamos lo contrario: el modelo es justo para el FDR, pero el FPR para los menores de 25 años es 1.62 veces mayor que el de 25-45.
 
 \clearpage
 
@@ -262,9 +261,9 @@ Observando la Figura \ref{fig:compasdisparity}, podemos ver que el conjunto de d
 
 \subsection{Ejemplo: Predicción de notas en la facultad de derecho} \label{ap:facultadderecho}
 
-Analizaremos el ejemplo sobre el conjunto de datos \textit{law\_data} que presentamos en el Apartado \ref{subsec:desproblem} de nuestra fase experimental. Para tratar la puntuación de riesgo con Aequitas, convertiremos el \textit{score} original (FYA) que toma valores en el intervalo $(-2.5,2.5)$ a uno binario donde 0 indicará una nota baja en el primer año de carrera y 1 una nota alta.
+Analizaremos el ejemplo sobre el conjunto de datos \textit{law\_data} que presentamos en el Apartado \ref{subsec:desproblem} de nuestra fase experimental. Para tratar la puntuación de riesgo con Aequitas, convertiremos el \textit{score} original (FYA), que toma valores en el intervalo $(-2.5,2.5)$, a uno binario: donde 0 indicará una nota baja en el primer año de carrera y 1 una nota alta.
 
-Además eliminaremos cualquier atributo que pudiera entorpecer al estudio de los datos en Aequitas, quedándonos  únicamente con las columnas que contienen los valores para los dos atributos protegidos del problema (sexo y raza), la columna con los nuevos valores de \textit{score} y la columna de \textit{label\_value} cuyo valor binario indica la decisión real que fue tomada en el problema.
+Además eliminaremos cualquier atributo que pudiera entorpecer al estudio de los datos en Aequitas, quedándonos  únicamente con las columnas que contienen los valores para los dos atributos protegidos del problema (sexo y raza), la columna con los nuevos valores de \textit{score} y la columna de \textit{label\_value}, cuyo valor binario indica la decisión real que fue tomada en el problema.
 
 \clearpage
 
@@ -301,13 +300,13 @@ Hispanic                                                           & 0.02       
 \label{tab:distribuciongrupo}
 \end{table}
 
-Como queremos realizar un análisis lo más general posible, agruparemos los individuos de razas con una representación demasiado pequeña en otra categoría ya existente en la que puedan figurar. Para ello, añadiremos a la categoría raza hispánica a los individuos de raza mexicana y puertoriqueña y a la categoría otras a los sujetos de raza amerindia.
+Como queremos realizar un análisis lo más general posible, agruparemos los individuos de razas con una representación demasiado pequeña en otra categoría ya existente, en la que puedan figurar. Para ello, añadiremos a la categoría raza hispánica a los individuos de raza mexicana y puertorriqueña, y a la categoría otras a los sujetos de raza amerindia.
 
 \subsection*{Análisis de los datos}
 
-En los gráficos siguientes, podemos notar una gran diferencia en la distribución de las puntuaciones por raza (Figura \ref{fig:barrasracelaw}), con una mayoría de personas de raza blanca pronosticadas con notas altas en el primer año (\textit{score}=1) y una mayoría de población negra e hispánica pronosticada con puntuación baja (\textit{score}=0). En cuanto al atributo sexo (Figura \ref{fig:barrasage}), parece que, en principio, no es determinante a la hora de puntuar, aunque existen más individuos de sexo masculino que femeninos puntuados como aptos.
+En los gráficos siguientes podemos notar una gran diferencia en la distribución de las puntuaciones por raza (Figura \ref{fig:barrasracelaw}), con una mayoría de personas de raza blanca pronosticadas con notas altas en el primer año (\textit{score}=1), y una mayoría de población negra e hispánica pronosticada con puntuación baja (\textit{score}=0). En cuanto al atributo sexo (Figura \ref{fig:barrasage}), parece que, en principio, no es determinante a la hora de puntuar, aunque existen más individuos de sexo masculino que femeninos puntuados como aptos.
 
-Mostramos mediante varios gráficos, cómo se distribuyen las etiquetas reales según los atributos protegidos. Las etiquetas reales contienen la información real sobre si el individuo obtuvo una calificación alta en su primer años (\textit{label\_value}=1) o no (\textit{label\_value}=0). Con esta información, podremos comprobar directamente la precisión de las predicciones.
+Mostramos mediante varios gráficos cómo se distribuyen las etiquetas reales según los atributos protegidos. Las etiquetas reales contienen la información real sobre si el individuo obtuvo una calificación alta en su primer año (\textit{label\_value}=1) o no (\textit{label\_value}=0). Con esta información podremos comprobar directamente la precisión de las predicciones.
 
 \clearpage
 
@@ -333,11 +332,11 @@ Mostramos mediante varios gráficos, cómo se distribuyen las etiquetas reales s
      \label{fig:barrassexlaw}
 \end{figure}
 
-En la Figura \ref{fig:barrasracelaw}, podemos observar que donde se detecta una mayor diferencia entre las gráficas de puntuación y etiquetas reales, es en el grupo de los individuos de raza negra e hispánica. Además, la distribución de etiquetas reales para el atributo sexo de la Figura \ref{fig:barrassexlaw}, deja ver que hay muchos individuos que se puntúan con \textit{score}=0 y que finalmente acaban obteniendo buenas notas. Para realizar un estudio de los datos, utilizaremos la herramienta de Aequitas analizando los posibles patrones de sesgo que pudiesen existir entre los diferentes grupos de la población del conjunto de datos \textit{law\_data}.
+En la Figura \ref{fig:barrasracelaw} podemos observar que donde se detecta una mayor diferencia entre las gráficas de puntuación y etiquetas reales es en el grupo de los individuos de raza negra e hispánica. Además, la distribución de etiquetas reales para el atributo sexo de la Figura \ref{fig:barrassexlaw} deja ver que hay muchos individuos que se puntúan con \textit{score}=0, y que finalmente acaban obteniendo buenas notas. Para realizar un estudio de los datos utilizaremos la herramienta de Aequitas, analizando los posibles patrones de sesgo que pudiesen existir entre los diferentes grupos de la población del conjunto de datos \textit{law\_data}.
 
 \subsection*{Métricas de grupo}
 
-Usando la clase \textit{Group()}, calcularemos los valores de las métricas de grupo para los atributos de raza y sexo. Observamos en la Tabla \ref{fig:ejaq1law} que la mayoría de los individuos son de raza blanca y el resto de categorías está medianamente equilibrada en cuanto a grupos de población. Por otro lado, la Tabla \ref{fig:ejaq2law} muestra que la distribución del atributo sexo, contiene una proporción mínimamente mayor de hombres que de mujeres.\\
+Usando la clase \textit{Group()} calcularemos los valores de las métricas de grupo para los atributos de raza y sexo. Observamos en la Tabla \ref{fig:ejaq1law} que la mayoría de los individuos son de raza blanca y el resto de categorías está medianamente equilibrada en cuanto a grupos de población. Por otro lado, la Tabla \ref{fig:ejaq2law} muestra que la distribución del atributo sexo contiene una proporción mínimamente mayor de hombres que de mujeres.\\
 
 \begin{table}[h]
 \centering
@@ -374,9 +373,9 @@ Usando la clase \textit{Group()}, calcularemos los valores de las métricas de g
 
 \subsection*{Métricas de disparidad}
 
-Tomaremos como atributos de referencia la raza \textit{White} y el sexo \textit{Male}, por ser tanto los mayoritarios como a los valores que históricamente sufren menos impacto dispar.
+Tomaremos como atributos de referencia la raza \textit{White} y el sexo \textit{Male}, por ser tanto los mayoritarios, como los valores que históricamente sufren menos impacto dispar.
 
-A continuación, usaremos la clase \textit{Bias()} para medir la disparidad entre cada grupo objetivo y los grupos de referencia seleccionados. 
+A continuación usaremos la clase \textit{Bias()} para medir la disparidad entre cada grupo objetivo y los grupos de referencia seleccionados. 
 
 Veamos un ejemplo de cómo realiza el cálculo Aequitas en este caso concreto. Mediremos la disparidad para la tasa de falsa omisión (FOR) sobre el grupo de raza \textit{Black} y el grupo de sexo \textit{Female}:
 $$\text{FOR}_{\text{G(Black)}}=\ddfrac{\text{FOR}_{\text{Black}}}{\text{FOR}_{\text{White}}}=\ddfrac{0.57}{0.85}=0.67.$$
@@ -419,9 +418,9 @@ Completando la tabla con las métricas de disparidad para todas las métricas de
 
 \subsection*{Medidas de equidad}
 
-Para cumplir con la ''regla 80\%'', tomamos $\tau=0.8$ por lo que cualquier métrica de disparidad se considerará justa si se está contenida en el intervalo $[0.8,1.25]$.
+Para cumplir con la regla del 80\% tomamos $\tau=0.8$, por lo que cualquier métrica de disparidad se considerará justa si está contenida en el intervalo $[0.8,1.25]$.
 
-En los Cuadros \ref{fig:ejaqracelaw} y \ref{fig:ejaqsexlaw}, destacamos en verde los valores contenidos en el intervalo y en rojo, los que se encuentran fuera del mismo. Si para todos los atributos existe una métrica de disparidad que contiene todos sus valores en color verde, el modelo se evaluará como justo. De lo contrario, lo considerará injusto. Podemos ver que para este conjunto de datos y el umbral $\tau=0.8$, no se cumple ninguna medida de equidad.\\
+En las Tablas \ref{fig:ejaqracelaw} y \ref{fig:ejaqsexlaw} destacamos en verde los valores contenidos en el intervalo, y en rojo los que se encuentran fuera del mismo. Si para todos los atributos existe una métrica de disparidad que contiene todos sus valores en color verde, el modelo se evaluará como justo. De lo contrario, lo considerará injusto. Podemos ver que para este conjunto de datos, y el umbral $\tau=0.8$, no se cumple ninguna medida de equidad.\\
 
 \begin{table}[h]
 \centering
@@ -442,9 +441,9 @@ FOR Parity - Todos los grupos protegidos tienen igual proporción de falsos nega
 
 \subsection*{Estudio de la equidad}
 
-Finalmente utilizaremos la clase \textit{Fairness()} para hacer un estudio más exhaustivo sobre los criterios de paridad estudiados en los Cuadros \ref{fig:ejaqracelaw} y \ref{fig:ejaqsexlaw}.
+Finalmente utilizaremos la clase \textit{Fairness()} para hacer un estudio más exhaustivo sobre los criterios de paridad estudiados en las Tablas \ref{fig:ejaqracelaw} y \ref{fig:ejaqsexlaw}.
 
-La Figura \ref{fig:lawdgroup} muestra los resultados detallados de algunas de las métricas de grupo más populares. Los resultados muestran que para cada métrica existe al menos un grupo con algún tipo de sesgo respecto al grupo de referencia. En el ámbito del problema dado que las predicciones se utilizan para tomar decisiones de asistenciales (proporcionar esta asistencia a los individuos que son falsos positivos no les perjudicará), así que deberemos tener en cuenta las tasas de falsas omisiones (FOR) y las tasas de falsos negativos (FNR).\\
+La Figura \ref{fig:lawdgroup} muestra los resultados detallados de algunas de las métricas de grupo más populares. Los resultados muestran que para cada métrica existe al menos un grupo con algún tipo de sesgo respecto al grupo de referencia. En el ámbito del problema, dado que las predicciones se utilizan para tomar decisiones de asistenciales (proporcionar esta asistencia a los individuos que son falsos positivos no les perjudicará), así que deberemos tener en cuenta las tasas de falsas omisiones (FOR) y las tasas de falsos negativos (FNR).\\
 
 \begin{figure}[h]
 	\hspace{-2.5cm}
@@ -455,7 +454,7 @@ La Figura \ref{fig:lawdgroup} muestra los resultados detallados de algunas de la
 
 \clearpage
 
-Observando la Figura \ref{fig:lawdisparity}, podemos ver que el conjunto de datos \textit{law\_data} no es justo para niguna de las métricas para el atributo raza, siendo la FNR para los individuos de raza negra casi el doble que para los de raza blanca y 1.5 veces mayor para el resto de razas. La tasa de falsos negativos (FNR) nos dice que los individuos de cualquier raza, tienen casi entre un 1.5-2 veces más de probabilidad de ser etiquetados con notas bajas cuando realmente obtendrían una mejor calificación. Esto hace evidente la existencia de un problema de sesgo para esta métrica.  En cuanto al sexo, los resultados son justos para ambas métricas. Esto nos puede dar la idea de que en este problema, no existe un sesgo determinante para el sexo, conclusión que ya obtuvimos en la Sección \ref{sec:contrastresults}.\\
+Observando la Figura \ref{fig:lawdisparity} podemos ver que el conjunto de datos \textit{law\_data} no es justo para ninguna de las métricas para el atributo raza, siendo la FNR para los individuos de raza negra casi el doble que para los de raza blanca y 1.5 veces mayor para el resto de razas. La tasa de falsos negativos (FNR) nos dice que los individuos de cualquier raza tienen casi entre un 1.5-2 veces más de probabilidad de ser etiquetados con notas bajas, cuando realmente obtendrían una mejor calificación. Esto hace evidente la existencia de un problema de sesgo para esta métrica.  En cuanto al sexo, los resultados son justos para ambas métricas. Esto nos puede dar la idea de que en este problema, no existe un sesgo determinante para el sexo, conclusión que ya obtuvimos en la Sección \ref{sec:contrastresults}.\\
 
 \begin{figure}[h]
 	\hspace{-2.5cm}
