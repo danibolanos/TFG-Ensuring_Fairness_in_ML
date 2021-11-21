@@ -1,6 +1,16 @@
 ## TFG - Tools to Guarantee Fairness in Machine Learning
 
-Repositorio de mi **trabajo de fin de grado** para el *Doble Grado en Ingeniería Informática y Matemáticas* de la [Universidad de Granada](http://www.ugr.es) sobre un estudio experimental para diferentes modelos de equidad contrafactual. Puede descargar una versión compilada de la memoria en [este enlace](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/TFG_Herramientas_para_Garantizar_Justicia_en_Aprendizaje_Automatico.pdf). Un tutorial para la ejecución del experimento basado en *Jupyter Notebook* puede ser consultado en el [siguiente enlace](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/blob/main/experimentos/tutorial.ipynb).
+Repositorio de mi **trabajo de fin de grado** para el *Doble Grado en Ingeniería Informática y Matemáticas* de la [Universidad de Granada](http://www.ugr.es) sobre un estudio experimental para diferentes modelos de equidad contrafactual. Puede descargar una versión compilada de la memoria en [este enlace](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/TFG_Herramientas_para_Garantizar_Justicia_en_Aprendizaje_Automatico.pdf). Un tutorial para la ejecución del experimento basado en *Jupyter Notebook* puede ser consultado en el [siguiente enlace](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/blob/main/experimentos/tutorial.ipynb). Si desea ejecutarlos en su ordenador será necesario que descargue todas las dependencias a los paquetes siguientes:
+
+* Pandas 1.2.4
+* NumPy 1.19.2
+* Scikit-learn 0.24.2
+* matplotlib 3.4.3
+* seaborn 0.11.2
+* Aequitas 0.42.0
+* pathlib2 2.3.6
+* [PyStan 2.19.1.1](https://pystan.readthedocs.io/en/latest/installation.html)
+* [PyMC3](https://github.com/pymc-devs/pymc/wiki/Installation-Guide-(Linux)) (opcional)
 
 ### Descripción (Español)
 
@@ -12,7 +22,17 @@ Comenzaremos realizando una revisión exhaustiva de las diferentes formalizacion
 
 -----
 
-Repository for my **bachelor's thesis** for the *Double Degree in Computer Engineering and Mathematics* at the [University of Granada](http://www.ugr.es) about an experimental study of different counterfactual fairness models. A compiled version of the notebook can be downloaded at [this link](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/TFG_Herramientas_para_Garantizar_Justicia_en_Aprendizaje_Automatico.pdf). A tutorial for running the experiment based on *Jupyter Notebook* can be found at [this link](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/blob/main/experimentos/tutorial.ipynb).
+Repository for my **bachelor's thesis** for the *Double Degree in Computer Engineering and Mathematics* at the [University of Granada](http://www.ugr.es) about an experimental study of different counterfactual fairness models. A compiled version of the notebook can be downloaded at [this link](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/TFG_Herramientas_para_Garantizar_Justicia_en_Aprendizaje_Automatico.pdf). A tutorial for running the experiment based on *Jupyter Notebook* can be found at [this link](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/blob/main/experimentos/tutorial.ipynb). If you want to run them on your computer you will need to download all dependencies to the following packages:
+
+* Pandas 1.2.4
+* NumPy 1.19.2
+* Scikit-learn 0.24.2
+* matplotlib 3.4.3
+* seaborn 0.11.2
+* Aequitas 0.42.0
+* pathlib2 2.3.6
+* [PyStan 2.19.1.1](https://pystan.readthedocs.io/en/latest/installation.html)
+* [PyMC3](https://github.com/pymc-devs/pymc/wiki/Installation-Guide-(Linux)) (optional)
 
 ### Description (English)
 
