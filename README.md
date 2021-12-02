@@ -18,19 +18,7 @@ Puede hacerlo, bien manualmente, o bien puede utilizar el siguiente comando:
 python -m pip install -r requirements.txt
  ```
 
-### Descripción (Español)
-
-Se propone como reto, tras un estudio exhaustivo de la bibliografía y herramientas existentes sobre el tema, realizar un análisis comparativo en *Python* que incluya evaluaciones de equidad de las distintas familias y visualizaciones para la interpretación de resultados y modelos.
-
-Asimismo, en esta tesis se analizarán matemáticamente las definiciones de diversas medidas de equidad y justicia, demostrando sus propiedades, limitaciones y posibles incompatibilidades (teorema de imposibilidad de la equidad), explorando las diferentes opciones de mejora de los resultados obtenidos mediante un proceso de aprendizaje automático en los términos anteriormente propuestos.
-
-Comenzaremos realizando una revisión exhaustiva de las diferentes formalizaciones matemáticas del concepto de equidad existentes en la literatura, analizando las ventajas e inconvenientes de cada una de ellas tanto desde el punto de vista teórico como en lo que respecta a su implementación práctica en problemas concretos de clasificación mediante aprendizaje automático. Además, se realizará un estudio y clasificación de los algoritmos publicados más populares que trabajan con la equidad y se estudiarán las ventajas e inconvenientes de cada uno de ellos.
-
------
-
-Repository for my **bachelor's thesis** for the *Double Degree in Computer Engineering and Mathematics* at the [University of Granada](http://www.ugr.es) about an experimental study of different counterfactual fairness models. A compiled version of the notebook can be downloaded at [this link](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/TFG_Herramientas_para_Garantizar_Justicia_en_Aprendizaje_Automatico.pdf). A tutorial for running the experiment based on *Jupyter Notebook* can be found at [this link](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/blob/main/experimentos/tutorial.ipynb). 
-
-### Description (English)
+### Description
 
 It proposes as a challenge, after an exhaustive study of the existing bibliography and tools on the subject, to carry out a comparative analysis in *Python* that includes fairness evaluations of all the families and visualisations for the interpretation of results and models.
 
