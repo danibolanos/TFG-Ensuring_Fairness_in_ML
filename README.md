@@ -18,6 +18,8 @@ Puede hacerlo, bien manualmente, o bien puede utilizar el siguiente comando:
 python -m pip install -r requirements.txt
  ```
  
+Además puede descargar las diapositivas de la presentación que se realizó al tribunal en [este enlace](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/TFG.Presentacion.pdf).
+ 
 #### Mejoras en el rendimiento
 
 Mejorar en un futuro los resultados predichos para el modelo de regresión, utilizando un modelo no lineal que se adapte a las distribuciones estudiadas. Por ejemplo, utilizando un modelo de regresión basado en redes neuronales o regresión polinomial o segmentada.
