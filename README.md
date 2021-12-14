@@ -18,7 +18,7 @@ Puede hacerlo, bien manualmente, o bien puede utilizar el siguiente comando:
 python -m pip install -r requirements.txt
  ```
  
-Además puede descargar las diapositivas de la presentación que se realizó al tribunal en [este enlace](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/TFG.Presentacion.pdf).
+Puede descargar las diapositivas de la presentación que se realizó al tribunal en [este enlace](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/TFG.Presentacion.pdf).
  
 #### Mejoras en el rendimiento
 
