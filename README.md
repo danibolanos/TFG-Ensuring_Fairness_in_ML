@@ -18,9 +18,9 @@ Puede hacerlo, bien manualmente, o bien puede utilizar el siguiente comando:
 python -m pip install -r requirements.txt
  ```
  
-#### Trabajos futuros
+#### Mejoras en el rendimiento
 
-Mejorar los resultados predichos para el modelo de regresión, utilizando un modelo no lineal que se adapte a las distribuciones estudiadas. Por ejemplo, utilizando un modelo de regresión basado en redes neuronales o regresión polinomial o segmentada.
+Mejorar en un futuro los resultados predichos para el modelo de regresión, utilizando un modelo no lineal que se adapte a las distribuciones estudiadas. Por ejemplo, utilizando un modelo de regresión basado en redes neuronales o regresión polinomial o segmentada.
  
 ### Description
 
