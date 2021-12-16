@@ -1,4 +1,4 @@
-## TFG - Tools to Guarantee Fairness in Machine Learning
+## TFG - Tools to Ensure Fairness in Machine Learning
 
 Repositorio de mi **trabajo de fin de grado** para el *Doble Grado en Ingeniería Informática y Matemáticas* de la [Universidad de Granada](http://www.ugr.es) sobre un estudio experimental para diferentes modelos de equidad contrafactual. Puede descargar una versión compilada de la memoria en [este enlace](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/TFG.Herramientas_para_Garantizar_Justicia_en_Aprendizaje_Automatico.pdf). Puede descargar las diapositivas de la presentación realizada al tribunal [aquí](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/TFG.Presentacion.pdf).
 
