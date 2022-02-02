@@ -109,7 +109,7 @@ manychapters,pdfspacing]{classicthesis}
 \newpage
 \vspace*{\fill}
 \doclicenseThis
-The source code of this text and developed programs are available in the Github repository \href{https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML.git}{danibolanos/TFG-Guarantee\_Fairness\_in\_ML}
+The source code of this text and developed programs are available in the Github repository \href{https://github.com/danibolanos/TFG-Ensuring_Fairness_in_ML.git}{danibolanos/TFG-Ensuring\_Fairness\_in\_ML}
 
 \include{./preliminares/declaracion-originalidad}
 
@@ -197,7 +197,7 @@ En resumen, las contribuciones principales de este trabajo son:
     \item Formalizar las distintas familias de medidas de equidad y analizar los algoritmos de mitigación de sesgo de mayor interés en este ámbito.
     \item Facilitar una demostración alternativa del teorema de imposibilidad, para mostrar las incompatibilidades entre los diferentes criterios de equidad de grupo.
     \item Proporcionar un análisis empírico, utilizando el software Aequitas, para las evaluaciones de las medidas de justicia estudiadas teóricamente.
-    \item Replicar un ejemplo del mundo real sobre un modelo causal, en el lenguaje de programación Python, basándonos en el concepto de equidad contrafactual, disponible en el \href{https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML.git}{enlace siguiente}\footnote{https://github.com/danibolanos/TFG-Guarantee\_Fairness\_in\_ML.git}.
+    \item Replicar un ejemplo del mundo real sobre un modelo causal, en el lenguaje de programación Python, basándonos en el concepto de equidad contrafactual, disponible en el \href{https://github.com/danibolanos/TFG-Ensuring_Fairness_in_ML.git}{enlace siguiente}\footnote{https://github.com/danibolanos/TFG-Ensuring\_Fairness\_in\_ML.git}.
     \item Contrastar los resultados obtenidos al aplicar las técnicas de equidad contrafactual con las diferentes nociones de justicia consideradas.
 \end{itemize}
 
@@ -1536,8 +1536,7 @@ como un conjunto de entidades que tienen en común un valor específico
 del atributo $a$, por ejemplo raza=hispánico corresponde a todos los individuos de raza hispánica del
 conjunto de datos.
 
-Teniendo en cuenta todos los grupos definidos por el atributo $a$, las predicciones $\hat{y}$ y la etiqueta real $y$ para cada entidad de cada grupo, podemos hablar ahora de las métricas de grupo. Las principales definiciones sobre grupos para
-evaluar el sesgo y la equidad son las siguientes:
+Teniendo en cuenta todos los grupos definidos por el atributo $a$, las predicciones $\hat{y}$ y la etiqueta real $y$ para cada entidad de cada grupo, podemos hablar ahora de las métricas de grupo. Las principales definiciones sobre grupos para evaluar el sesgo y la equidad son las siguientes:
 
 \begin{itemize}
     \item \textbf{Atributo -} $a = \{a_1,\dots,a_n\}$ es un atributo multivaluado, por ejemplo, $$\text{raza=\{hispánico, caucásico, afroamericano, otro\}}.$$
@@ -3163,7 +3162,7 @@ También usaremos el coeficiente de determinación ($R^2$), que refleja la bonda
 \hline
       & \textbf{Completo} & \textbf{Desconocimiento} & \textbf{Fair $K$} & \textbf{Fair Add} \\ \hline
 RMSE  & 0.8720         & 0.8916                   & 0.9312            & 0.9191            \\ \hline
-$R^2$ & 0.1440         & 0.1051                   & 0.0239            & 0.0490            \\ \hline
+$R^2$ & 0.8560        & 0.8949                   & 0.9761            & 0.9510            \\ \hline
 \end{tabular}
 }
 \caption{Valores de RMSE y $R^2$ para los cuatro modelos.}
@@ -3172,6 +3171,7 @@ $R^2$ & 0.1440         & 0.1051                   & 0.0239            & 0.0490  
 
 Comparamos el RMSE alcanzado por la regresión lineal sobre el conjunto de prueba para cada modelo en la Tabla \ref{tab:coeficientes}. El modelo completo obtiene el RMSE más bajo, ya que utiliza mayor número de atributos para reconstruir con mayor precisión el valor de FYA. El modelo por desconocimiento usa las variables injustas GPA y LSAT, pero como no utiliza las variables raza y sexo, un menor número de atributos, hace que no pueda igualar el RMSE del modelo completo. Los modelos Fair $K$ y Fair $Add$, al satisfacer la equidad contrafactual, compensan algo de exactitud. El modelo Fair $K$ utiliza supuestos más débiles, y por tanto, el RMSE es más elevado. Por otro lado, usando los supuestos del modelo Fair $Add$, producimos un modelo justo contrafactualmente, que sacrifica suposiciones ligeramente más fuertes por un RMSE más bajo. 
 
+%MODIFICAR
 Respecto a $R^2$, el modelo con un mejor valor es el modelo completo, que como ya hemos explicado previamente, al utilizar todas los atributos existentes, obtiene mejores resultados en su predicción. Aún así, el modelo completo no obtiene un $R^2$ muy bueno, teniendo en cuenta que este valor se encuentra en el intervalo [0,1], siendo 1 el ajuste perfecto del modelo. Los peores valores de $R^2$ lo consiguen el nivel 2 y 3, obteniendo unas predicciones bastante deficientes, comparándolas con los valores reales de FYA.
 
 \subsection{Estudio de la equidad}
@@ -3681,7 +3681,7 @@ Además se ha utilizado el módulo \href{https://pystan.readthedocs.io/en/latest
 
 Incluimos un tutorial de ejecución de los experimentos en el formato \href{https://jupyter.org/documentation}{Jupyter Notebook}. Un archivo de Jupyter Notebook es un documento JSON, que sigue un esquema versionado y que contiene una lista ordenada de celdas de entrada/salida que pueden contener código, gráficos y texto, generalmente terminado con la extensión ''.ipynb''. 
 
-El tutorial de ejecución y el resto del código implementado, se puede encontrar en la carpeta \texttt{experimentos} del repositorio público del proyecto, al cual puede acceder desde el \href{https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/blob/main/experimentos/tutorial.ipynb}{siguiente enlace}\footnote{https://github.com/danibolanos/TFG-Guarantee\_Fairness\_in\_ML/blob/main/experimentos/tutorial.ipynb}.
+El tutorial de ejecución y el resto del código implementado, se puede encontrar en la carpeta \texttt{experimentos} del repositorio público del proyecto, al cual puede acceder desde el \href{https://github.com/danibolanos/TFG-Ensuring_Fairness_in_ML/blob/main/experimentos/tutorial.ipynb}{siguiente enlace}\footnote{https://github.com/danibolanos/TFG-Ensuring\_Fairness\_in\_ML/blob/main/experimentos/tutorial.ipynb}.
 
 \ctparttext{\color{black}\begin{center}
 Conclusiones extraídas a lo largo del desarrollo del proyecto y debate de posibles rutas de trabajo futuras para el mismo.
