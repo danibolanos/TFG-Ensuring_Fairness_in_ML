@@ -36,10 +36,10 @@ To do so, we will start by carrying out an exhaustive review of the different ma
 
 - Barocas, S., Hardt, M., & Narayanan, A. (2018). Fairness and Machine Learning. fairmlbook. org, 2018. URL: http://www.fairmlbook.org.
 
-- Mitchell, S., Potash, E., Barocas, S., D'Amour, A., & Lum, K. (2018). Prediction-based decisions and fairness: A catalogue of choices, assumptions, and definitions. arXiv preprint arXiv:1811.07867.
+- Mitchell, S., Potash, E., Barocas, S., D'Amour, A., & Lum, K. (2018). Prediction-based decisions and fairness: A catalogue of choices, assumptions, and definitions. arXiv:1811.07867.
 
 - Zafar, M. B., Valera, I., Gomez Rodriguez, M., & Gummadi, K. P. (2017, April). Fairness beyond disparate treatment & disparate impact: Learning classification without disparate mistreatment. In Proceedings of the 26th international conference on world wide web (pp. 1171-1180).
 
 - M. J. Kusner, J. R. Loftus, C. Russell & R. Silva (2018). Counterfactual Fairness.
 
-- Saleiro, P., Kuester, B., Hinkson, L., London, J., Stevens, A., Anisfeld, A., ... & Ghani, R. (2018). Aequitas: A bias and fairness audit toolkit. arXiv preprint arXiv:1811.05577.
+- Saleiro, P., Kuester, B., Hinkson, L., London, J., Stevens, A., Anisfeld, A., ... & Ghani, R. (2018). Aequitas: A bias and fairness audit toolkit. arXiv:1811.05577.
