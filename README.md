@@ -22,7 +22,7 @@ python -m pip install -r requirements.txt
  
 #### Mejoras en el rendimiento
 
-En un futuro, se propone mejorar los resultados predichos para el modelo de regresión, utilizando un modelo no lineal que se adapte a las distribuciones estudiadas. Por ejemplo, utilizando un modelo de regresión polinomial o segmentada o redefiniendo el problema en el ámbito de la clasificación y utilizando el algoritmo SVM o una red neuronal para predecir los resultados de las etiquetas.
+En un futuro, se propone mejorar los resultados predichos para el modelo de regresión, utilizando un modelo no lineal que se adapte a las distribuciones estudiadas. Por ejemplo, utilizando un modelo de regresión polinomial o segmentada, o redefiniendo el problema en el ámbito de la clasificación y utilizando el algoritmo SVM o una red neuronal para predecir los resultados de las etiquetas.
  
 ### Description
 
